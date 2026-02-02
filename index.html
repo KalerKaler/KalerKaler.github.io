@@ -2,13 +2,15 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
         <title>Kaler Portfolio</title>
         <style>
             body {
                 background: #100c08;
                 margin: 0;
                 padding: 0;
-                font-family: sans-serif; /* Cleaner look for portfolio */
+                font-family: 'Inter', sans-serif; /* Cleaner look for portfolio */
+
             }
             
             .banner {
@@ -74,10 +76,56 @@
                 color: #c4aead;
                 transform: scale(1.1);
             }
-        </style>
-    </head>
-    <body>
-        <img class="banner" src="https://i.imgur.com/hedFquz.jpeg" alt="Banner">
+
+            .cert_heading, .cerificates{
+                text-align: center;
+                color: #fdf5e6;
+                font-family: 'JetBrains Mono'; 
+            }
+            
+            .certificates{
+                display: grid;
+                color: #faf0e6;
+                grid-template-columns: repeat(5, 1fr); 
+                gap: 20px; /* Space between the cards */
+                margin-left:4vw;
+            }
+            
+            .cert-card {
+                background: #1a1612; /* Slightly lighter than background to stand out */
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #333;
+                text-align: center;
+                transition: transform 0.3s, border-color 0.3s;
+            }
+
+            .cert-card:hover {
+                transform: translateY(-5px);
+                border-color: #c4aead;
+            }
+
+            .cert-card i {
+                font-size: 2rem;
+                color: #c4aead;
+                margin-bottom: 15px;
+            }
+
+            .cert-card h4 {
+                color: aliceblue;
+                font-family: 'JetBrains Mono', monospace;
+                margin: 10px 0;
+            }
+
+            .cert-card p {
+                color: beige;
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+</style>
+</head>
+<body>
+    <img class="banner" src="https://i.imgur.com/hedFquz.jpeg" alt="Banner">
         
         <div class="icons">
             <i class="fa-brands fa-linkedin social"></i>
@@ -91,6 +139,22 @@
                 <h1 class="name">Rajveer Singh Kaler</h1>
                 <h3 class="description">A passionate and continuously learning student who does not back down from hard work</h3>
             </div>
+        </div>
+        
+        <h1 class="cert_heading">Accomplishments:</h1>
+        <div class="certificates">
+            <div class="cert-card">
+                <i class="fa-solid fa-certificate"></i>
+                <h4>Web Development</h4>
+                <p>IWT Course - HTML, CSS, & Django</p>
+            </div>
+            <div class="cert-card">
+                <i class="fa-brands fa-python"></i>
+                <h4>Redhat </h4>
+                <img src=""
+                <p>Completed Advanced Python Logic</p>
+            </div>
+        </div>
         </div>
     </body>
 </html>
