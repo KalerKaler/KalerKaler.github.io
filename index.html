@@ -48,13 +48,17 @@
                 margin-top: 5vh; /* Adjust this to move text up or down relative to PFP */
             }
             
-            .name {
+            #name {
                 font-size: 3.5rem;
                 color: #c4aead;
                 margin: 0; /* Remove default margins to control spacing better */
             }
 
-            .description {
+            #name.is-active{
+                color:slategrey;
+            }
+
+            #description {
                 color: beige;
                 margin-top: 1.2rem;
                 font-weight: 400;
@@ -74,8 +78,12 @@
             .social {
                 color: aliceblue;
                 font-size: 1.8rem;
-                transition: transform 0.2s;
+                transition: all 0.3s ease;
                 cursor: pointer;
+            }
+
+            .social.is-active{
+                color:#100c08;
             }
 
             #theme{
@@ -89,6 +97,10 @@
                 transform: scale(1.1);
             }
 
+            .social.is-active:hover{
+                color:#333;
+            }
+
             .cert_heading, .cerificates{
                 text-align: center;
                 color: #fdf5e6;
@@ -97,12 +109,12 @@
             
             .certificates{
                 display: grid;
-                color: #faf0e6;
                 grid-template-columns: repeat(4, 1fr); 
                 gap: 20px; /* Space between the cards */
                 margin-left:1vw;
                 margin-right:3.7vw;
             }
+
             /* 1. Large screens up to 1360px (Default 3 columns) */
             @media (max-width: 1360px) {
                 .certificates {
@@ -188,13 +200,13 @@
         <img class="pfp" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/my%20pfp.png" alt="Rajveer PFP">
         
         <div class="text-content">
-            <h1 class="name">Rajveer Singh Kaler</h1>
-            <h3 class="description">A passionate and continuously learning student who does not back down from hard work</h3>
+            <h1 id="name">Rajveer Singh Kaler</h1>
+            <h3 id="description">A passionate and continuously learning student who does not back down from hard work</h3>
             </div>
         </div>
         
         <h1 class="cert_heading">Projects, Certifications and Accomplishments:</h1>
-        <div class="certificates">
+        <div class="certificates" id="cerificates">
             <a href="https://github.com/KalerKaler/PlaylistMaker" target="_blank"><div class="cert-card">
                 <i class="fa-solid fa-code"></i>
                 <h4>PlaylistMaker</h4>
@@ -234,11 +246,16 @@
         </div>
     </div>
     <script>
-        var theme= document.getElementById("theme")
+        var theme= document.getElementById("theme");
+        var social_icons=document.querySelectorAll(".social");
         theme.onclick=function(){
             document.getElementById("body").classList.toggle("is-active");
+            document.getElementById("name").classList.toggle("is-active");
+            social_icons.forEach(icon =>{
+                icon.classList.toggle("is-active");
+            })
             if (this.classList.contains("fa-moon")){
-                document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/disaster2.jpg";
+                document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerLight.jpeg";
                 this.classList.replace("fa-moon","fa-sun");
             }else{
                 document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerDark.jpeg";
