@@ -11,7 +11,10 @@
                 margin: 0;
                 padding: 0;
                 font-family: 'Inter', sans-serif; /* Cleaner look for portfolio */
+            }
 
+            body.is-active{
+                background: #C1C4D9;
             }
             
             .banner {
@@ -72,8 +75,14 @@
                 transition: transform 0.2s;
                 cursor: pointer;
             }
+
+            #theme{
+                left:3vw;
+                position: absolute;
+                top: 5vh;
+            }
             
-            .social:hover {
+            .social:hover, .theme:hover {
                 color: #c4aead;
                 transform: scale(1.1);
             }
@@ -165,19 +174,20 @@
             }
 </style>
 </head>
-<body>
+<body id="body">
     <img class="banner" src="https://i.imgur.com/hedFquz.jpeg" alt="Banner">
-        <div class="icons">
-            <a href="https://www.linkedin.com/in/rajveer-singh-64691435a/" target="_blank"><i class="fa-brands fa-linkedin social"></i></a>
-            <a href="https://github.com/KalerKaler" target="_blank"><i class="fa-brands fa-github social"></i></a>
-        </div>
-
-        <div class="flex-container">
-            <img class="pfp" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/my%20pfp.png" alt="Rajveer PFP">
-            
-            <div class="text-content">
-                <h1 class="name">Rajveer Singh Kaler</h1>
-                <h3 class="description">A passionate and continuously learning student who does not back down from hard work</h3>
+    <i class="fa-solid fa-moon social" id="theme"></i>
+    <div class="icons">
+        <a href="https://www.linkedin.com/in/rajveer-singh-64691435a/" target="_blank"><i class="fa-brands fa-linkedin social"></i></a>
+        <a href="https://github.com/KalerKaler" target="_blank"><i class="fa-brands fa-github social"></i></a>
+    </div>
+    
+    <div class="flex-container">
+        <img class="pfp" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/my%20pfp.png" alt="Rajveer PFP">
+        
+        <div class="text-content">
+            <h1 class="name">Rajveer Singh Kaler</h1>
+            <h3 class="description">A passionate and continuously learning student who does not back down from hard work</h3>
             </div>
         </div>
         
@@ -220,6 +230,17 @@
                 <p>Completed BID's Natural Disaster and Climate Change Risk Assesment</p>
             </div>
         </div>
-        </div>
+    </div>
+    <script>
+        var theme= document.getElementById("theme")
+        theme.onclick=function(){
+            document.getElementById("body").classList.toggle("is-active");
+            if (this.classList.contains("fa-moon")){
+                this.classList.replace("fa-moon","fa-sun");
+            }else{
+                this.classList.replace("fa-sun","fa-moon");
+            }
+        }
+    </script>
     </body>
 </html>
