@@ -20,9 +20,16 @@
             
             .banner {
                 position: relative;
+                opacity:100;
                 width: 100%;
                 z-index: -50;
-                transition: all 0.5s ease;;
+                transition: all 0.8s ease;
+            }
+
+            .banner.is-active{
+                /* display: none; */
+                opacity: 0;
+                position:absolute;
             }
             
             .flex-container {
@@ -32,12 +39,16 @@
                 padding-left: 5vw;
             }
 
-            .pfp {
+            #pfp {
                 z-index: 10;
                 border-radius: 50%;
                 height: 30vh;
                 margin-left:5vw;
                 border: 3px solid #100c08; /* Adds a small gap between image and background */
+            }
+
+            #pfp.is-active{
+                border: 3px solid #0040ff; 
             }
 
             /* This new container stacks the Name and Description vertically */
@@ -148,7 +159,7 @@
                     margin-left:-18vw;        /* Centers the container block */
                     width: 100%;
                 }
-                .pfp{
+                #pfp{
                     margin-left:30%;
                 }
             }
@@ -217,7 +228,8 @@
 </style>
 </head>
 <body id="body">
-    <img class="banner" id="banner" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerDark.jpeg" alt="Banner">
+    <img class="banner" id="bannerDark" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerDark.jpeg" alt="Banner">
+    <img class="banner is-active" id="bannerLight" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerLight.jpeg" alt="Banner">
     <i class="fa-solid fa-moon social" id="theme"></i>
     <div class="icons">
         <a href="https://www.linkedin.com/in/rajveer-singh-64691435a/" target="_blank"><i class="fa-brands fa-linkedin social"></i></a>
@@ -225,7 +237,7 @@
     </div>
     
     <div class="flex-container">
-        <img class="pfp" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/my%20pfp.png" alt="Rajveer PFP">
+        <img id="pfp" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/my%20pfp.png" alt="Rajveer PFP">
         
         <div class="text-content">
             <h1 id="name">Rajveer Singh Kaler</h1>
@@ -289,6 +301,10 @@
             document.getElementById("name").classList.toggle("is-active");
             document.getElementById("description").classList.toggle("is-active");
             document.getElementById("cert_heading").classList.toggle("is-active");
+            document.getElementById("pfp").classList.toggle("is-active");
+            document.getElementById("bannerDark").classList.toggle("is-active");
+            document.getElementById("bannerLight").classList.toggle("is-active");
+
             logs.forEach(tag =>{
                 tag.classList.toggle("is-active");
             })
@@ -299,10 +315,10 @@
                 item.classList.toggle("is-active");
             })
             if (this.classList.contains("fa-moon")){
-                document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerLight.jpeg";
+                // document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerLight.jpeg";
                 this.classList.replace("fa-moon","fa-sun");
             }else{
-                document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerDark.jpeg";
+                // document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerDark.jpeg";
                 this.classList.replace("fa-sun","fa-moon");
             }
         }
