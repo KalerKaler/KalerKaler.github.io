@@ -215,21 +215,32 @@
             
             /*Useless comment to re-configure git*/
             .cert-card img{
-                max-height: 26vh;
-                max-width: 26vw;
+                height: 28vh;
+                width: 15vw;
                 border-radius: 6%;
                 border:2px dotted #ff9f55;
             }
 
-            .cover_cert{
-                position:relative;
+            .badge{
+                position:absolute;
                 opacity: 1;
                 transition: all 0.3s ease;
             }
 
-            .cover_cert.is-active{
+            .badge:hover{
                 position: absolute;
                 opacity: 0;
+                visibility: hidden;
+            }
+
+            .cert{
+                position: relative;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            .cert:hover{
+                position:relative;
+                opacity: 1;
             }
 
             .cert-card.is-active img{
@@ -257,7 +268,7 @@
             <h1 id="name">Rajveer Singh Kaler</h1>
             <h3 id="description">A passionate and continuously learning student who does not back down from hard work</h3>
             </div>
-        </div>edhat
+        </div>
         
         <h1 id="cert_heading">Projects, Certifications and Accomplishments:</h1>
         <div class="certificates" id="cerificates">
@@ -265,6 +276,7 @@
                 <i class="fa-solid fa-graduation-cap icon"></i>
                 <h4>Tutoring</h4>
                 <img src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/peerTutoring.jpg">
+                <img src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/chitkaraBadge.jpg">
                 <p>Participated in Peer tutoring program at Chitkara University</p>
             </div>
             <a href="https://github.com/KalerKaler/PlaylistMaker" target="_blank"><div class="cert-card">
@@ -276,27 +288,29 @@
             <div class="cert-card">
                 <i class="fa-solid fa-terminal icon"></i>
                 <h4>Hackathon</h4>
-                <img src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/VaultHeist.jpg">
+                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/unstopBadge.png">
+                <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/VaultHeist.jpg">
                 <p>Participated in VaultHeist Hackathon</p>
             </div>
             <div class="cert-card">
                 <i class="fa-solid fa-shield icon"></i>
                 <h4>RedHat</h4>
-                <img class="cover_cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatPyBadge.jpeg">
-                <img class="cover_cert is-active" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatPython.jpg">
+                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatPyBadge.jpeg">
+                <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatPython.jpg">
                 <p>Completed introduction to Python by RedHat</p>
             </div>
             <div class="cert-card">
                 <i class="fa-solid fa-shield-halved icon"></i>
                 <h4>Redhat </h4>
-                <img class="cover_cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatOSABadge.jpeg">
-                <img class="cover_cert is-active" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/red-hat-openshift-applications.jpg">
+                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatOSABadge.jpeg">
+                <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/red-hat-openshift-applications.jpg">
                 <p>Completed Introduction to Redhat Open Shift Applications</p>
             </div>
             <div class="cert-card">
                 <i class="fa-solid fa-certificate icon"></i>
                 <h4>Cisco OSS </h4>
-                <img src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/cisco.jpg">
+                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/ciscoBadge.png">
+                <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/cisco.jpg">
                 <p>Completed Cisco Operating System Support</p>
             </div>
             <div class="cert-card">
@@ -317,7 +331,7 @@
         var theme= document.getElementById("theme");
         var social_icons=document.querySelectorAll(".social");
         var logs=document.querySelectorAll(".icon");
-        var covers=document.querySelectorAll(".cover_cert")
+        // var covers=document.querySelectorAll(".cover_cert")]
         
         // console.log(logs);
         theme.onclick=function(){
@@ -331,9 +345,6 @@
 
             logs.forEach(tag =>{
                 tag.classList.toggle("is-active");
-            })
-            covers.forEach(cov=>{
-                cov.classList.toggle("is-active");
             })
             social_icons.forEach(icon =>{
                 icon.classList.toggle("is-active");
