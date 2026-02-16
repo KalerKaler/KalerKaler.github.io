@@ -138,8 +138,8 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr); 
                 gap: 8px; /* Space between the cards */
-                margin-left:0.6vw;
-                margin-right:3.7vw;
+                margin-left:2vw;
+                margin-right:2vw;
             }
 
             /* 1. Large screens up to 1360px (Default 3 columns) */
@@ -215,8 +215,8 @@
             }
             
             .cert-card img{
-                height: 28vh;
-                width: 18vw;
+                max-height: 28vh;
+                max-width: 20vw;
                 border-radius: 6%;
                 border:2px dotted #ff9f55;
             }
@@ -227,28 +227,11 @@
                 }
             }
 
-            .badge{
-                position:absolute;
-                opacity: 1;
-                transition: all 0.3s ease;
-            }
-
-            .badge:hover{
-                position: absolute;
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            .cert{
+            /* .cert{
                 position: relative;
                 opacity: 0;
                 transition: all 0.3s ease;
-            }
-            .cert:hover{
-                position:relative;
-                opacity: 1;
-            }
-
+            } */
             .cert-card.is-active img{
                 border: 2px dotted #440E03;
             }
@@ -281,7 +264,6 @@
             <div class="cert-card">
                 <i class="fa-solid fa-graduation-cap icon"></i>
                 <h4>Tutoring</h4>
-                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/chitkaraBadge.jpg">
                 <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/peerTutoring.jpg">
                 <p>Participated in Peer tutoring program at Chitkara University</p>
             </div>
@@ -294,28 +276,24 @@
             <div class="cert-card">
                 <i class="fa-solid fa-terminal icon"></i>
                 <h4>Hackathon</h4>
-                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/unstopBadge.png">
                 <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/VaultHeist.jpg">
                 <p>Participated in VaultHeist Hackathon</p>
             </div>
             <div class="cert-card">
                 <i class="fa-solid fa-shield icon"></i>
                 <h4>RedHat</h4>
-                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatPyBadge.jpeg">
                 <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatPython.jpg">
                 <p>Completed introduction to Python by RedHat</p>
             </div>
             <div class="cert-card">
                 <i class="fa-solid fa-shield-halved icon"></i>
                 <h4>Redhat </h4>
-                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/redhatOSABadge.jpeg">
                 <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/red-hat-openshift-applications.jpg">
                 <p>Completed Introduction to Redhat Open Shift Applications</p>
             </div>
             <div class="cert-card">
                 <i class="fa-solid fa-certificate icon"></i>
                 <h4>Cisco OSS </h4>
-                <img class="badge" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/ciscoBadge.png">
                 <img class="cert" src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/cisco.jpg">
                 <p>Completed Cisco Operating System Support</p>
             </div>
