@@ -3,7 +3,7 @@ const social_icons=document.querySelectorAll(".social");
 const logs=document.querySelectorAll(".icon");
 const certificates = document.querySelectorAll(".cert");
 const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightbox-img");
+const lightboxImg = document.getElementById("lightbox-img");
 // var covers=document.querySelectorAll(".cover_cert")]
 
 // console.log(logs);
@@ -38,9 +38,13 @@ lightbox.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })
 
+lightboxImg.addEventListener('click', (event) => {
+    event.stopPropagation();
+})
+
 certificates.forEach(certificate => {
     certificate.addEventListener('click', () => {
         lightbox.style.display = 'flex';
-        lightboxImage.src = certificate.src;
+        lightboxImg.src = certificate.src;
     })
 })
