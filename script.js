@@ -35,7 +35,7 @@ theme.onclick=function(){
 }
 
 lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
+    lightbox.classList.remove("show");
 })
 
 lightboxImg.addEventListener('click', (event) => {
@@ -44,7 +44,7 @@ lightboxImg.addEventListener('click', (event) => {
 
 certificates.forEach(certificate => {
     certificate.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
         lightboxImg.src = certificate.src;
+        lightbox.classList.add('show');
     })
 })
