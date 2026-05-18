@@ -100,13 +100,7 @@ body.is-active{
     color:#2E0404;
 }
 
-#theme{
-    left:3vw;
-    position: absolute;
-    top: 5vh;
-}
-
-.social:hover, .theme:hover {
+.social:hover{
     color: #c4aead;
     transform: scale(1.1);
 }
@@ -265,4 +259,39 @@ a{
 #lightbox.show #lightbox-img {
     transform: scale(1);
     opacity: 1;
+}
+
+.top-left{
+    top: 5vh;
+    left: 2vw;
+    gap: 2vw;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+#submenu{
+    display: none;
+    color: #c4aead;
+    text-decoration: none;
+    position: absolute;
+    background: #100c08;
+    margin-top: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    list-style: none;
+}
+
+#menu{
+    gap: 0;
+}
+
+#menu:hover #submenu,
+#submenu:hover{
+    display: block;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
 }

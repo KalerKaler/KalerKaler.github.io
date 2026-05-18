@@ -4,9 +4,7 @@ const logs=document.querySelectorAll(".icon");
 const certificates = document.querySelectorAll(".cert");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
-// var covers=document.querySelectorAll(".cover_cert")]
 
-// console.log(logs);
 theme.onclick=function(){
     document.getElementById("body").classList.toggle("is-active");
     document.getElementById("name").classList.toggle("is-active");
@@ -26,10 +24,8 @@ theme.onclick=function(){
         item.classList.toggle("is-active");
     })
     if (this.classList.contains("fa-moon")){
-        // document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerLight.jpeg";
         this.classList.replace("fa-moon","fa-sun");
     }else{
-        // document.getElementById("banner").src="https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/bannerDark.jpeg";
         this.classList.replace("fa-sun","fa-moon");
     }
 }
@@ -48,15 +44,3 @@ certificates.forEach(certificate => {
         lightbox.classList.add('show');
     })
 })
-
-async function displayMusic() {
-    const response = await fetch("https://portfolioapi-one.vercel.app/api/musicFetch?user=cwxesx")
-    const tracks = await response.json();
-
-    console.log(tracks);
-    console.log("FACK");
-    console.log(response);
-    console.log("SHIT");
-}
-
-displayMusic()
