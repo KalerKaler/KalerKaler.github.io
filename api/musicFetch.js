@@ -1,9 +1,16 @@
 export default async function handler(req, res){
-    console.log(process.env.LASTFM_API_KEY);
-    console.log("WAT");
+    const allowedOrigins = "*";
     const apiKey = process.env.LASTFM_API_KEY;
     const username = req.query.user || "cwxesx";
     const lastfmUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&format=json&format=json`;
+
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
 
     try{
         const response = await fetch(lastfmUrl);

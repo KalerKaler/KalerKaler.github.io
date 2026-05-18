@@ -50,10 +50,13 @@ certificates.forEach(certificate => {
 })
 
 async function displayMusic() {
-    const response = await fetch("https://www.portfolio-drxmwulzu-kalerkalers-projects.vercel.app/api/musicFetch?user=cwxesx")
+    const response = await fetch("https://portfolioapi-one.vercel.app/api/musicFetch?user=cwxesx")
     const tracks = await response.json();
 
     console.log(tracks);
+    console.log("FACK");
+    console.log(response);
+    console.log("SHIT");
 }
 
 displayMusic()
