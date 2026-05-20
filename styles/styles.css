@@ -6,7 +6,7 @@ body {
     transition: all 0.5s ease;
 }
 
-body.is-active{
+body.light-mode{
     background: #EBFFFF;
 }
 
@@ -18,7 +18,7 @@ body.is-active{
     transition: all 0.8s ease;
 }
 
-.banner.is-active{
+.banner.light-mode{
     /* display: none; */
     opacity: 0;
     position:absolute;
@@ -42,7 +42,7 @@ body.is-active{
     transition: all 0.5s ease;
 }
 
-#pfp.is-active{
+#pfp.light-mode{
     border: 3px solid #0040ff; 
 }
 
@@ -60,7 +60,7 @@ body.is-active{
     margin: 0; /* Remove default margins to control spacing better */
 }
 
-#name.is-active{
+#name.light-mode{
     color:#17070F;
 }
 
@@ -72,7 +72,7 @@ body.is-active{
     font-size:1.4rem;
 }
 
-#description.is-active{
+#description.light-mode{
     color:#33282E;
 }
 
@@ -92,11 +92,11 @@ body.is-active{
     cursor: pointer;
 }
 
-.social.is-active{
+.social.light-mode{
     color:#100c08;
 }
 
-.icon.is-active{
+.icon.light-mode{
     color:#2E0404;
 }
 
@@ -105,7 +105,7 @@ body.is-active{
     transform: scale(1.1);
 }
 
-.social.is-active:hover{
+.social.light-mode:hover{
     color:#5151e1;
 }
 
@@ -115,7 +115,7 @@ body.is-active{
     font-family: 'JetBrains Mono'; 
 }
 
-#cert_heading.is-active{
+#cert_heading.light-mode{
     color: #332828;
 }
 
@@ -168,7 +168,7 @@ body.is-active{
     transition: transform 0.3s, border-color 0.3s;
 }
 
-.cert-card.is-active{
+.cert-card.light-mode{
     background: #E7E7E7;
 }
 
@@ -189,7 +189,7 @@ body.is-active{
     margin: 10px 0;
 }
 
-.cert-card.is-active h4, .cert-card.is-active p{
+.cert-card.light-mode h4, .cert-card.light-mode p{
     color: #2E0404;
 }
 
@@ -212,7 +212,7 @@ body.is-active{
     }
 }
 
-.cert-card.is-active img{
+.cert-card.light-mode img{
     border: 2px dotted #440E03;
 }
 
@@ -273,7 +273,6 @@ a{
 #submenu{
     display: none;
     flex-direction: column;
-    color: #c4aead;
     text-decoration: none;
     position: absolute;
     background: #100c08;
@@ -290,6 +289,12 @@ a{
 
 #submenu.active{
     display:flex;
+}
+
+.light-mode #submenu,
+.light-mode #submenu a {
+    background-color: rgb(210,220,240);
+    color: black;
 }
 
 #menu{

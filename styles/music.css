@@ -1,0 +1,19 @@
+#music{
+  text-align: center;
+}
+
+#music a{
+    color: rgb(130, 155, 140)
+}
+
+.heading{
+    color: rgb(120, 155, 140);
+}
+
+.light-mode .heading{
+    color: rgb(80, 50, 120);
+}
+
+.light-mode #music a{
+    color: rgb(80, 60, 130)
+}

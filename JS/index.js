@@ -6,22 +6,22 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 
 theme.onclick=function(){
-    document.getElementById("body").classList.toggle("is-active");
-    document.getElementById("name").classList.toggle("is-active");
-    document.getElementById("description").classList.toggle("is-active");
-    document.getElementById("cert_heading").classList.toggle("is-active");
-    document.getElementById("pfp").classList.toggle("is-active");
-    document.getElementById("bannerDark").classList.toggle("is-active");
-    document.getElementById("bannerLight").classList.toggle("is-active");
+    document.getElementById("body").classList.toggle("light-mode");
+    document.getElementById("name").classList.toggle("light-mode");
+    document.getElementById("description").classList.toggle("light-mode");
+    document.getElementById("cert_heading").classList.toggle("light-mode");
+    document.getElementById("pfp").classList.toggle("light-mode");
+    document.getElementById("bannerDark").classList.toggle("light-mode");
+    document.getElementById("bannerLight").classList.toggle("light-mode");
 
     logs.forEach(tag =>{
-        tag.classList.toggle("is-active");
+        tag.classList.toggle("light-mode");
     })
     social_icons.forEach(icon =>{
-        icon.classList.toggle("is-active");
+        icon.classList.toggle("light-mode");
     })
     document.querySelectorAll(".cert-card").forEach(item =>{
-        item.classList.toggle("is-active");
+        item.classList.toggle("light-mode");
     })
     if (this.classList.contains("fa-moon")){
         this.classList.replace("fa-moon","fa-sun");
