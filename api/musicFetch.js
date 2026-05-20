@@ -20,7 +20,8 @@ export default async function handler(req, res){
             artist: track.artist['#text'],
             name: track.name,
             url: track.url,
-            isNowPlaying: track['@attr']?.nowplaying == 'true'
+            isNowPlaying: track['@attr']?.nowplaying == 'true',
+            albumArt: track.image?.find(img => img.size === 'extralarge')?.['#text'] || null
         }));
 
         res.status(200).json(tracks);

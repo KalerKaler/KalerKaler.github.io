@@ -5,9 +5,20 @@ const icons = document.querySelectorAll(".icon");
 async function addMusic() {
     const response = await fetch("https://portfolioapi-one.vercel.app/api/musicFetch?user=cwxesx")
     const tracks = await response.json();
+    console.log(tracks);
 
     for (let i = 0; i < 15; i++){
-        musicArea.innerHTML += `<a target="_blank" href=${tracks[i].url}><p>${tracks[i].isNowPlaying ? "<strong>Listening Now - </strong>" : ""}<strong>${tracks[i].name}</strong> - ${tracks[i].artist}</p></a>`;
+        musicArea.innerHTML += "<div class='entry'><p>";
+        if (tracks[i].isNowPlaying){
+            musicArea.innerHTML += "<span id='now-playing'>Listening Now - </span>"
+        }
+        if (tracks[i].albumArt != null){
+            musicArea.innerHTML += `<img class='thumbnail' src='${tracks[i].albumArt}'>`;
+        }
+        musicArea.innerHTML += `<a target="_blank" href=${tracks[i].url}>
+            <strong>${tracks[i].name}</strong> - ${tracks[i].artist}
+        </a></p>`;
+        musicArea.innerHTML += "</div>";
     }
 }
 
