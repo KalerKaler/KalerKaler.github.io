@@ -7,6 +7,7 @@
     color: rgb(130, 155, 140);
     padding-bottom: 2rem;
     vertical-align: middle;
+    font-size: 1.5rem;
 }
 
 .heading{
@@ -18,8 +19,8 @@
     color: rgb(80, 50, 120);
 }
 
-.light-mode #music a{
-    font-size: 1.5rem;
+.light-mode #music a,
+.light-mode #now-playing{
     color: rgb(80, 60, 130)
 }
 
@@ -36,5 +37,5 @@
 }
 
 #now-playing{
-    font-size: 1.8rem;
+    font-size: 2.2rem;
 }
