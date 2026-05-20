@@ -272,23 +272,28 @@ a{
 
 #submenu{
     display: none;
+    flex-direction: column;
     color: #c4aead;
     text-decoration: none;
     position: absolute;
     background: #100c08;
-    margin-top: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    left: -1rem;
+    padding: 1rem;
     list-style: none;
+    gap: 2rem;
+    border-radius: 5%;
+}
+
+#submenu a {
+    color: #c4aead;
+}
+
+#submenu.active{
+    display:flex;
 }
 
 #menu{
     gap: 0;
-}
-
-#menu:hover #submenu,
-#submenu:hover{
-    display: block;
 }
 
 .flex-col{
