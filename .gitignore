@@ -1,3 +1,4 @@
 desktop.ini
 .git
 .vercel
+.env*.local
