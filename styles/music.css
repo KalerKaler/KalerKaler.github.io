@@ -1,0 +1,40 @@
+#music{
+  text-align: center;
+}
+
+#music a,
+#now-playing{
+    color: rgb(130, 155, 140);
+    padding-bottom: 2rem;
+    vertical-align: middle;
+}
+
+.heading{
+    color: rgb(120, 155, 140);
+    font-size: 3rem;
+}
+
+.light-mode .heading{
+    color: rgb(80, 50, 120);
+}
+
+.light-mode #music a{
+    font-size: 1.5rem;
+    color: rgb(80, 60, 130)
+}
+
+.entry{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    /* padding: 1rem; */
+}
+
+.thumbnail {
+    width: 2vw;
+}
+
+#now-playing{
+    font-size: 1.8rem;
+}
