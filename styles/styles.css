@@ -56,12 +56,12 @@ body.light-mode{
 
 #name {
     font-size: 3.5rem;
-    color: #c4aead;
+    color: #c8aebd;
     margin: 0; /* Remove default margins to control spacing better */
 }
 
 #name.light-mode{
-    color:#17070F;
+    color:#27576F;
 }
 
 #description {
