@@ -281,6 +281,9 @@ a{
     list-style: none;
     gap: 2rem;
     border-radius: 5%;
+    border: dashed;
+    border-color: #cdf9fc;
+    transition: all 0.3s ease;
 }
 
 #submenu a {
@@ -291,9 +294,12 @@ a{
     display:flex;
 }
 
-.light-mode #submenu,
-.light-mode #submenu a {
-    background-color: #f0f3e2;
+.light-mode #submenu{
+    background-color: #def9fd;
+    border-color: #010eae;
+}
+
+.light-mode #submenu a{
     color: black;
 }
 
