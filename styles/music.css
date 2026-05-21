@@ -7,6 +7,11 @@
   padding: 2rem;
 }
 
+.light-mode #artists,
+.light-mode #music{
+    border-color: darkblue;
+}
+
 #music a,
 #now-playing,
 #artists a{
