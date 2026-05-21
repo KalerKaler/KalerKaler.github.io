@@ -28,7 +28,7 @@ async function addArtists() {
     const artists = await respose.json();
     // console.log(artists);
 
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 15; i++){
         artistArea.innerHTML += `<div class='entry'><p><a target='_blank' href='${artists[i].link}'>${artists[i].rank} - ${artists[i].name}</a></p></div>`;
     }
 }

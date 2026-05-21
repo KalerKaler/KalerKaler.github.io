@@ -1,6 +1,10 @@
 #music,
 #artists{
   text-align: center;
+  border: solid;
+  border-color:antiquewhite;
+  border-width: 0.05rem;
+  padding: 2rem;
 }
 
 #music a,
@@ -41,4 +45,8 @@
 
 #now-playing{
     font-size: 2.2rem;
+}
+
+.flex{
+    display: flex;
 }
