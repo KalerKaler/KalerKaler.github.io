@@ -1,11 +1,12 @@
 const musicArea = document.getElementById("music");
+const artistArea = document.getElementById("artists");
 const theme= document.getElementById("theme");
 const icons = document.querySelectorAll(".icon");
 
 async function addMusic() {
     const response = await fetch("https://portfolioapi-one.vercel.app/api/musicFetch?user=cwxesx")
     const tracks = await response.json();
-    console.log(tracks);
+    // console.log(tracks);
 
     for (let i = 0; i < 15; i++){
         musicArea.innerHTML += "<div class='entry'><p>";
@@ -22,8 +23,19 @@ async function addMusic() {
     }
 }
 
-addMusic();
+async function addArtists() {
+    const respose = await fetch("https://portfolioapi-one.vercel.app/api/topArtists?user=cwxesx");
+    const artists = await respose.json();
+    console.log(artists);
 
+    for (let i = 0; i < 10; i++){
+        artistArea.innerHTML += `<div class='entry'><p><a target='_blank' href='${artists[i].link}'>${artists[i].rank} - ${artists[i].name}</a></p></div>`;
+        console.log(artists[i].imageUrl);
+    }
+}
+
+addMusic();
+addArtists();
 
 theme.onclick=function(){
     document.querySelector("body").classList.toggle("light-mode");

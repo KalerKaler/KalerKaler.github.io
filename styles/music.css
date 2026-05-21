@@ -1,9 +1,11 @@
-#music{
+#music,
+#artists{
   text-align: center;
 }
 
 #music a,
-#now-playing{
+#now-playing,
+#artists a{
     color: rgb(130, 155, 140);
     padding-bottom: 2rem;
     vertical-align: middle;
@@ -20,7 +22,8 @@
 }
 
 .light-mode #music a,
-.light-mode #now-playing{
+.light-mode #now-playing,
+.light-mode #artists a{
     color: rgb(80, 60, 130)
 }
 
@@ -28,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    vertical-align: top;
+    vertical-align: middle;
     /* padding: 1rem; */
 }
 
