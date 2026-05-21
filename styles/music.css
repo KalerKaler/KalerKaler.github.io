@@ -4,7 +4,7 @@
   border: solid;
   border-color:antiquewhite;
   border-width: 0.05rem;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .light-mode #artists,
@@ -41,7 +41,6 @@
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    /* padding: 1rem; */
 }
 
 .thumbnail {
@@ -56,4 +55,5 @@
     display: flex;
     align-self: center;
     justify-content: center;
+    margin: 1rem;
 }
