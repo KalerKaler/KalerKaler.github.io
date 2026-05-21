@@ -26,11 +26,10 @@ async function addMusic() {
 async function addArtists() {
     const respose = await fetch("https://portfolioapi-one.vercel.app/api/topArtists?user=cwxesx");
     const artists = await respose.json();
-    console.log(artists);
+    // console.log(artists);
 
     for (let i = 0; i < 10; i++){
         artistArea.innerHTML += `<div class='entry'><p><a target='_blank' href='${artists[i].link}'>${artists[i].rank} - ${artists[i].name}</a></p></div>`;
-        console.log(artists[i].imageUrl);
     }
 }
 
