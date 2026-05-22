@@ -9,7 +9,7 @@ async function addMusic() {
     // console.log(tracks);
 
     for (let i = 0; i < 15; i++){
-        musicArea.innerHTML += "<div class='entry'><p>";
+        musicArea.innerHTML += "<hr class='seperator-line'><div class='entry'><p>";
         if (tracks[i].isNowPlaying){
             musicArea.innerHTML += "<span id='now-playing'>Listening Now - </span>"
         }
@@ -29,7 +29,7 @@ async function addArtists() {
     // console.log(artists);
 
     for (let i = 0; i < 15; i++){
-        artistArea.innerHTML += `<div class='entry'><p><a target='_blank' href='${artists[i].link}'>${artists[i].rank} - ${artists[i].name}</a></p></div>`;
+        artistArea.innerHTML += `<hr class='seperator-line'><div class='entry'><p><a target='_blank' href='${artists[i].link}'>${artists[i].rank} - ${artists[i].name}</a></p></div>`;
     }
 }
 
