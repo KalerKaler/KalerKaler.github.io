@@ -20,21 +20,6 @@
     vertical-align: middle;
     font-size: 1.5rem;
 }
-@media (max-width: 600px) {
-    .tc{
-        width: 35vw;
-    }
-    .tc a{
-        font-size: 1.5rem;
-    }
-    .heading{
-        font-size: 0.01rem;
-        color: orange;
-    }
-    .entry{
-        flex-direction: column;
-    }
-}
 
 .heading{
     color: rgb(120, 155, 140);
@@ -71,4 +56,34 @@
     align-self: center;
     justify-content: center;
     margin: 1rem;
+}
+
+.seperator-line{
+    display: none;
+        
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #2ee4ee, transparent);
+    margin: 2rem 0;
+}
+
+@media (max-width: 600px) {
+    .tc{
+        width: 35vw;
+    }
+    .tc a{
+        font-size: 1.5rem;
+    }
+    .heading{
+        font-size: 2rem;
+    }
+    .entry{
+        flex-direction: column;
+    }
+    .thumbnail{
+        width:40vw;
+    }
+    .seperator-line{
+        display: block;
+    }
 }
