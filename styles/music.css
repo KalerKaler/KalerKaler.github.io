@@ -1,25 +1,39 @@
-#music,
-#artists{
+.tc{
   text-align: center;
   border: solid;
   border-color:antiquewhite;
   border-width: 0.05rem;
   padding: 1.5rem;
-  width: 60rem;
+  width: 50vw;
 }
+
 
 .light-mode #artists,
 .light-mode #music{
     border-color: darkblue;
 }
 
-#music a,
-#now-playing,
-#artists a{
+.tc a,
+#now-playing{
     color: rgb(130, 155, 140);
     padding-bottom: 2rem;
     vertical-align: middle;
     font-size: 1.5rem;
+}
+@media (max-width: 600px) {
+    .tc{
+        width: 35vw;
+    }
+    .tc a{
+        font-size: 1.5rem;
+    }
+    .heading{
+        font-size: 0.01rem;
+        color: orange;
+    }
+    .entry{
+        flex-direction: column;
+    }
 }
 
 .heading{

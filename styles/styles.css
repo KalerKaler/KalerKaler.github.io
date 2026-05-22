@@ -122,7 +122,7 @@ body.light-mode{
 .certificates{
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 8px; /* Space between the cards */
+    gap: 8px;
     margin-left:2vw;
     margin-right:2vw;
 }
@@ -134,7 +134,6 @@ body.light-mode{
     }
 }
 
-/* 2. Tablets (This now overrides the 1360px rule) */
 @media (max-width: 956px) {
     .certificates {
         grid-template-columns: repeat(2, 1fr);
@@ -153,14 +152,13 @@ body.light-mode{
     }
 }
 
-/* 3. Phones (This overrides everything else) */
 @media (max-width: 600px) {
     .certificates {
         grid-template-columns: repeat(1, 1fr);
     }
 }
 .cert-card {
-    background: #1a1612; /* Slightly lighter than background to stand out */
+    background: #1a1612;
     padding: 20px;
     border-radius: 10px;
     border: 1px solid #333;
@@ -169,7 +167,7 @@ body.light-mode{
 }
 
 .cert-card.light-mode{
-    background: #E7E7E7;
+    background: #66F5FF;
 }
 
 .cert-card:hover {
@@ -276,7 +274,7 @@ a{
     text-decoration: none;
     position: absolute;
     background: #100c08;
-    left: -1rem;
+    left: 0;
     padding: 1rem;
     list-style: none;
     gap: 2rem;
