@@ -59,12 +59,15 @@
 }
 
 .seperator-line{
-    display: none;
-        
+    display: none;    
     border: none;
     height: 1px;
     background: linear-gradient(to right, transparent, #2ee4ee, transparent);
     margin: 2rem 0;
+}
+
+.light-mode .seperator-line{
+    background: linear-gradient(to right, transparent, #747474, transparent);
 }
 
 @media (max-width: 600px) {
