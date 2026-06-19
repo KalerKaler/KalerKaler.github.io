@@ -15,11 +15,13 @@ export default async function handler(req, res){
     try{
         const response = await fetch(lastfmUrl);
         const data = await response.json();
-        const artists = data.topartists.artist.map(artist => ({
+        const artists = await Promise.all(
+            data.topartists.artist.map(async (artist) => ({
             rank: artist['@attr']?.rank,
             name: artist.name,
-            link: artist.url
-        }));
+            link: artist.url,
+            image: await getDeezerImage(artist.name),
+        })));
 
         res.status(200).json(artists);
     }catch (error) {
@@ -28,12 +30,12 @@ export default async function handler(req, res){
     }
 }
 
-// async function getDeezerImage(artistName) {
-//     try {
-//         const res = await fetch(`https://api.deezer.com/search/artist?q=${encodeURIComponent(artistName)}&limit=1`);
-//         const data = await res.json();
-//         return data.data?.[0]?.picture_xl || null;
-//     } catch {
-//         return null;
-//     }
-// }
+async function getDeezerImage(artistName) {
+    try {
+        const res = await fetch(`https://api.deezer.com/search/artist?q=${encodeURIComponent(artistName)}&limit=1`);
+        const data = await res.json();
+        return data.data?.[0]?.picture_xl || null;
+    } catch {
+        return null;
+    }
+}
