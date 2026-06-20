@@ -12,7 +12,7 @@ async function addMusic() {
             <div class='entry'>
                 <p>
                     ${tracks[i].isNowPlaying ? "<span id='now-playing'>Listening Now - </span>" : ""} 
-                    ${tracks[i].albumArt != null ? `<img class='thumbnail' src='${tracks[i].albumArt}'>` : ""}
+                    <img class='thumbnail' src=${tracks[i].albumArt != null ? `'${tracks[i].albumArt}'`: 'https://raw.githubusercontent.com/KalerKaler/Portfolio/main/assets/fallbackAlbumCover.png'}>
                     <a target="_blank" href=${tracks[i].url}>
                         <strong>${tracks[i].name}</strong> - ${tracks[i].artist}
                     </a>
