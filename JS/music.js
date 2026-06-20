@@ -6,30 +6,35 @@ const icons = document.querySelectorAll(".icon");
 async function addMusic() {
     const response = await fetch("https://portfolioapi-one.vercel.app/api/musicFetch?user=cwxesx")
     const tracks = await response.json();
-    // console.log(tracks);
 
     for (let i = 0; i < 15; i++){
-        musicArea.innerHTML += "<hr class='seperator-line'><div class='entry'><p>";
-        if (tracks[i].isNowPlaying){
-            musicArea.innerHTML += "<span id='now-playing'>Listening Now - </span>"
-        }
-        if (tracks[i].albumArt != null){
-            musicArea.innerHTML += `<img class='thumbnail' src='${tracks[i].albumArt}'>`;
-        }
-        musicArea.innerHTML += `<a target="_blank" href=${tracks[i].url}>
-            <strong>${tracks[i].name}</strong> - ${tracks[i].artist}
-        </a></p>`;
-        musicArea.innerHTML += "</div>";
+        musicArea.innerHTML += `<hr class='seperator-line'>
+            <div class='entry'>
+                <p>
+                    ${tracks[i].isNowPlaying ? "<span id='now-playing'>Listening Now - </span>" : ""} 
+                    ${tracks[i].albumArt != null ? `<img class='thumbnail' src='${tracks[i].albumArt}'>` : ""}
+                    <a target="_blank" href=${tracks[i].url}>
+                        <strong>${tracks[i].name}</strong> - ${tracks[i].artist}
+                    </a>
+                </p>
+            </div>`;
     }
 }
 
 async function addArtists() {
     const respose = await fetch("https://portfolioapi-one.vercel.app/api/topArtists?user=cwxesx");
     const artists = await respose.json();
-    console.log(artists);
 
     for (let i = 0; i < 15; i++){
-        artistArea.innerHTML += `<hr class='seperator-line'><div class='entry'><p><img class='thumbnail' src='${artists[i].image}'><a target='_blank' href='${artists[i].link}'> ${artists[i].name}</a></p></div>`;
+        artistArea.innerHTML += `<hr class='seperator-line'>
+            <div class='entry'>
+                <p>
+                    <img class='thumbnail' src='${artists[i].image}'>
+                    <a target='_blank' href='${artists[i].link}'>
+                        <strong>${artists[i].name}</strong> - ${artists[i].playCount} plays
+                    </a>    
+                </p>
+            </div>`;
     }
 }
 

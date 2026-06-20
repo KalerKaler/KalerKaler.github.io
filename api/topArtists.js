@@ -21,6 +21,7 @@ export default async function handler(req, res){
             name: artist.name,
             link: artist.url,
             image: await getDeezerImage(artist.name),
+            playCount: artist.playcount,
         })));
 
         res.status(200).json(artists);
