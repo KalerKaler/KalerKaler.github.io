@@ -1,0 +1,22 @@
+.banner {
+    position: relative;
+    opacity:100;
+    width: 100%;
+    z-index: -50;
+    transition: all 0.8s ease;
+}
+
+.banner.light-mode{
+    /* display: none; */
+    opacity: 0;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top of the container */
+    margin-top: -10vh;    
+    padding-left: 5vw;
+}
