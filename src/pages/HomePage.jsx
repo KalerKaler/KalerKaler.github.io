@@ -67,7 +67,7 @@ export default function Home() {
       </div>
 
       <div className="flex-container">
-        <img id="pfp" src="public/my%20pfp.png" alt="Rajveer PFP" />
+        <img id="pfp" src="/public/my%20pfp.png" alt="Rajveer PFP" />
 
         <div className="text-content">
           <h1 id="name">Rajveer Singh Kaler</h1>
