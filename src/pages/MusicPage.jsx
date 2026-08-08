@@ -25,12 +25,11 @@ export default function MusicPage() {
         <div id="music" className="tc">
         <h2 className="heading">Recently scrobbled songs</h2>
 
-      <h1>My Listening Habits</h1>
       {tracks.map(track => (
         <>
         <hr className='seperator-line' key={track.url}/>
         <div className="entry">
-          <img className="thumbnail" src={track.albumArt || "/public/fallbackAlbumCover.png"} alt="" />
+          <img className="thumbnail" src={track.albumArt || "//fallbackAlbumCover.png"} alt="" />
           <p>
             <strong>{track.name}</strong> - {track.artist}
           </p>

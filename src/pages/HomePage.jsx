@@ -67,7 +67,7 @@ export default function Home() {
       </div>
 
       <div className="flex-container">
-        <img id="pfp" src="/public/my%20pfp.png" alt="Rajveer PFP" />
+        <img id="pfp" src="/my%20pfp.png" alt="Rajveer PFP" />
 
         <div className="text-content">
           <h1 id="name">Rajveer Singh Kaler</h1>
@@ -83,25 +83,25 @@ export default function Home() {
         <div className="cert-card">
           <i className="fa-solid fa-address-card icon"></i>
           <h4>Python</h4>
-          <img className="cert" src="public/fccPython.png" alt="Python cert" />
+          <img className="cert" src="/fccPython.png" alt="Python cert" />
           <p>Earned Python certification from FreeCodeCamp.org</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-graduation-cap icon"></i>
           <h4>Tutoring</h4>
-          <img className="cert" src="public/peerTutoring.jpg" alt="Tutoring" />
+          <img className="cert" src="/peerTutoring.jpg" alt="Tutoring" />
           <p>Participated in Peer tutoring program at Chitkara University</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-terminal icon"></i>
           <h4>Hackathon</h4>
-          <img className="cert" src="public/VaultHeist.jpg" alt="Hackathon" />
+          <img className="cert" src="/VaultHeist.jpg" alt="Hackathon" />
           <p>Participated in VaultHeist Hackathon</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-shield icon"></i>
           <h4>RedHat</h4>
-          <img className="cert" src="public/redhatPython.jpg" alt="RedHat" />
+          <img className="cert" src="/redhatPython.jpg" alt="RedHat" />
           <p>Completed introduction to Python by RedHat</p>
         </div>
         <div className="cert-card">
@@ -109,7 +109,7 @@ export default function Home() {
           <h4>Redhat</h4>
           <img
             className="cert"
-            src="public/red-hat-openshift-applications.jpg"
+            src="/red-hat-openshift-applications.jpg"
             alt="Red Hat OpenShift"
           />
           <p>Completed Introduction to Redhat Open Shift Applications</p>
@@ -117,31 +117,31 @@ export default function Home() {
         <div className="cert-card">
           <i className="fa-solid fa-certificate icon"></i>
           <h4>Cisco OSS</h4>
-          <img className="cert" src="public/cisco.jpg" alt="Cisco" />
+          <img className="cert" src="/cisco.jpg" alt="Cisco" />
           <p>Completed Cisco Operating System Support</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-microchip icon"></i>
           <h4>DeepLearning.AI</h4>
-          <img className="cert" src="public/disaster.jpg" alt="DeepLearning.AI" />
+          <img className="cert" src="/disaster.jpg" alt="DeepLearning.AI" />
           <p>Completed DeepLearning.AI's AI and Disaster Management</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-award icon"></i>
           <h4>BID NDCCRA</h4>
-          <img className="cert" src="public/disaster2.jpg" alt="BID NDCCRA" />
+          <img className="cert" src="/disaster2.jpg" alt="BID NDCCRA" />
           <p>Completed BID's Natural Disaster and Climate Change Risk Assesment</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-envelope icon"></i>
           <h4>Networking</h4>
-          <img className="cert" src="public/F2F-4.jpg" alt="Networking" />
+          <img className="cert" src="/F2F-4.jpg" alt="Networking" />
           <p>Attended an extra course for Computer Networking in Chitkara University</p>
         </div>
         <div className="cert-card">
           <i className="fa-solid fa-laptop-code icon"></i>
           <h4>Database Management System</h4>
-          <img className="cert" src="public/dbms.jpg" alt="DBMS" />
+          <img className="cert" src="/dbms.jpg" alt="DBMS" />
           <p>Attended an extra course for Database Management System in Chitkara University</p>
         </div>
       </div>
