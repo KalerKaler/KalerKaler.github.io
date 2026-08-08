@@ -9,9 +9,7 @@ export default function MusicPage() {
     fetch("https://kalerkaler.vercel.app/api/musicFetch?user=cwxesx")
       .then(res => res.json())
       .then(setTracks);
-  }, []);
-
-  useEffect(() => {
+      
     fetch("https://kalerkaler.vercel.app/api/topArtists?user=cwxesx")
     .then(res => res.json())
     .then(setArtists);

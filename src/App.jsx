@@ -4,7 +4,7 @@ import Header  from './components/Header';
 import HomePage from './pages/HomePage';
 import MusicPage  from './pages/MusicPage';
 // import ProjectPage from './pages/ProjectPage';
-// import './App.css'
+import './App.css'
 
 export default function App() {
   const [count, setCount] = useState(0)

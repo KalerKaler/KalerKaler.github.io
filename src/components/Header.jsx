@@ -1,69 +1,42 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Header.css";
 
 export default function Header() {
+
+  const [isLightMode, setIsLightMode] = useState(false);
+  const [showSubmenu , setShowSubmenu] = useState(false);
+
     useEffect(() => {
-        const menuBtn = document.getElementById("menu-btn");
-        const submenu = document.getElementById("submenu");
-        const theme = document.getElementById("theme");
 
-        if (!theme) {
-          return;
-        }
-
-        function toggleTheme() {
-          document.body.classList.toggle("light-mode");
-          document.getElementById("bannerDark")?.classList.toggle("light-mode");
-          document.getElementById("bannerLight")?.classList.toggle("light-mode");
-
-          if (this.classList.contains("fa-moon")) {
-            this.classList.replace("fa-moon", "fa-sun");
-          } else {
-            this.classList.replace("fa-sun", "fa-moon");
-          }
-        }
-
-        theme.onclick = toggleTheme;
-    
-        function showSubmenu() {
-            submenu.classList.add("show");
-        }
-    
-        function hideSubmenu() {
-            setTimeout(() => {
-                const isOverMenu = menuBtn.matches(":hover");
-                const isOverSubmenu = submenu.matches(":hover");
-    
-                if (!isOverMenu && !isOverSubmenu) {
-                    submenu.classList.remove("show");
-                }
-            }, 100);
-        }
-    
-        menuBtn.addEventListener("mouseover", showSubmenu);
-        menuBtn.addEventListener("mouseout", hideSubmenu);
-        submenu.addEventListener("mouseover", showSubmenu);
-        submenu.addEventListener("mouseout", hideSubmenu);
-    })
+      if (isLightMode){
+        document.body.classList.add("light-mode");
+      }else{
+        document.body.classList.remove("light-mode");
+      }
+    }, [isLightMode]);
     return (
     <>
       <img
-        className="banner"
+        className= {`banner ${isLightMode ? "hidden" : ""}`}
         id="bannerDark"
         src="/bannerDark.jpg"
         alt="Banner"
       />
       <img
-        className="banner light-mode"
+        className= {`banner ${isLightMode ? "" : "hidden"}`}
         id="bannerLight"
         src="/bannerLight.jpg"
         alt="Banner"
       />
       <div className="top-left">
-        <div id="menu">
-          <i title="Click to open the Sub-Menu" className="fa-solid fa-bars social" id="menu-btn" />
-          <ul id="submenu">
+        <div 
+        id="menu" 
+        onMouseEnter={() => setShowSubmenu(true)}
+        onMouseLeave={() => setShowSubmenu(false)}
+        >
+          <i className="fa-solid fa-bars social" id="menu-btn" />
+          <ul id="submenu" className={showSubmenu ? "show" : ""}>
             <li>
               <Link to="/">Certifications</Link>
             </li>
@@ -72,7 +45,11 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <i className="fa-solid fa-moon social" id="theme" />
+        <i 
+        className={`fa-solid social ${isLightMode ? "fa-sun" : "fa-moon"}`} 
+        id="theme"
+        onClick={() => setIsLightMode(!isLightMode)}
+        />
       </div>
       <div className="icons">
         <a href="https://www.linkedin.com/in/rajveer-singh-64691435a/" target="_blank" rel="noreferrer">
