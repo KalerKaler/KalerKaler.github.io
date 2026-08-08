@@ -27,29 +27,31 @@ export default function MusicPage() {
 
       {tracks.map(track => (
         <>
-        <hr className='seperator-line' key={track.url}/>
+        <hr className='seperator-line' key={track.url + track.artist}/>
+        <a href={track.url}>
         <div className="entry">
-          <img className="thumbnail" src={track.albumArt || "//fallbackAlbumCover.png"} alt="" />
+          <img className="thumbnail" src={track.albumArt || "/fallbackAlbumCover.png"} alt="" />
           <p>
             <strong>{track.name}</strong> - {track.artist}
           </p>
         </div>
+        </a>
         </>
       ))}
       </div>
 
         <div id="artists" className="tc">
-            <h2 class="heading">Top artists of all time</h2>
+            <h2 className="heading">Top artists of all time</h2>
             {artists.map(artist => (
                 <>
-                <hr class='seperator-line'/>
-                <div class='entry'>
-                    <p>
-                        <img class='thumbnail' src={artist.image}/>
+                <hr className='seperator-line'/>
+                <div className='entry'>
+                        <img className='thumbnail' src={artist.image || "fallbackAlbumCover.png"}/>
                         <a target='_blank' href={artist.link}>
+                        <p>
                             <strong>{artist.name}</strong> - {artist.playCount} plays
+                        </p>
                         </a>    
-                    </p>
                 </div>
             </>
             ))};

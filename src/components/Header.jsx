@@ -6,6 +6,25 @@ export default function Header() {
     useEffect(() => {
         const menuBtn = document.getElementById("menu-btn");
         const submenu = document.getElementById("submenu");
+        const theme = document.getElementById("theme");
+
+        if (!theme) {
+          return;
+        }
+
+        function toggleTheme() {
+          document.body.classList.toggle("light-mode");
+          document.getElementById("bannerDark")?.classList.toggle("light-mode");
+          document.getElementById("bannerLight")?.classList.toggle("light-mode");
+
+          if (this.classList.contains("fa-moon")) {
+            this.classList.replace("fa-moon", "fa-sun");
+          } else {
+            this.classList.replace("fa-sun", "fa-moon");
+          }
+        }
+
+        theme.onclick = toggleTheme;
     
         function showSubmenu() {
             submenu.classList.add("show");

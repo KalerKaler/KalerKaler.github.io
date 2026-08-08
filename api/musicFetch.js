@@ -3,7 +3,7 @@ export default async function handler(req, res){
     // const allowedOrigins = "https://kalerkaler.github.io/music.html";
     const apiKey = process.env.LASTFM_API_KEY;
     const username = req.query.user || "cwxesx";
-    const lastfmUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&format=json&limit=15`;
+    const lastfmUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&format=json&limit=17`;
 
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
