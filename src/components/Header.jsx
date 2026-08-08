@@ -32,13 +32,13 @@ export default function Header() {
       <img
         className="banner"
         id="bannerDark"
-        src="assets/bannerDark.jpg"
+        src="/public/bannerDark.jpg"
         alt="Banner"
       />
       <img
         className="banner light-mode"
         id="bannerLight"
-        src="assets/bannerLight.jpg"
+        src="/public/bannerLight.jpg"
         alt="Banner"
       />
       <div className="top-left">

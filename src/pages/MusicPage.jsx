@@ -30,7 +30,7 @@ export default function MusicPage() {
         <>
         <hr className='seperator-line' key={track.url}/>
         <div className="entry">
-          <img className="thumbnail" src={track.albumArt || "/assets/fallbackAlbumCover.png"} alt="" />
+          <img className="thumbnail" src={track.albumArt || "/public/fallbackAlbumCover.png"} alt="" />
           <p>
             <strong>{track.name}</strong> - {track.artist}
           </p>
