@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Header.css";
 
 export default function Header() {
 
   const [isLightMode, setIsLightMode] = useState(false);
   const [showSubmenu , setShowSubmenu] = useState(false);
+  const timeoutRef = useRef(null);
 
     useEffect(() => {
 
@@ -15,6 +16,16 @@ export default function Header() {
         document.body.classList.remove("light-mode");
       }
     }, [isLightMode]);
+
+    const handleMouseEnter = () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      setShowSubmenu(true); 
+    }
+
+    const handleMouseLeave = () => {
+      timeoutRef.current = setTimeout(() => setShowSubmenu(false), 100);
+    }
+
     return (
     <>
       <img
@@ -32,8 +43,8 @@ export default function Header() {
       <div className="top-left">
         <div 
         id="menu" 
-        onMouseEnter={() => setShowSubmenu(true)}
-        onMouseLeave={() => setShowSubmenu(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         >
           <i className="fa-solid fa-bars social" id="menu-btn" />
           <ul id="submenu" className={showSubmenu ? "show" : ""}>
