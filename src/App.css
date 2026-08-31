@@ -2,8 +2,9 @@ body {
     background: #322a27;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif; /* Cleaner look for portfolio */
+    font-family: 'Inter', sans-serif;
     transition: all 0.5s ease;
+    padding-bottom: 1.8vh;
 }
 
 body.light-mode{
