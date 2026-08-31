@@ -6,11 +6,11 @@ export default function MusicPage() {
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    fetch("https://kalerkaler.vercel.app/api/musicFetch?user=cwxesx")
+    fetch("https://kalerkaler.vercel.app/api/musicFetch?user=cwxesx&limit=15")
       .then(res => res.json())
       .then(setTracks);
       
-    fetch("https://kalerkaler.vercel.app/api/topArtists?user=cwxesx")
+    fetch("https://kalerkaler.vercel.app/api/topArtists?user=cwxesx&limit=15")
     .then(res => res.json())
     .then(setArtists);
   }, []);
@@ -26,7 +26,7 @@ export default function MusicPage() {
       {tracks.map(track => (
         <>
         <hr className='seperator-line' key={track.url + track.artist}/>
-        <a href={track.url}>
+        <a target="_blank" href={track.url}>
         <div className="entry">
           <img className="thumbnail" src={track.albumArt || "/fallbackAlbumCover.png"} alt="" />
           <p>
@@ -42,16 +42,16 @@ export default function MusicPage() {
             <h2 className="heading">Top artists of all time</h2>
             {artists.map(artist => (
                 <>
+                <a target='_blank' href={artist.link}>
                 <hr className='seperator-line'/>
-                <div className='entry'>
+                  <div className='entry'>
                         <img className='thumbnail' src={artist.image || "fallbackAlbumCover.png"}/>
-                        <a target='_blank' href={artist.link}>
                         <p>
                             <strong>{artist.name}</strong> - {artist.playCount} plays
                         </p>
-                        </a>    
-                </div>
-            </>
+                  </div>
+                </a>    
+                </>
             ))};
         </div> 
       </div>

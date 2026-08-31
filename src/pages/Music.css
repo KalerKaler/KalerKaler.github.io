@@ -45,8 +45,8 @@
 }
 
 .thumbnail {
-    width: 9zvw;
-    height: 16vh;
+    width: 15vw;
+    /* height: 16vh; */
 }
 
 #now-playing{

@@ -2,7 +2,8 @@ export default async function handler(req, res){
     const allowedOrigin = "*";
     const apiKey = process.env.LASTFM_API_KEY;
     const username = req.query.user || "cwxesx";
-    const lastfmUrl = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${apiKey}&format=json&limit=15&period=overall`;
+    const limit = req.query.limit || 15;
+    const lastfmUrl = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${apiKey}&format=json&limit=${limit}&period=overall`;
 
     res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
