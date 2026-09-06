@@ -44,12 +44,6 @@
     vertical-align: middle;
 }
 
-/* .entry p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 .thumbnail {
     width: 15vw;
     /* height: 16vh; */
@@ -58,10 +52,6 @@
 .thumbnail:hover{
     opacity: 0.8;
     transition: transform 0.3s ease-in-out;
-}
-
-#now-playing{
-    font-size: 2.2rem;
 }
 
 .flex{
