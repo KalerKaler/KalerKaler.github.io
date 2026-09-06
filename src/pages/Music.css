@@ -44,6 +44,12 @@
     vertical-align: middle;
 }
 
+/* .entry p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
 .thumbnail {
     width: 15vw;
     /* height: 16vh; */
@@ -52,19 +58,6 @@
 .thumbnail:hover{
     opacity: 0.8;
     transition: transform 0.3s ease-in-out;
-}
-
-.thumbnail:hover::after{
-    content: "Click to play";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
 }
 
 #now-playing{

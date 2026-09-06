@@ -6,7 +6,7 @@ export default function MusicPage() {
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    fetch("https://kalerkaler.vercel.app/api/musicFetch?user=cwxesx&limit=15")
+    fetch("https://kalerkaler.vercel.app/api/musicFetch?user=cwxesx&limit=14")
       .then(res => res.json())
       .then(setTracks);
       
@@ -30,6 +30,7 @@ export default function MusicPage() {
         <div className="entry">
           <img className="thumbnail" src={track.albumArt || "/fallbackAlbumCover.png"} alt="" />
           <p>
+            {(track.isNowPlaying) ? "🎶 " : ""}
             <strong>{track.name}</strong> - {track.artist}
           </p>
         </div>
