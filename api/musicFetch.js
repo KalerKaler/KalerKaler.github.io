@@ -16,7 +16,7 @@ export default async function handler(req, res){
 
     try{
         const response = await fetch(lastfmUrl);
-        const data = await response.json()
+        const data = await response.json();
 
         const tracks = data.recenttracks.track.map(track => ({
             artist: track.artist['#text'],

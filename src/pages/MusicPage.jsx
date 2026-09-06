@@ -52,7 +52,7 @@ export default function MusicPage() {
                   </div>
                 </a>    
                 </>
-            ))};
+            ))}
         </div> 
       </div>
     </>

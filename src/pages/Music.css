@@ -49,6 +49,24 @@
     /* height: 16vh; */
 }
 
+.thumbnail:hover{
+    opacity: 0.8;
+    transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail:hover::after{
+    content: "Click to play";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
 #now-playing{
     font-size: 2.2rem;
 }
