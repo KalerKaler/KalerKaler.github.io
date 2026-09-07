@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #080c10;
+  --color-surface: #0f1520;
+  --color-card: #111826;
+  --color-border: #1e2a3a;
+  --color-text: #e2e8f4;
+  --color-muted: #5a6880;
+  --color-accent: #ff6eb4;
+  --color-accent-dim: rgba(255,110,180,0.12);
+  --color-accent-border: rgba(255,110,180,0.3);
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+}
+
 body {
     background: #322a27;
     margin: 0;

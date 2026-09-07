@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./Home.css";
+import "./Cert.css";
 
 export default function Home() {
   useEffect(() => {
@@ -54,18 +54,6 @@ export default function Home() {
       <div id="lightbox">
         <img id="lightbox-img" alt="Lightbox preview" />
         <p className="close-help">Click anywhere to close</p>
-      </div>
-
-      <div className="flex-container">
-        <img id="pfp" src="/my%20pfp.png" alt="Rajveer PFP" />
-
-        <div className="text-content">
-          <h1 id="name">Rajveer Singh Kaler</h1>
-          <h3 id="description">
-            A passionate and continuously learning student who does not back down
-            from hard work
-          </h3>
-        </div>
       </div>
 
       <h1 id="cert_heading">Projects, Certifications and Accomplishments:</h1>

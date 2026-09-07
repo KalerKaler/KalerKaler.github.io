@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
+import { useMusic } from "../context/MusicContext";
 import "./Music.css";
 
 export default function MusicPage() {
-  const [tracks, setTracks] = useState([]);
-  const [artists, setArtists] = useState([]);
-
-  useEffect(() => {
-    fetch("https://kalerkaler.vercel.app/api/musicFetch?user=cwxesx&limit=14")
-      .then(res => res.json())
-      .then(setTracks);
-      
-    fetch("https://kalerkaler.vercel.app/api/topArtists?user=cwxesx&limit=15")
-    .then(res => res.json())
-    .then(setArtists);
-  }, []);
   
+  const {tracks, artists, loading} = useMusic();
 
   
   return (
