@@ -1,0 +1,137 @@
+.navBar{
+  width: 100vw;
+  height: 4.8vh;
+  backdrop-filter: blur(1rem);
+  background: rgba(50,50,50,0.5);
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  transition: all 0.5s ease;
+}
+
+.navBarShrink{
+  height: 3vh;
+}
+
+.kalerkaler {
+  	width: 255px;
+  	height: 40px;
+  	position: relative;
+  	font-size: 38px;
+  	display: inline-block;
+  	font-family: Inter;
+  	color: #E9AEF5;
+  	text-align: left;
+  	text-shadow: 2px 0 0 #000000, 0 2px 0 #000000, -2px 0 0 #000000, 0 -2px 0 #000000;
+    top: -1.4rem;
+    left: 0.8rem;
+}
+
+.beegNuro{
+  width: 100vw;
+  height: 100vh;
+  margin-top: 3.5vh;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  animation: moveUp 3.2s ease;
+}
+
+@keyframes moveUp{
+  0%{transform: translateY(15vh);opacity: 0;}
+  40%{transform: translateY(-2vh);}
+  60%{transform: translateY(1vh);}
+  100%{transform: translateY(0);opacity: 1;}
+}
+
+.name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 6rem;
+  font-family: Inter;
+  color: #DFDFFB;
+  text-align: center;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  gap: 0.4vw;
+  margin-left: auto;
+  margin-right: 2vw;
+}
+
+.icon {
+  fill: var(--svg-color--b5d0ea, #b5d0ea);
+  fill-rule: evenodd;
+  width: 3.5vw;
+  height: 3.5vh;
+}
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+
+.musicBlock{
+  display: flex;
+}
+
+.modal{
+  background: #222224;
+  border-radius: 34%;
+}
+
+/* BS */
+.mostPlayedTrack {
+  	text-align: center;
+  	font-size: 3rem;
+  	color: #bef6f0;
+  	font-family: Inter;
+    margin-left: 68%;
+  	position: absolute;
+  	border-radius: 34px;
+  	background-color: #222224;
+  	border: 1px solid rgba(107, 50, 101, 0.59);
+  	box-sizing: border-box;
+  	width: 25vw;
+  	height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.colorfulArray {
+  	display: block;
+  	text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
+    /* padding-bottom: 2rem; */
+}
+.image2Icon {
+  	border-radius: 3rem;
+  	width: 20rem;
+  	height: 20rem;
+  	object-fit: cover;
+    padding: 1rem;
+}
+.topTrack {
+  	font-size: 4rem;
+  	display: block;
+    /* padding-top: 2rem; */
+  	color: #89b5ef;
+}
+
