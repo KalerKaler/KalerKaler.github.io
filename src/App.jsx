@@ -64,16 +64,40 @@ export default function Main(){
                         </div>
                         {/* MUSIC PLAYER */}
                         <div className={styles.musicPlayer}>
-                            <img className={styles.albumArt} style={lastTrack && lastTrack.isNowPlaying ? {} : {animationPlayState:"paused"}} src={lastTrack && lastTrack.albumArt} alt="" />
-                            <b className={styles.songName}>{(lastTrack && (lastTrack.name.length > 12 ? lastTrack.name.substring(0, 11) + "..." : lastTrack.name)) || "Loading.."}</b>
-                            <b className={styles.artistName}>{lastTrack && lastTrack.artist}</b>
-                            <b className={styles.playingStatus}>{lastTrack && lastTrack.isNowPlaying ? "NOW PLAYING" : "LAST PLAYED"}</b>
-                            <b className={styles.by}>by</b>
-                            <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
+                            <img
+                                className={styles.albumArt}
+                                style={lastTrack && lastTrack.isNowPlaying ? {} : { animationPlayState: "paused" }}
+                                src={lastTrack && lastTrack.albumArt}
+                                alt=""
+                            />
+
+                            <div className={styles.trackInfo}>
+                                <b className={styles.playingStatus}>
+                                {lastTrack && lastTrack.isNowPlaying ? "NOW PLAYING" : "LAST PLAYED"}
+                                </b>
+
+                                <b className={styles.songName}>
+                                {(lastTrack &&
+                                    (lastTrack.name.length > 15
+                                    ? lastTrack.name.substring(0, 14) + "..."
+                                    : lastTrack.name)) ||
+                                    "Loading.."}
+                                </b>
+
+                                <div className={styles.byRow}>
+                                <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
+                                <b className={styles.by}>by</b>
+                                <b className={styles.artistName}>{lastTrack && lastTrack.artist}</b>
+                                </div>
+                            </div>
+
                             <div className={styles.seperatorLine} />
-                            <b className={styles.total}>Total<br/></b>
-                        <b className={styles.playCount}>{playCount || "-"}</b>
-                        <b className={styles.plays}>Plays</b>
+
+                            <div className={styles.totalPlays}>
+                                <b className={styles.total}>Total</b>
+                                <b className={styles.playCount}>{playCount || "-"}</b>
+                                <b className={styles.plays}>Plays</b>
+                            </div>
                         </div>
                     </div>
                     {/* Here starts AI code */}
