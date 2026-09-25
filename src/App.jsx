@@ -62,7 +62,7 @@ export default function Main(){
                                 </div>
                             </div>
                         </div>
-                        {/* MUSIC PLAYER */}
+                        {/* MUSIC PLAYER, NOW WITH AI */}
                         <div className={styles.musicPlayer}>
                             <img className={styles.albumArt} style={lastTrack && lastTrack.isNowPlaying ? {} : {animationPlayState:"paused"}} src={lastTrack && lastTrack.albumArt} alt="" />
                             <b className={styles.songName}>{lastTrack && lastTrack.name}</b>
