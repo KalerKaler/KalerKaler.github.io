@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   display: flex;
   transition: all 0.5s ease;
 }
@@ -36,7 +36,7 @@
   left: 0;
   position: absolute;
   z-index: -1;
-  animation: moveUp 3.2s ease;
+  animation: moveUp 4s ease-in-out;
 }
 
 @keyframes moveUp{
@@ -142,30 +142,26 @@
 
 /* Now plaung */
 .musicPlayer {
-  	position: relative;
   	text-align: left;
-  	font-size: 51px;
+  	font-size: 40px;
   	color: #fff;
   	font-family: Inter;
   	border-radius: 34px;
   	background-color: #222224;
   	border: 1px solid #6b3265;
   	box-sizing: border-box;
-  	width: 570px;
-  	height: 192px;
-    margin-left: 5rem;
-    margin-right: 4rem;
+  	width: 891px;
+  	height: 258px;
+	margin-right: -9vw;
 }
 
-.nowPlayingIcon {
-  	position: absolute;
-  	top: 19px;
-  	left: 13px;
-  	border-radius: 127px;
-  	width: 163px;
-  	height: 163px;
+.albumArt {
+  	border-radius: 50%;
+  	height: 21vh;
+	margin-top: 1.5vh;
+	margin-left: 1vw;
   	object-fit: cover;
-    animation: rotate 10s linear forwards infinite;
+	animation: rotate 10s linear forwards infinite;
 }
 
 @keyframes rotate{
@@ -173,57 +169,102 @@
   to{transform: rotate(360deg);}
 }
 
-.nowPlayingTitle {
+.songName {
   	position: absolute;
-  	top: 33px;
-  	left: 195px;
+  	top: 453px;
+  	left: 305px;
+  	font-size: 51px;
   	display: inline-block;
   	color: #80ddd2;
-  	width: 358px;
-  	height: 61px;
+  	width: 353px;
+  	height: 81px;
   	text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
 }
-.nowPlayingArtist {
+
+.artistName {
   	position: absolute;
-  	top: 120px;
-  	left: 276px;
-  	font-size: 21px;
+  	top: 558px;
+  	left: 401.45px;
+  	font-size: 39px;
   	display: inline-block;
   	color: #ccddfd;
-  	width: 270px;
-  	height: 46px;
   	text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
 }
-.nowPlaying {
+
+.playingStatus {
   	position: absolute;
-  	top: 19px;
-  	left: 157px;
+  	top: 425.04px;
+  	left: 265.42px;
   	font-size: 15px;
   	display: inline-block;
-  	width: 410px;
-  	height: 82px;
+  	width: 640.9px;
+  	height: 108.1px;
   	text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
   	opacity: 0.47;
 }
 .by {
   	position: absolute;
-  	top: 95px;
-  	left: 246px;
+  	top: 525.18px;
+  	left: 384.54px;
   	font-size: 19px;
   	display: inline-block;
-  	width: 61px;
-  	height: 25px;
+  	width: 95.4px;
+  	height: 32.9px;
   	text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
   	opacity: 0.34;
 }
 .cutenurosing {
   	position: absolute;
-  	top: 113px;
-  	left: 186px;
-  	width: 60px;
-  	height: 60px;
+  	top: 545.38px;
+  	left: 294.59px;
+  	width: 86.1px;
+  	height: 86.1px;
   	object-fit: cover;
 }
+.seperatorLine {
+  	position: absolute;
+  	top: 399.5px;
+  	left: 674.5px;
+  	border-right: 1px solid #3c3c3c;
+  	box-sizing: border-box;
+  	width: 1px;
+  	height: 250px;
+}
+.total {
+  	position: absolute;
+  	top: 415px;
+  	left: 693px;
+  	display: inline-block;
+  	color: #e4e8fe;
+  	text-align: center;
+  	width: 169px;
+  	height: 59px;
+}
+.playCount {
+  	position: absolute;
+  	top: 443px;
+  	left: 729px;
+  	font-size: 125px;
+  	display: inline-block;
+  	color: #b7ddf5;
+  	text-align: center;
+  	width: 97px;
+  	height: 121px;
+}
+.plays {
+  	position: absolute;
+  	top: 582px;
+  	left: 725px;
+  	display: flex;
+  	color: #e4e8fe;
+  	text-align: center;
+  	align-items: flex-end;
+  	justify-content: center;
+  	width: 121px;
+  	height: 51px;
+}
+
+
 
 /* End of now Playing */
 
@@ -251,14 +292,13 @@
   z-index: 1;
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
 .totalListeningStats {
   position: absolute;
-  top: 45px;
-  left: 40px;
-  width: 440px;
-  font-size: 44px;
+  top: 25px;
+  font-size: 65px;
   line-height: 1.15;
   font-weight: 700;
   margin: 0;
@@ -267,7 +307,7 @@
 
 .statItemH {
   position: absolute;
-  top: 240px;
+  top: 265px;
   left: 190px;
   color: #89b5ef;
   font-weight: 700;
@@ -285,38 +325,38 @@
 
 .statItemSongs {
   position: absolute;
-  top: 365px;
+  top: 385px;
   left: 190px;
   color: #b4c0fa;
   font-weight: 700;
 }
 
 .statItemSongs .value {
-  font-size: 60px;
+  font-size: 70px;
   line-height: 1;
 }
 
 .statItemSongs .unit {
-  font-size: 35px;
+  font-size: 40px;
   margin-left: 8px;
 }
 
 .statItemArtists {
   position: absolute;
-  top: 450px;
-  left: 190px;
+  top: 470px;
+  left: 160px;
   color: #ccddfd;
   font-weight: 700;
 }
 
 .statItemArtists .value {
-  font-size: 60px;
+  font-size: 70px;
   line-height: 1;
   margin-left: 4.5rem;
 }
 
 .statItemArtists .unit {
-  font-size: 35px;
+  font-size: 40px;
   margin-left: 8px;
 }
 /* AI CSS ends here */
@@ -327,14 +367,10 @@
   	text-align: left;
   	font-size: 72px;
   	font-family: Inter;
-  	/* position: absolute;
-  	top: 0px;
-  	left: 0px; */
   	border-radius: 34px;
   	background-color: #222224;
   	border: 1px solid rgba(107, 50, 101, 0.55);
   	box-sizing: border-box;
-  	width: 80vh\w;
   	height: 26.5vh;
     display: flex;
     justify-content: center;
@@ -407,3 +443,9 @@
 }
 
 /* Here ends Artist CSS */
+
+.musicAndArtist{
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+}

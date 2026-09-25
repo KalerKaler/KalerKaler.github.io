@@ -1,6 +1,14 @@
 import styles from './App.module.css';
+import { useState, useEffect } from 'react';
+import { useLastTrack } from './hooks/lastTrack';
+import trackInfo from './hooks/trackInfo';
 
 export default function Main(){
+
+    const lastTrack = useLastTrack("cwxesx");
+    const playCount = trackInfo(lastTrack);
+
+    // console.log(playCount);
     
     return(
         <>
@@ -40,6 +48,7 @@ export default function Main(){
             <section className={styles.section} style={{ "margin-top": "1.51rem", height: "500vh", "padding-top": "6rem"}}>
                 <div className={styles.musicBlock}>
                     <div className={styles.musicAndArtist}>
+                        {/* ARTIST CARD */}
                         <div className={styles.artistCards}>
                             <b className={styles.artistsText}>Top Artists</b>
                             <div className={styles.flex}>
@@ -53,13 +62,18 @@ export default function Main(){
                                 </div>
                             </div>
                         </div>
+                        {/* MUSIC PLAYER */}
                         <div className={styles.musicPlayer}>
-                            <img className={styles.nowPlayingIcon} src="image.png" alt="" />
-                            <b className={styles.nowPlayingTitle}>Colorful Array</b>
-                            <b className={styles.nowPlayingArtist}>Neuro-sama</b>
-                            <b className={styles.nowPlaying}>NOW PLAYING</b>
+                            <img className={styles.albumArt} style={lastTrack && lastTrack.isNowPlaying ? {} : {animationPlayState:"paused"}} src={lastTrack && lastTrack.albumArt} alt="" />
+                            <b className={styles.songName}>{lastTrack && lastTrack.name}</b>
+                            <b className={styles.artistName}>{lastTrack && lastTrack.artist}</b>
+                            <b className={styles.playingStatus}>{lastTrack && lastTrack.isNowPlaying ? "NOW PLAYING" : "LAST PLAYED"}</b>
                             <b className={styles.by}>by</b>
                             <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
+                            <div className={styles.seperatorLine} />
+                            <b className={styles.total}>Total<br/></b>
+                        <b className={styles.playCount}>5</b>
+                        <b className={styles.plays}>Plays</b>
                         </div>
                     </div>
                     {/* Here starts AI code */}
@@ -81,22 +95,22 @@ export default function Main(){
                         A 34 34 0 0 1 492 522
                         H 185
                         A 34 34 0 0 1 151 488
-                        V 270
+                        V 255
                         H 34
-                        A 34 34 0 0 1 0 236
+                        A 34 34 0 0 1 0 226
                         V 34
                         A 34 34 0 0 1 34 0
                         Z
                         "
                     fill="#222224"
                     stroke="#6B3265"
-                    strokeWidth="1.5"
+                    strokeWidth="1"
                     />
                 </svg>
 
                 {/* Content Overlay */}
                 <div className={styles.content}>
-                    <h2 className={styles.totalListeningStats}>Total Listening Stats on Record</h2>
+                    <h2 className={styles.totalListeningStats}>All my listening habits that are on record</h2>
 
                     <div className={styles.statItemH}>
                     <span className={styles.value}>125</span>
