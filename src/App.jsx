@@ -40,23 +40,90 @@ export default function Main(){
             <section className={styles.section} style={{ "margin-top": "1.51rem", height: "500vh", "padding-top": "6rem"}}>
                 <div className={styles.musicBlock}>
                     <div className={styles.musicAndArtist}>
+                        <div className={styles.artistCards}>
+                            <b className={styles.artistsText}>Top Artists</b>
+                            <div className={styles.flex}>
+                                <img className={styles.mostArtist} src="HEH8WGkaAAAeJay.jpg" alt="" />
+                                <div className={styles.felxCol}>
+                                    <img className={styles.secMostArtist} src="HEH8WGkaAAAeJay.jpg" alt="" />
+                                    <div className={`${styles.flex} ${styles.rm1} ${styles.minArtists}`}>
+                                        <img className={styles.thirMostArtist} src="HEH8WGkaAAAeJay.jpg" alt="" />
+                                        <img className={styles.forMostArtist} src="HEH8WGkaAAAeJay.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className={styles.musicPlayer}>
-			<div className={styles.musicPlayerChild} />
-			<img className={styles.image1Icon} alt="" />
-			<b className={styles.colorfulArray}>Colorful Array</b>
-			<b className={styles.neuroSama}>Neuro-sama</b>
-			<b className={styles.nowPlaying}>NOW PLAYING</b>
-			<b className={styles.by}>by</b>
-			<img className={styles.cutenurosing1Icon} alt="" />
-		</div>
+                            <img className={styles.nowPlayingIcon} src="image.png" alt="" />
+                            <b className={styles.nowPlayingTitle}>Colorful Array</b>
+                            <b className={styles.nowPlayingArtist}>Neuro-sama</b>
+                            <b className={styles.nowPlaying}>NOW PLAYING</b>
+                            <b className={styles.by}>by</b>
+                            <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
+                        </div>
                     </div>
+                    {/* Here starts AI code */}
+                <div className={styles.statsContainer}>
+                {/* Background SVG defining the 180° rotated L-shape with continuous outer border */}
+                <svg
+                    className={styles.shapeBg}
+                    viewBox="0 0 526 522"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                    d="
+                        M 34 0
+                        H 492
+                        A 34 34 0 0 1 526 34
+                        V 488
+                        A 34 34 0 0 1 492 522
+                        H 185
+                        A 34 34 0 0 1 151 488
+                        V 270
+                        H 34
+                        A 34 34 0 0 1 0 236
+                        V 34
+                        A 34 34 0 0 1 34 0
+                        Z
+                        "
+                    fill="#222224"
+                    stroke="#6B3265"
+                    strokeWidth="1.5"
+                    />
+                </svg>
+
+                {/* Content Overlay */}
+                <div className={styles.content}>
+                    <h2 className={styles.totalListeningStats}>Total Listening Stats on Record</h2>
+
+                    <div className={styles.statItemH}>
+                    <span className={styles.value}>125</span>
+                    <span className={styles.unit}>h</span>
+                    </div>
+
+                    <div className={styles.statItemSongs}>
+                    <span className={styles.value}>150</span>
+                    <span className={styles.unit}>songs</span>
+                    </div>
+
+                    <div className={styles.statItemArtists}>
+                    <span className={styles.value}>200</span>
+                    <span className={styles.unit}>Artists</span>
+                    </div>
+                </div>
+                </div>
+
+            {/* Here ends AI code */}
                 <div className={styles.mostPlayedTrack}>
                     <b className={styles.topTrack}>Top Track</b>
-                    <img className={styles.image2Icon} src="image.png" alt="" />
-                    <b className={styles.colorfulArray}>Colorful Array</b>
+                    <img className={styles.topImage} src="image.png" alt="" />
+                    <b className={styles.topSong}>Colorful Array</b>
                 </div>
             </div>
 
+            
             </section>
         </div>
         </>
