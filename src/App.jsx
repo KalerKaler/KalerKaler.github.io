@@ -1,14 +1,14 @@
 import styles from './App.module.css';
 import { useState, useEffect } from 'react';
 import { useLastTrack } from './hooks/lastTrack';
-import trackInfo from './hooks/trackInfo';
+import useTrackInfo from './hooks/trackInfo';
 
 export default function Main(){
 
     const lastTrack = useLastTrack("cwxesx");
-    const playCount = trackInfo(lastTrack);
+    const playCount = useTrackInfo(lastTrack);
 
-    // console.log(playCount);
+    console.log(playCount);
     
     return(
         <>
@@ -62,17 +62,17 @@ export default function Main(){
                                 </div>
                             </div>
                         </div>
-                        {/* MUSIC PLAYER, NOW WITH AI */}
+                        {/* MUSIC PLAYER */}
                         <div className={styles.musicPlayer}>
                             <img className={styles.albumArt} style={lastTrack && lastTrack.isNowPlaying ? {} : {animationPlayState:"paused"}} src={lastTrack && lastTrack.albumArt} alt="" />
-                            <b className={styles.songName}>{lastTrack && lastTrack.name}</b>
+                            <b className={styles.songName}>{(lastTrack && (lastTrack.name.length > 12 ? lastTrack.name.substring(0, 11) + "..." : lastTrack.name)) || "Loading.."}</b>
                             <b className={styles.artistName}>{lastTrack && lastTrack.artist}</b>
                             <b className={styles.playingStatus}>{lastTrack && lastTrack.isNowPlaying ? "NOW PLAYING" : "LAST PLAYED"}</b>
                             <b className={styles.by}>by</b>
                             <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
                             <div className={styles.seperatorLine} />
                             <b className={styles.total}>Total<br/></b>
-                        <b className={styles.playCount}>5</b>
+                        <b className={styles.playCount}>{playCount || "-"}</b>
                         <b className={styles.plays}>Plays</b>
                         </div>
                     </div>
