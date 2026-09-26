@@ -107,7 +107,6 @@
   	font-size: 3rem;
   	color: #bef6f0;
   	font-family: Inter;
-    /* margin-left: 68%; */
   	position: relative;
   	border-radius: 2.125rem;
   	background-color: #222224;
@@ -153,11 +152,11 @@
   background-color: #222224;
   border: 1px solid #6b3265;
   box-sizing: border-box;
-  width: 124%;
+  /* width: 124%; */
   max-width: 891px;
   padding: clamp(1rem, 2vw, 1.5rem);
   margin-right: -9vw;
-  margin-top: 2vh;
+  /* margin-top: 2vh; */
 }
 
 .albumArt {
@@ -280,8 +279,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   z-index: 0;
 }
 

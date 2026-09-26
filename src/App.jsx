@@ -105,33 +105,32 @@ export default function Main(){
                 {/* Background SVG defining the 180° rotated L-shape with continuous outer border */}
                 <svg
                     className={styles.shapeBg}
-                    viewBox="0 0 526 522"
+                    viewBox="0 0 526 602"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
                 >
                     <path
-                    d="
+                        d="
                         M 34 0
                         H 492
                         A 34 34 0 0 1 526 34
-                        V 488
-                        A 34 34 0 0 1 492 522
+                        V 538
+                        A 34 34 0 0 1 492 572
                         H 185
-                        A 34 34 0 0 1 151 488
-                        V 255
+                        A 34 34 0 0 1 151 538
+                        V 275
                         H 34
-                        A 34 34 0 0 1 0 226
+                        A 34 34 0 0 1 0 245
                         V 34
                         A 34 34 0 0 1 34 0
                         Z
                         "
-                    fill="#222224"
-                    stroke="#6B3265"
-                    strokeWidth="1"
+                        fill="#222224"
+                        stroke="#6B3265"
+                        strokeWidth="1"
                     />
                 </svg>
-
                 {/* Content Overlay */}
                 <div className={styles.content}>
                     <h2 className={styles.totalListeningStats}>All my listening habits that are on record</h2>
