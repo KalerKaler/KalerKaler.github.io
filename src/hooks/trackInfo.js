@@ -8,7 +8,7 @@ export default function useTrackInfo(track){
         if (!track) return;
         async function fetcher(){
             try {
-                const url = `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${api_key}&artist=${track.artist}&track=${track.name}&format=json&user=cwxesx`;
+                const url = `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${api_key}&artist=${track.artist}&track=${track.name}&format=json&user=cwxesx`;
                 const res = await fetch(url);
                 const dat = await res.json();
                 setPlayCount(dat.track.userplaycount);
