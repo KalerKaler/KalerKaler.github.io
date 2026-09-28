@@ -1,0 +1,445 @@
+.navBar{
+  width: 100vw;
+  height: 4.8vh;
+  backdrop-filter: blur(1rem);
+  background: rgba(50,50,50,0.5);
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  transition: all 0.5s ease;
+}
+
+.navBarShrink{
+  height: 3vh;
+}
+
+.kalerkaler {
+  	width: 255px;
+  	height: 40px;
+  	position: relative;
+  	font-size: 38px;
+  	display: inline-block;
+  	font-family: Inter;
+  	color: #E9AEF5;
+  	text-align: left;
+  	text-shadow: 2px 0 0 #000000, 0 2px 0 #000000, -2px 0 0 #000000, 0 -2px 0 #000000;
+    top: -1.4rem;
+    left: 0.8rem;
+}
+
+.beegNuro{
+  width: 100vw;
+  height: 100vh;
+  margin-top: 3.5vh;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  animation: moveUp 4s ease-in-out;
+}
+
+@keyframes moveUp{
+  0%{transform: translateY(15vh);opacity: 0;}
+  40%{transform: translateY(-2vh);}
+  60%{transform: translateY(1vh);}
+  100%{transform: translateY(0);opacity: 1;}
+}
+
+.name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 6rem;
+  font-family: Inter;
+  color: #DFDFFB;
+  text-align: center;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  gap: 0.4vw;
+  margin-left: auto;
+  margin-right: 2vw;
+}
+
+.icon {
+  fill: var(--svg-color--b5d0ea, #b5d0ea);
+  fill-rule: evenodd;
+  width: 3.5vw;
+  height: 3.5vh;
+}
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+
+/* End of front-page */
+
+.musicBlock{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.modal{
+  background: #222224;
+  border-radius: 34%;
+}
+
+
+/* Top song */
+.mostPlayedTrack {
+  	text-align: center;
+  	font-size: 3rem;
+  	color: #bef6f0;
+  	font-family: Inter;
+  	position: relative;
+  	border-radius: 2.125rem;
+  	background-color: #222224;
+  	border: 1px solid rgba(107, 50, 101, 0.59);
+  	box-sizing: border-box;
+  	width: 25vw;
+  	height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.topSong {
+  	display: block;
+  	text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
+    /* padding-bottom: 2rem; */
+}
+.topImage {
+  	border-radius: 3rem;
+  	width: 20rem;
+  	height: 20rem;
+  	object-fit: cover;
+    padding: 1rem;
+}
+.topTrack {
+  	font-size: 4rem;
+  	display: block;
+    /* padding-top: 2rem; */
+  	color: #89b5ef;
+}
+
+/* Now plaung */
+.musicPlayer {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  text-align: left;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  color: #fff;
+  font-family: Inter, sans-serif;
+  border-radius: 2rem;
+  background-color: #222224;
+  border: 1px solid #6b3265;
+  box-sizing: border-box;
+  /* width: 124%; */
+  max-width: 891px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  margin-right: -8vw;
+  /* margin-top: 2vh; */
+}
+
+.albumArt {
+  flex-shrink: 0;
+  border-radius: 50%;
+  width: clamp(80px, 15vw, 21vh);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+.trackInfo {
+  flex: 0 1 auto;
+  min-width: 0; /* lets ellipsis truncation work inside a flex child */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.playingStatus {
+  font-size: clamp(0.7rem, 0.9vw, 0.95rem);
+  letter-spacing: 0.05em;
+  text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
+  opacity: 0.47;
+  margin-left: -1.4vw;
+}
+
+.songName {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  color: #80ddd2;
+  text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.byRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 0.2em;
+}
+
+.by {
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
+  opacity: 0.34;
+  margin-top: -4vh;
+}
+
+.cutenurosing {
+  width: clamp(2rem, 4vw, 3.5rem);
+  height: clamp(2rem, 4vw, 3.5rem);
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-top: 4vh;
+}
+
+.artistName {
+  font-size: clamp(1.2rem, 2.2vw, 2.4rem);
+  color: #ccddfd;
+  text-shadow: 1px 0 0 #6b3265, 0 1px 0 #6b3265, -1px 0 0 #6b3265, 0 -1px 0 #6b3265;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seperatorLine {
+  align-self: stretch;
+  border-right: 1px solid #3c3c3c;
+  box-sizing: border-box;
+  width: 1px;
+}
+
+.totalPlays {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.total {
+  color: #e4e8fe;
+  text-align: center;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+}
+
+.playCount {
+  font-size: clamp(3rem, 6vw, 7.8rem);
+  color: #b7ddf5;
+  text-align: center;
+  line-height: 1;
+}
+
+.plays {
+  color: #e4e8fe;
+  text-align: center;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+}
+
+/* End of now Playing */
+
+/* AI CSS */
+.statsContainer {
+  position: relative;
+  width: 526px;
+  height: 556px;
+  font-family: 'Inter', sans-serif;
+  color: #80ddd2;
+}
+
+/* Fits exactly behind your text */
+.shapeBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100%;
+  height: 100%; */
+  height: 57vh;
+  z-index: 0;
+}
+
+/* @media (width < 1200px) {
+  .shapeBg{
+    height: 80vh;
+  }
+} */
+
+.content {
+  position: relative;
+  z-index: 1;
+  /* width: 100%;
+  height: 100%; */
+  text-align: center;
+}
+
+.totalListeningStats {
+  position: absolute;
+  top: 25px;
+  font-size: 65px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0;
+  color: #80ddd2;
+}
+
+.statItemH {
+  position: absolute;
+  top: 265px;
+  left: 190px;
+  color: #89b5ef;
+  font-weight: 700;
+}
+
+.statItemH .value {
+  font-size: 110px;
+  line-height: 1;
+}
+
+.statItemH .unit {
+  font-size: 65px;
+  margin-left: 6px;
+}
+
+.statItemSongs {
+  position: absolute;
+  top: 385px;
+  left: 170px;
+  color: #b4c0fa;
+  font-weight: 700;
+}
+
+.statItemSongs .value {
+  font-size: 70px;
+  line-height: 1;
+}
+
+.statItemSongs .unit {
+  font-size: 40px;
+  margin-left: 8px;
+}
+
+.statItemArtists {
+  position: absolute;
+  top: 470px;
+  left: 130px;
+  color: #ccddfd;
+  font-weight: 700;
+}
+
+.statItemArtists .value {
+  font-size: 70px;
+  line-height: 1;
+  margin-left: 4.5rem;
+}
+
+.statItemArtists .unit {
+  font-size: 40px;
+  margin-left: 8px;
+}
+/* AI CSS ends here */
+
+/* Here starts Artists CSS */
+
+.artistCards {
+  	text-align: left;
+  	font-size: 72px;
+  	font-family: Inter;
+  	border-radius: 34px;
+  	background-color: #222224;
+  	border: 1px solid rgba(107, 50, 101, 0.55);
+  	box-sizing: border-box;
+  	height: 26.5vh;
+    min-width: 480px;
+    min-height:250px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2rem;
+}
+.mostArtist {
+  	border-radius: 12%;
+  	width: 20vh;
+  	height: auto;
+    aspect-ratio: 1/1;
+  	object-fit: cover;
+}
+.secMostArtist {
+  	border-radius: 12%;
+  	width: 6vw;
+  	height: auto;
+    aspect-ratio: 1/1;
+  	object-fit: cover;
+}
+.thirMostArtist {
+  	border-radius: 18%;
+  	width: 3.5vw;
+    height: auto;
+  	aspect-ratio: 1/1;
+  	object-fit: cover;
+}
+.forMostArtist {
+  	border-radius: 18%;
+  	width: 3.5vw;
+  	height: auto;
+    aspect-ratio: 1/1;
+  	object-fit: cover;
+}
+.artistsText {
+  	display: inline-block;
+  	width: 18rem;
+  	color: #b4c0fa;
+}
+
+.flex{
+  display:flex;
+  gap: 2rem;
+}
+
+.rm1{
+  gap: 0.5rem;
+}
+
+.flexCol{
+  display: flex;
+  flex-direction: column;
+}
+
+.minArtists{
+  margin-left: -1rem;
+}
+
+/* Here ends Artist CSS */
+
+.musicAndArtist{
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+}
