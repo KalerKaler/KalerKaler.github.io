@@ -8,7 +8,6 @@ export default function useTopArtists(username){
 
     useEffect(() => {
         async function artists(){
-                    // console.log(await fetch(`http://localhost:5173/api/getDeezerImage?name=${encodeURIComponent("neurosama")}`).text());
             try{
                 const response = await fetch(lastfmUrl);
                 const data = await response.json();

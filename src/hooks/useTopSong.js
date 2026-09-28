@@ -11,9 +11,12 @@ export default function useTopSong(username){
             try{
                 const res = await fetch(api);
                 const dat = await res.json();
+                const itunesQuery = encodeURIComponent(`${dat.toptracks.track['0'].name}  ${dat.toptracks.track['0'].artist.name}`);
+                const image = await fetch(`/api/getAlbumArt?query=${itunesQuery}`);
+                const itunesImage = await image.json();
                 setTopTrack({
                     name: dat.toptracks.track['0'].name,
-                    image: dat.toptracks.track['0'].image['3']['#text']
+                    image: itunesImage?.image || dat.toptracks.track['0'].image['3']['#text']
                 })
             }catch (error){
                 console.log(error);

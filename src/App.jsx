@@ -13,8 +13,6 @@ export default function Main(){
     const topArtists = useTopArtists("cwxesx");
     const userInfo = useUserInfo("cwxesx");
     const topSong = useTopSong("cwxesx");
-
-    console.log(topSong);
     
     return(
         <>

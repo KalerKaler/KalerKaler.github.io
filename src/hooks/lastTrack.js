@@ -12,12 +12,15 @@ export function useLastTrack(username) {
         const data = await response.json();
         const raw = data.recenttracks.track;
         const track = Array.isArray(raw) ? raw[0] : raw;
+        const itunesQuery = encodeURIComponent(`${track.name}  ${track.artist.name}`);
+        const image = await fetch(`/api/getAlbumArt?query=${itunesQuery}`);
+        const itunesImage = await image.json();
         setLastTrack({
             artist: track.artist.name,
             name: track.name,
             url: track.url,
             isNowPlaying: track['@attr']?.nowplaying == 'true',
-            albumArt: track.image?.find(img => img.size === 'extralarge')?.['#text'] || null,
+            albumArt: itunesImage?.image || track.image?.find(img => img.size === 'extralarge')?.['#text'] || null,
             loved: track.loved == 1,
         });
       } catch (error) {
