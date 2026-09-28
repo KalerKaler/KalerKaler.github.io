@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function useTopSong(username){
     const api_key = import.meta.env.VITE_LASTFM_API_KEY;
-    const api = `http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${api_key}&format=json&period=overall&limit=1`
+    const api = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${api_key}&format=json&period=overall&limit=1`
 
     const [topTrack, setTopTrack] = useState(null);
 

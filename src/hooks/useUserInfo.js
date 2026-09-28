@@ -7,7 +7,7 @@ export default function useUserInfo(username){
     useEffect(() => {
         async function getInfo(){
             try{
-                const api = `http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${username}&api_key=${api_key}&format=json`;
+                const api = `https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${username}&api_key=${api_key}&format=json`;
                 const res = await fetch(api);
                 const dat = await res.json();
                 console.log(dat);
