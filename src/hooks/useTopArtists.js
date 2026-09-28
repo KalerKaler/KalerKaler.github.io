@@ -18,7 +18,7 @@ export default function useTopArtists(username){
                     rank: artist['@attr']?.rank,
                     name: artist.name,
                     link: artist.url,
-                    image: await (await fetch(`/api/getDeezerImage?artistName=${encodeURIComponent(artist.name)}`)).json()
+                    image: (await (await fetch(`/api/getDeezerImage?artistName=${encodeURIComponent(artist.name)}`)).json()).image
                 })));
 
                 setTopArtists(artists);

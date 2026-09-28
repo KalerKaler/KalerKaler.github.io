@@ -1,4 +1,4 @@
-async function getDeezerImage(req, res) {
+export default async function getDeezerImage(req, res) {
     const {artistName} = req.query;
     try {
         const result = await fetch(`https://api.deezer.com/search/artist?q=${encodeURIComponent(artistName)}&limit=1`);
