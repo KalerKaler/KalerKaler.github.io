@@ -2,13 +2,15 @@ import styles from './App.module.css';
 import { useState, useEffect } from 'react';
 import { useLastTrack } from './hooks/lastTrack';
 import useTrackInfo from './hooks/trackInfo';
+import useTopArtists from './hooks/useTopArtists';
 
 export default function Main(){
 
     const lastTrack = useLastTrack("cwxesx");
     const playCount = useTrackInfo(lastTrack);
+    const topArtists = useTopArtists("cwxesx");
 
-    console.log(playCount);
+    console.log(topArtists);
     
     return(
         <>
