@@ -31,9 +31,9 @@
 
 .beegNuro{
   width: 100vw;
-  margin-top: 0vh;
-  left: 0;
   position: absolute;
+  left: 0;
+  bottom: 0;
   z-index: -1;
   animation: moveUp 4s ease-in-out;
 }
