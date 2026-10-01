@@ -82,8 +82,8 @@ export default function Main(){
 
                                 <b className={styles.songName}>
                                 {(lastTrack &&
-                                    (lastTrack.name.length > 15
-                                    ? lastTrack.name.substring(0, 14) + "..."
+                                    (lastTrack.name.length > 17
+                                    ? lastTrack.name.substring(0, 16) + "..."
                                     : lastTrack.name)) ||
                                     "Loading.."}
                                 </b>
@@ -162,6 +162,13 @@ export default function Main(){
                     <img className={styles.topImage} src={(topSong && topSong.image) || "image.png"} alt="" />
                     <b className={styles.topSong}>{(topSong && topSong.name) || "Loading..."}</b>
                 </div>
+            </div>
+
+            <div className={styles.certifications}>
+                <div className={styles.dropdown}>
+                    <b className={styles.all}>ALL</b>
+                </div>
+                <b className={styles.certifications2}>CERTIFICATIONS</b>
             </div>
 
             

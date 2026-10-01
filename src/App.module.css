@@ -84,6 +84,9 @@
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* End of front-page */
@@ -152,9 +155,9 @@
   border: 1px solid #6b3265;
   box-sizing: border-box;
   /* width: 124%; */
-  max-width: 891px;
   padding: clamp(1rem, 2vw, 1.5rem);
-  margin-right: -8vw;
+  margin-right: -7vw;
+  position: relative;
   /* margin-top: 2vh; */
 }
 
@@ -174,7 +177,7 @@
 
 .trackInfo {
   flex: 0 1 auto;
-  min-width: 0; /* lets ellipsis truncation work inside a flex child */
+  width: 430px; /* lets ellipsis truncation work inside a flex child */
   display: flex;
   flex-direction: column;
   gap: 0.25em;
@@ -290,11 +293,17 @@
 } */
 
 .content {
-  position: relative;
+  position: absolute;
+  top: 0;
   z-index: 1;
   width: 100%;
   height: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+  /* justify-content: center;  */
 }
 
 .totalListeningStats {
@@ -304,20 +313,22 @@
   line-height: 1.15;
   font-weight: 700;
   margin: 0;
+  margin-top: -2rem;
   padding:0.2rem;
   color: #80ddd2;
 }
 
 .statItemH {
-  position: absolute;
+  /* position: absolute;
   top: 25vh;
-  left: 190px;
+  left: 190px; */
+  margin-left: 7vw;
   color: #89b5ef;
   font-weight: 700;
 }
 
 .statItemH .value {
-  font-size: 110px;
+  font-size: clamp(80px, 15vh, 150px);
   line-height: 1;
 }
 
@@ -327,15 +338,16 @@
 }
 
 .statItemSongs {
-  position: absolute;
+  /* position: absolute;
   top: 37vh;
-  left: 8vw;
+  left: 8vw; */
+  margin-left: 8.5vw;
   color: #b4c0fa;
   font-weight: 700;
 }
 
 .statItemSongs .value {
-  font-size: 70px;
+  font-size: clamp(50px, 20vh, 75px);
   line-height: 1;
 }
 
@@ -345,17 +357,17 @@
 }
 
 .statItemArtists {
-  position: absolute;
+  /* position: absolute;
   top: 45vh;
-  left: 5vw;
+  left: 5vw; */
+  margin-left: 6vw;
   color: #ccddfd;
   font-weight: 700;
 }
 
 .statItemArtists .value {
-  font-size: 70px;
+  font-size: clamp(55px, 20vh, 70px);
   line-height: 1;
-  margin-left: 4.5rem;
 }
 
 .statItemArtists .unit {
@@ -438,3 +450,49 @@
 	flex-direction: column;
 	gap: 2vh;
 }
+
+/* Certifications */
+
+.certifications {
+  	position: relative;
+  	text-align: center;
+  	font-size: 51px;
+  	color: #bef6f0;
+  	font-family: Inter;
+  	border-radius: 34px;
+  	background-color: #222224;
+  	border: 1px solid #6b3265;
+  	box-sizing: border-box;
+  	width: 95vw;
+  	height: 50vh;
+    margin-top: 2vh;
+    display: flex;
+    justify-content:center;
+    text-align: center;
+    padding: 4vh;
+}
+.dropdown {
+  	border-radius: 34px;
+  	background-color: rgba(92, 92, 102, 0.67);
+  	width: 161.2px;
+  	height: 69px;
+}
+.all {
+  	/* position: absolute;
+  	top: 0px;
+  	left: 30.02px; */
+  	display: inline-block;
+  	width: 111.2px;
+  	height: 49px;
+}
+.certifications2 {
+  	/* position: absolute;
+  	top: 42px;
+  	left: 744px; */
+  	display: inline-block;
+  	color: #b4c0fa;
+  	width: 449px;
+  	height: 71px;
+}
+
+
