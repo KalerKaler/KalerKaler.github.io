@@ -145,8 +145,8 @@ export default function Main(){
                     </div>
 
                     <div className={styles.statItemSongs}>
-                    <span className={styles.value}>{(userInfo && userInfo.trackCount) || "--"}</span>
-                    <span className={styles.unit}>songs</span>
+                        <span className={styles.value}>{(userInfo && userInfo.trackCount) || "--"}</span>
+                        <span className={styles.unit}>songs</span>
                     </div>
 
                     <div className={styles.statItemArtists}>

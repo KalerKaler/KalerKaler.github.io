@@ -316,6 +316,8 @@
   margin-top: -2rem;
   padding:0.2rem;
   color: #80ddd2;
+  display: flex;
+  flex-direction: column;
 }
 
 .statItemH {
@@ -341,7 +343,9 @@
   /* position: absolute;
   top: 37vh;
   left: 8vw; */
-  margin-left: 8.5vw;
+  margin-left: auto;
+  /* text-align: right; */
+  /* margin-left: 8.5vw; */
   color: #b4c0fa;
   font-weight: 700;
 }
