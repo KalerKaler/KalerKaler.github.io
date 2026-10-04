@@ -275,7 +275,7 @@
 
 .hiddenLink:hover{
   filter: saturate(1.5);
-  transform: translateX(0.5vh) translateY(-0.5vh);
+  transform: translateX(0.1vh) translateY(-0.1vh);
 }
 
 /* End of now Playing */
