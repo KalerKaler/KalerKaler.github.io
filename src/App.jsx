@@ -56,12 +56,12 @@ export default function Main(){
                         <div className={styles.artistCards}>
                             <b className={styles.artistsText}>Top Artists</b>
                             <div className={styles.flex}>
-                                <a href={topArtists && topArtists[0].link} target='_blank'><img className={styles.mostArtist} src={topArtists && topArtists[0].image} alt="" /></a>
+                                <a href={topArtists && topArtists[0].link} target='_blank' className={styles.hiddenLink}><img className={styles.mostArtist} src={(topArtists && topArtists[0].image) || "FUByEvil.jpg"} alt="" /></a>
                                 <div className={styles.felxCol}>
-                                    <a href={topArtists && topArtists[1].link} target='_blank'><img className={styles.secMostArtist} src={topArtists && topArtists[1].image} alt="" /></a>
+                                    <a href={topArtists && topArtists[1].link} target='_blank' className={styles.hiddenLink}><img className={styles.secMostArtist} src={(topArtists && topArtists[1].image) || "FUByEvil.jpg"} alt="" /></a>
                                     <div className={`${styles.flex} ${styles.rm1} ${styles.minArtists}`}>
-                                        <a href={topArtists && topArtists[2].link} target='_blank'><img className={styles.thirMostArtist} src={topArtists && topArtists[2].image} alt="" /></a>
-                                        <a href={topArtists && topArtists[3].link} target='_blank'><img className={styles.forMostArtist} src={topArtists && topArtists[3].image} alt="" /></a>
+                                        <a href={topArtists && topArtists[2].link} target='_blank' className={styles.hiddenLink}><img className={styles.thirMostArtist} src={(topArtists && topArtists[2].image) || "FUByEvil.jpg"} alt="" /></a>
+                                        <a href={topArtists && topArtists[3].link} target='_blank' className={styles.hiddenLink}><img className={styles.forMostArtist} src={(topArtists && topArtists[3].image) || "FUByEvil.jpg"} alt="" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -80,18 +80,18 @@ export default function Main(){
                                 {lastTrack && lastTrack.isNowPlaying ? "NOW PLAYING" : "LAST PLAYED"}
                                 </b>
 
-                                <b className={styles.songName}>
+                                <a href={lastTrack && lastTrack.url} className={styles.hiddenLink} target="_blank"><b className={styles.songName}>
                                 {(lastTrack &&
-                                    (lastTrack.name.length > 17
-                                    ? lastTrack.name.substring(0, 16) + "..."
+                                    (lastTrack.name.length > 18
+                                    ? lastTrack.name.substring(0, 17) + "..."
                                     : lastTrack.name)) ||
                                     "Loading.."}
-                                </b>
+                                </b></a>
 
                                 <div className={styles.byRow}>
                                 <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
                                 <b className={styles.by}>by</b>
-                                <b className={styles.artistName}>{lastTrack && lastTrack.artist}</b>
+                                <a href={lastTrack && `https://last.fm/music/${lastTrack.artist}`} className={styles.hiddenLink} target='_blank'><b className={styles.artistName}>{lastTrack && lastTrack.artist}</b></a>
                                 </div>
                             </div>
 
@@ -159,8 +159,8 @@ export default function Main(){
             {/* Here ends AI code */}
                 <div className={styles.mostPlayedTrack}>
                     <b className={styles.topTrack}>Top Track</b>
-                    <img className={styles.topImage} src={(topSong && topSong.image) || "image.png"} alt="" />
-                    <b className={styles.topSong}>{(topSong && topSong.name) || "Loading..."}</b>
+                    <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><img className={styles.topImage} src={(topSong && topSong.image) || "image.png"} alt="" /></a>
+                    <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><b className={styles.topSong}>{(topSong && topSong.name) || "Loading..."}</b></a>
                 </div>
             </div>
 

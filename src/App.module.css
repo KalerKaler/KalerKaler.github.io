@@ -265,6 +265,19 @@
   font-size: clamp(1rem, 1.4vw, 1.4rem);
 }
 
+.hiddenLink{
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  color: inherit;
+  display: inline-block;
+}
+
+.hiddenLink:hover{
+  filter: saturate(1.5);
+  transform: translateX(0.5vh) translateY(-0.5vh);
+}
+
 /* End of now Playing */
 
 /* AI CSS */
@@ -286,12 +299,6 @@
   z-index: 0;
 }
 
-/* @media (width < 1200px) {
-  .shapeBg{
-    height: 80vh;
-  }
-} */
-
 .content {
   position: absolute;
   top: 0;
@@ -302,8 +309,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3rem;
-  /* justify-content: center;  */
+  padding-top: 3vh;
 }
 
 .totalListeningStats {
@@ -340,12 +346,8 @@
 }
 
 .statItemSongs {
-  /* position: absolute;
-  top: 37vh;
-  left: 8vw; */
   margin-left: auto;
-  /* text-align: right; */
-  /* margin-left: 8.5vw; */
+  text-align: right;
   color: #b4c0fa;
   font-weight: 700;
 }
@@ -361,12 +363,10 @@
 }
 
 .statItemArtists {
-  /* position: absolute;
-  top: 45vh;
-  left: 5vw; */
   margin-left: 6vw;
   color: #ccddfd;
   font-weight: 700;
+  padding-bottom: 2.2vh;
 }
 
 .statItemArtists .value {

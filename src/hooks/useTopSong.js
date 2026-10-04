@@ -16,7 +16,8 @@ export default function useTopSong(username){
                 const itunesImage = await image.json();
                 setTopTrack({
                     name: dat.toptracks.track['0'].name,
-                    image: itunesImage?.image || dat.toptracks.track['0'].image['3']['#text']
+                    image: itunesImage?.image || dat.toptracks.track['0'].image['3']['#text'],
+                    url: dat.toptracks.track['0'].url
                 })
             }catch (error){
                 console.log(error);
