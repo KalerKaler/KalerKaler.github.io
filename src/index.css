@@ -4,4 +4,5 @@ body{
   background-image: "HEH8WGkaAAAeJay.jpg";
   background: #322A27;
   font-style: inter;
+  max-width: 100vw;
 }

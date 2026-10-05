@@ -213,7 +213,7 @@ export default function Main(){
                     ))}
                 </div>
             </div>
-            <img src="bannerDark.jpg"/>
+            <img src="bannerDark.jpg" style={{width: "100vw"}}/>
             </section>
         </div>
         </>
