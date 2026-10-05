@@ -274,7 +274,7 @@
 }
 
 .hiddenLink:hover{
-  filter: saturate(1.5);
+  filter: saturate(1.5) brightness(1.2);
   transform: translateX(0.1vh) translateY(-0.1vh);
 }
 
@@ -468,12 +468,13 @@
   	border: 1px solid #6b3265;
   	box-sizing: border-box;
   	width: 95vw;
-  	height: 50vh;
+  	/* height: 50vh; */
     margin-top: 2vh;
-    display: flex;
+    /* display: flex; */
     justify-content:center;
     text-align: center;
     padding: 4vh;
+    gap: 1rem;
 }
 .dropdown {
   	border-radius: 34px;
@@ -481,22 +482,58 @@
   	width: 161.2px;
   	height: 69px;
 }
-.all {
+.dropdownSelection {
   	/* position: absolute;
   	top: 0px;
   	left: 30.02px; */
   	display: inline-block;
-  	width: 111.2px;
-  	height: 49px;
 }
-.certifications2 {
+.certHeading {
   	/* position: absolute;
   	top: 42px;
   	left: 744px; */
   	display: inline-block;
   	color: #b4c0fa;
-  	width: 449px;
-  	height: 71px;
 }
 
+.certLabels{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+}
 
+.certContainer{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.certDiv{
+  width: 28vw;
+  height: 40vh;
+  background: rgba(42, 30, 67, 0.336);
+  border: solid 0.2rem #80ddd2;
+  border-radius: 31px;
+  padding: 0.1rem;
+  /* margin: 1.2rem; */
+}
+
+.certImage{
+  /* width: 15vw; */
+  /* width: 70%; */
+  height: 70%;
+  object-fit: cover;
+  border-radius: 11px;
+  /* padding: 2rem; */
+}
+
+.certDivHeader{
+  font-weight: 900;
+  padding: 0;
+  margin: 0.9rem;
+  color: #b4c0fa;
+}

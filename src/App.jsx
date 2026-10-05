@@ -13,9 +13,10 @@ export default function Main(){
     const topArtists = useTopArtists("cwxesx");
     const userInfo = useUserInfo("cwxesx");
     const topSong = useTopSong("cwxesx");
+    const [certs, setCerts] = useState([]);
 
     useEffect(() => {
-        fetch('/api/getCertificates').then(r => r.json()).then(console.log);
+        fetch('/imageLabelling.json').then(r => r.json()).then(setCerts);
     }, []);
     
     return(
@@ -168,11 +169,20 @@ export default function Main(){
                 </div>
             </div>
 
+            {/* Cetificates */}
+
             <div className={styles.certifications}>
-                <div className={styles.dropdown}>
-                    <b className={styles.all}>ALL</b>
+                <div className={styles.certLabels}>
+                    <div className={styles.dropdown}>
+                        <b className={styles.dropdownSelection}>ALL</b>
+                    </div>
+                    <b className={styles.certHeading}>CERTIFICATIONS</b>
                 </div>
-                <b className={styles.certifications2}>CERTIFICATIONS</b>
+                <div className={styles.certContainer}>
+                    {certs.map(cert => (
+                        <div className={styles.certDiv}><p className={styles.certDivHeader}>{cert.label}</p><img className={styles.certImage} src={cert.src}/></div>
+                    ))}
+                </div>
             </div>
 
             
