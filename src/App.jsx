@@ -1,5 +1,5 @@
 import styles from './App.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLastTrack } from './hooks/lastTrack';
 import useTrackInfo from './hooks/trackInfo';
 import useTopArtists from './hooks/useTopArtists';
@@ -14,10 +14,26 @@ export default function Main(){
     const userInfo = useUserInfo("cwxesx");
     const topSong = useTopSong("cwxesx");
     const [certs, setCerts] = useState([]);
-
+    const [submenu, setSubmenu] = useState(false);
+    const wrapperRef = useRef(null);
+    
     useEffect(() => {
-        fetch('/imageLabelling.json').then(r => r.json()).then(setCerts);
-    }, []);
+        if (!open) return;
+        const onClick = (e) => {
+            if (!wrapperRef.current?.contains(e.target)) setSubmenu(false);
+        };
+        const onKey = (e) => e.key === "Escape" && setSubmenu(false);
+        document.addEventListener("mousedown", onClick);
+        document.addEventListener("keydown", onKey);
+        return () => {
+            document.removeEventListener("mousedown", onClick);
+            document.removeEventListener("keydown", onKey);
+        };
+    }, [submenu]);
+    
+        useEffect(() => {
+            fetch('/imageLabelling.json').then(r => r.json()).then(setCerts);
+        }, [])
     
     return(
         <>
@@ -173,8 +189,15 @@ export default function Main(){
 
             <div className={styles.certifications}>
                 <div className={styles.certLabels}>
-                    <div className={styles.dropdown}>
-                        <b className={styles.dropdownSelection}>ALL</b>
+                    <div className={styles.dropdown} ref={wrapperRef}>
+                        <b onClick={() => setSubmenu(o => !o)} className={styles.dropdownSelection}>ALL</b>
+                        {submenu && (
+                            <ul className={styles.certsSubmenu}>
+                                <li>Technical</li>
+                                <li>Hackathon</li>
+                                <li>Extracurricular</li>
+                            </ul>
+                        )}
                     </div>
                     <b className={styles.certHeading}>CERTIFICATIONS</b>
                 </div>
