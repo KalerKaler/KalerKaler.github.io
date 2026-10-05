@@ -16,6 +16,13 @@ export default function Main(){
     const [certs, setCerts] = useState([]);
     const [submenu, setSubmenu] = useState(false);
     const wrapperRef = useRef(null);
+    const [certCat, setCertCat] = useState("ALL");
+    const certCategories = ["ALL", ...new Set(certs.map(cert => cert.category))];
+
+    const handleSelect = (category) => {
+        setCertCat(category);
+        setSubmenu(false);
+    };
     
     useEffect(() => {
         if (!open) return;
@@ -66,11 +73,11 @@ export default function Main(){
 
             </nav>
         <div className={styles.container}>
-            <section className={styles.section}>
+            <section className={styles.section} style={{height: "100vh"}}>
                 <h2 className={styles.name}>Rajveer Singh Kaler</h2>
                 <img className={styles.beegNuro} src='beegNuro.png'/>
             </section>
-            <section className={styles.section} style={{ "margin-top": "1.51rem", height: "500vh", "padding-top": "6rem"}}>
+            <section className={styles.section} style={{ "margin-top": "1.51rem","height": "200vh", "padding-top": "6rem"}}>
                 <div className={styles.musicBlock}>
                     <div className={styles.musicAndArtist}>
                         {/* ARTIST CARD */}
@@ -190,25 +197,23 @@ export default function Main(){
             <div className={styles.certifications}>
                 <div className={styles.certLabels}>
                     <div className={styles.dropdown} ref={wrapperRef}>
-                        <b onClick={() => setSubmenu(o => !o)} className={styles.dropdownSelection}>ALL</b>
-                        {submenu && (
-                            <ul className={styles.certsSubmenu}>
-                                <li>Technical</li>
-                                <li>Hackathon</li>
-                                <li>Extracurricular</li>
-                            </ul>
-                        )}
+                        <b onClick={() => setSubmenu(o => !o)} className={styles.dropdownSelection}>{certCat}</b>
+                        <ul className={`${styles.certsSubmenu} ${submenu ? styles.open: ""}`}>
+                            {certCategories.map(category => (
+                                <li onClick={() => handleSelect(category)}>{category}</li>
+                            ))}
+                        </ul>
+                        
                     </div>
                     <b className={styles.certHeading}>CERTIFICATIONS</b>
                 </div>
                 <div className={styles.certContainer}>
                     {certs.map(cert => (
-                        <div className={styles.certDiv}><p className={styles.certDivHeader}>{cert.label}</p><img className={styles.certImage} src={cert.src}/></div>
+                        (certCat == "ALL" || cert.category == certCat) && <div className={styles.certDiv}><p className={styles.certDivHeader}>{cert.label}</p><img className={styles.certImage} src={cert.src}/></div>
                     ))}
                 </div>
             </div>
-
-            
+            <img src="bannerDark.jpg"/>
             </section>
         </div>
         </>

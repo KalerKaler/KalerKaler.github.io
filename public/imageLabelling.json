@@ -1,13 +1,13 @@
 [
-    {"label": "FCC Python", "src": "fccPython.png"},
-    {"label": "Chitkara DBMS", "src": "dbms.jpg"},
-    {"label": "Peer Tutoring", "src": "peerTutoring.jpg"},
-    {"label": "Networking", "src": "F2F-4.jpg"},
-    {"label": "Game Development", "src": "Infosys.jpg"},
-    {"label": "RHOA", "src": "red-hat-openshift-applications.jpg"},
-    {"label": "Red Hat Python", "src": "redhatPython.jpg"},
-    {"label": "Hackathon", "src": "VaultHeist.jpg"},
-    {"label": "CISCO", "src": "cisco.jpg"},
-    {"label": "Cyber Security", "src": "courseraCyberSecurity.png"},
-    {"label": "Earth Day", "src": "earthDay.png"}
+    {"label": "FCC Python", "src": "fccPython.png", "category": "Technical"},
+    {"label": "Chitkara DBMS", "src": "dbms.jpg", "category": "Technical"},
+    {"label": "Peer Tutoring", "src": "peerTutoring.jpg", "category": "Extracurricular"},
+    {"label": "Networking", "src": "F2F-4.jpg", "category": "Technical"},
+    {"label": "Game Development", "src": "Infosys.jpg", "category": "Technical"},
+    {"label": "RHOA", "src": "red-hat-openshift-applications.jpg", "category": "Technical"},
+    {"label": "Red Hat Python", "src": "redhatPython.jpg", "category": "Technical"},
+    {"label": "Hackathon", "src": "VaultHeist.jpg", "category": "Hackathon"},
+    {"label": "CISCO", "src": "cisco.jpg", "category": "Technical"},
+    {"label": "Cyber Security", "src": "courseraCyberSecurity.png", "category": "Technical"},
+    {"label": "Earth Day", "src": "earthDay.png", "category": "Extracurricular"}
 ]
