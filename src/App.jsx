@@ -13,6 +13,10 @@ export default function Main(){
     const topArtists = useTopArtists("cwxesx");
     const userInfo = useUserInfo("cwxesx");
     const topSong = useTopSong("cwxesx");
+
+    useEffect(() => {
+        fetch('/api/getCertificates').then(r => r.json()).then(console.log);
+    }, []);
     
     return(
         <>
