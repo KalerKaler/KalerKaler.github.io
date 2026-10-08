@@ -11,28 +11,25 @@
   transition: all 0.5s ease;
 }
 
-.navBarShrink{
-  height: 3vh;
-}
-
 .kalerkaler {
-  	width: 255px;
-  	height: 40px;
+    margin: 0;
   	position: relative;
-  	font-size: 38px;
+  	font-size: clamp(2rem, 3vw, 3rem);
   	display: inline-block;
   	font-family: Inter;
   	color: #E9AEF5;
   	text-align: left;
   	text-shadow: 2px 0 0 #000000, 0 2px 0 #000000, -2px 0 0 #000000, 0 -2px 0 #000000;
-    top: -1.4rem;
-    left: 0.8rem;
+    /* position: absolute;
+    top: -2.5rem;
+    left: 0.8rem; */
 }
 
 .beegNuro{
-  width: 100vw;
+  width: auto;
+  height: 95vh;
   position: absolute;
-  left: 0;
+  /* left: 0; */
   bottom: 0;
   z-index: -1;
   animation: moveUp 4s ease-in-out;
@@ -45,23 +42,32 @@
   100%{transform: translateY(0);opacity: 1;}
 }
 
-.name {
+.frontText{
   position: absolute;
+  text-align: center;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+}
+
+.name {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-50%, -80%);
+  font-size: clamp(5rem, 40vw, 6rem);
   font-size: 6rem;
   font-family: Inter;
   color: #DFDFFB;
-  text-align: center;
-  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+}
+
+.subHeading{
+  color: rgb(228, 130, 205);
+  top: 65%;
+  font-size: 1.1rem;
 }
 
 .iconBox {
   display: flex;
   align-items: center;
-  gap: 0.4vw;
+  gap: clamp(10px, 0.6vw, 50px);
   margin-left: auto;
   margin-right: 2vw;
 }
@@ -69,29 +75,30 @@
 .icon {
   fill: var(--svg-color--b5d0ea, #b5d0ea);
   fill-rule: evenodd;
-  width: 3.5vw;
-  height: 3.5vh;
+  width: clamp(2rem, 3.5vw, 2.5rem);
+  height: auto;
 }
 
-.container {
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+.snapContainer {
+  overflow-x: hidden;
 }
 
 .section {
   height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  position: relative;
+  /* scroll-snap-align: start;
+  scroll-snap-stop: always; 
+  position: relative; */
   display:flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 
 /* End of front-page */
 
 .musicBlock{
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   justify-content: center;
 }
@@ -115,11 +122,11 @@
   	box-sizing: border-box;
   	width: 25vw;
   	height: auto;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    display: none;
 }
 .topSong {
   	display: block;
@@ -155,15 +162,16 @@
   box-sizing: border-box;
   /* width: 124%; */
   padding: clamp(1rem, 2vw, 1.5rem);
-  margin-right: -7vw;
+  margin-right: 0;
   position: relative;
+  width: 95vw;
   /* margin-top: 2vh; */
 }
 
 .albumArt {
   flex-shrink: 0;
   border-radius: 50%;
-  width: clamp(80px, 15vw, 21vh);
+  width: clamp(98px, 15vw, 150px);
   aspect-ratio: 1 / 1;
   object-fit: cover;
   animation: rotate 15s linear infinite;
@@ -235,6 +243,7 @@
   border-right: 1px solid #3c3c3c;
   box-sizing: border-box;
   width: 1px;
+  margin-left: 10%;
 }
 
 .totalPlays {
@@ -281,6 +290,7 @@
 
 /* AI CSS */
 .statsContainer {
+  display: none;
   position: relative;
   width:30.5rem;
   font-family: 'Inter', sans-serif;
@@ -397,10 +407,11 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    display: none;
 }
 .mostArtist {
-  	border-radius: 12%;
-  	height: clamp(210px, 22vh, 300px);
+  border-radius: 12%;
+  height: clamp(210px, 22vh, 300px);
     aspect-ratio: 1/1;
   	object-fit: cover;
 }
@@ -415,20 +426,20 @@
     height: clamp(69px, 8vh, 120px);
   	aspect-ratio: 1/1;
   	object-fit: cover;
-}
+  }
 .forMostArtist {
-  	border-radius: 18%;
+  border-radius: 18%;
     height: clamp(69px, 8vh, 120px);
     aspect-ratio: 1/1;
   	object-fit: cover;
-}
+  }
 .artistsText {
   	display: inline-block;
   	width: 18rem;
   	color: #b4c0fa;
-}
+  }
 
-.flex{
+  .flex{
   display:flex;
   gap: 2rem;
 }
@@ -449,7 +460,7 @@
 /* Here ends Artist CSS */
 
 .musicAndArtist{
-	display: flex;
+  display: flex;
 	flex-direction: column;
 	gap: 2vh;
 }
@@ -457,7 +468,7 @@
 /* Certifications */
 
 .certifications {
-  	position: relative;
+  position: relative;
   	text-align: center;
   	font-size: 51px;
   	color: #bef6f0;
@@ -474,9 +485,9 @@
     text-align: center;
     padding: 4vh;
     gap: 1rem;
-}
+  }
 .dropdown {
-  	border-radius: 34px;
+  border-radius: 34px;
   	background-color: rgba(92, 92, 102, 0.67);
   	/* width: 161.2px;
   	height: 69px; */
@@ -485,12 +496,12 @@
     padding: 0.5rem;
 }
 .dropdownSelection {
-  	/* position: absolute;
+  /* position: absolute;
   	top: 0px;
   	left: 30.02px; */
   	display: inline-block;
     cursor: pointer;
-}
+  }
 .certHeading {
   	/* position: absolute;
   	top: 42px;
@@ -517,7 +528,7 @@
 }
 
 .certDiv{
-  width: 28vw;
+  width: clamp(300px, 28vw, 400px);
   height: 40vh;
   background: rgba(42, 30, 67, 0.336);
   border: solid 0.2rem #80ddd2;
@@ -529,7 +540,7 @@
 .certImage{
   /* width: 15vw; */
   /* width: 70%; */
-  height: 70%;
+  height: 15vh;
   object-fit: cover;
   border-radius: 11px;
   /* padding: 2rem; */
@@ -572,4 +583,16 @@
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 15%;
+}
+
+@media (min-aspect-ratio: 16/9){
+  .statsContainer{display: block;}
+  .musicPlayer{margin-right: -7vw;}
+  .musicBlock{flex-direction: row;}
+  .subHeading{top: 58%;font-size: 1.6rem;}
+  /* .snapContainer { scroll-snap-type: y mandatory; } */
+  .artistCards {display: flex;}
+  .mostPlayedTrack {display: flex;}
+  .musicPlayer {width: auto;}
+  .certImage {height: 60%;}
 }

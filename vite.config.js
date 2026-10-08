@@ -6,14 +6,12 @@ function localApi() {
   return {
     name: 'local-api',
     configureServer(server) {
-      console.log('[local-api] middleware registered')
       server.middlewares.use('/api', async (req, res, next) => {
         try {
           const url = new URL(req.url, 'http://localhost')
           const name = url.pathname.replace(/^\//, '')
           if (!/^[\w-]+$/.test(name)) return next()
 
-          console.log('[local-api] handling', req.url)
           const mod = await server.ssrLoadModule(`/api/${name}.js`)
           req.query = Object.fromEntries(url.searchParams)
           res.status = (code) => { res.statusCode = code; return res }
