@@ -9,5 +9,6 @@
     {"label": "Hackathon", "src": "VaultHeist.jpg", "category": "Hackathon"},
     {"label": "CISCO", "src": "cisco.jpg", "category": "Technical"},
     {"label": "Cyber Security", "src": "courseraCyberSecurity.png", "category": "Technical"},
-    {"label": "Earth Day", "src": "earthDay.png", "category": "Extracurricular"}
+    {"label": "Earth Day", "src": "earthDay.png", "category": "Extracurricular"},
+    {"label": "SSOC", "src": "ssoc-s5-contributor-never_gonna_let_you.png", "category": "Technical"}
 ]
