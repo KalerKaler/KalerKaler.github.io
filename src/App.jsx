@@ -71,24 +71,24 @@ export default function Main(){
             </nav>
 
         <div className={styles.snapContainer}>
-            <section className={styles.section} style={{height: "100vh"}}>
+            <section className={styles.section}>
                 <h2 className={`${styles.name} ${styles.frontText}`}>Rajveer Singh Kaler</h2>
                 <p className={`${styles.subHeading} ${styles.frontText}`}>Tinkerer • Programmer • Neuro-Sama devotee</p>
                 <img className={styles.beegNuro} src='beegNuro.png'/>
             </section>
-            <section className={styles.section} style={{ "marginTop": "1.51rem","height": "200vh", "paddingTop": "6rem"}}>
+            <section className={`${styles.section} ${styles.two}`}>
                 <div className={styles.musicBlock}>
                     <div className={styles.musicAndArtist}>
                         {/* ARTIST CARD */}
                         <div className={styles.artistCards}>
                             <b className={styles.artistsText}>Top Artists</b>
                             <div className={styles.flex}>
-                                <a href={topArtists && topArtists[0].link} target='_blank' className={styles.hiddenLink}><img className={styles.mostArtist} src={(topArtists && topArtists[0].image) || "FUByEvil.jpg"} alt="" /></a>
+                                <a href={topArtists && topArtists[0].link} target='_blank' className={styles.hiddenLink}><img loading='lazy' className={styles.mostArtist} src={(topArtists && topArtists[0].image) || "FUByEvil.jpg"} alt="" /></a>
                                 <div className={styles.felxCol}>
-                                    <a href={topArtists && topArtists[1].link} target='_blank' className={styles.hiddenLink}><img className={styles.secMostArtist} src={(topArtists && topArtists[1].image) || "FUByEvil.jpg"} alt="" /></a>
+                                    <a href={topArtists && topArtists[1].link} target='_blank' className={styles.hiddenLink}><img loading='lazy' className={styles.secMostArtist} src={(topArtists && topArtists[1].image) || "FUByEvil.jpg"} alt="" /></a>
                                     <div className={`${styles.flex} ${styles.rm1} ${styles.minArtists}`}>
-                                        <a href={topArtists && topArtists[2].link} target='_blank' className={styles.hiddenLink}><img className={styles.thirMostArtist} src={(topArtists && topArtists[2].image) || "FUByEvil.jpg"} alt="" /></a>
-                                        <a href={topArtists && topArtists[3].link} target='_blank' className={styles.hiddenLink}><img className={styles.forMostArtist} src={(topArtists && topArtists[3].image) || "FUByEvil.jpg"} alt="" /></a>
+                                        <a href={topArtists && topArtists[2].link} target='_blank' className={styles.hiddenLink}><img loading='lazy' className={styles.thirMostArtist} src={(topArtists && topArtists[2].image) || "FUByEvil.jpg"} alt="" /></a>
+                                        <a href={topArtists && topArtists[3].link} target='_blank' className={styles.hiddenLink}><img loading='lazy' className={styles.forMostArtist} src={(topArtists && topArtists[3].image) || "FUByEvil.jpg"} alt="" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@ export default function Main(){
             {/* Here ends AI code */}
                 <div className={styles.mostPlayedTrack}>
                     <b className={styles.topTrack}>Top Track</b>
-                    <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><img className={styles.topImage} src={(topSong && topSong.image) || "image.png"} alt="" /></a>
+                    <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><img className={styles.topImage} src={(topSong && topSong.image) || "image.png"} loading='lazy' alt="" /></a>
                     <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><b className={styles.topSong}>{(topSong && topSong.name) || "Loading..."}</b></a>
                 </div>
             </div>

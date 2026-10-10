@@ -80,19 +80,31 @@
 }
 
 .snapContainer {
-  overflow-x: hidden;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
 }
 
 .section {
-  height: 100vh;
-  /* scroll-snap-align: start;
-  scroll-snap-stop: always; 
-  position: relative; */
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
+
+.section.two {
+    padding-top: 9dvh;
+    height: fit-content;
+    background: #322A27;
+    height: 291vh;
+}
+
 
 /* End of front-page */
 
@@ -506,6 +518,7 @@
   	/* position: absolute;
   	top: 42px;
   	left: 744px; */
+    font-size: 2.8rem;
   	display: inline-block;
   	color: #b4c0fa;
 }
@@ -516,6 +529,7 @@
   padding: 1rem;
   align-items: center;
   gap: 1.2rem;
+  flex-direction: column;
 }
 
 .certContainer{
@@ -528,7 +542,7 @@
 }
 
 .certDiv{
-  width: clamp(300px, 28vw, 400px);
+  width: clamp(300px, 99vw, 550px);
   height: 40vh;
   background: rgba(42, 30, 67, 0.336);
   border: solid 0.2rem #80ddd2;
@@ -540,7 +554,7 @@
 .certImage{
   /* width: 15vw; */
   /* width: 70%; */
-  height: 15vh;
+  height: 50%;
   object-fit: cover;
   border-radius: 11px;
   /* padding: 2rem; */
@@ -594,5 +608,7 @@
   .artistCards {display: flex;}
   .mostPlayedTrack {display: flex;}
   .musicPlayer {width: auto;}
-  .certImage {height: 60%;}
+  .certImage {height: 65%;}
+  .certLabels {flex-direction: row;}
+  .certHeading{ font-size: inherit; }
 }

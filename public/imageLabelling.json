@@ -1,6 +1,6 @@
 [
     {"label": "FCC Python", "src": "fccPython.png", "category": "Technical"},
-    {"label": "Chitkara DBMS", "src": "dbms.jpg", "category": "Technical"},
+    {"label": "Social SOC", "src": "ssoc-s5-contributor-never_gonna_let_you.png", "category": "Technical"},
     {"label": "Peer Tutoring", "src": "peerTutoring.jpg", "category": "Extracurricular"},
     {"label": "Networking", "src": "F2F-4.jpg", "category": "Technical"},
     {"label": "Game Development", "src": "Infosys.jpg", "category": "Technical"},
@@ -10,5 +10,5 @@
     {"label": "CISCO", "src": "cisco.jpg", "category": "Technical"},
     {"label": "Cyber Security", "src": "courseraCyberSecurity.png", "category": "Technical"},
     {"label": "Earth Day", "src": "earthDay.png", "category": "Extracurricular"},
-    {"label": "SSOC", "src": "ssoc-s5-contributor-never_gonna_let_you.png", "category": "Technical"}
+    {"label": "Chitkara DBMS", "src": "dbms.jpg", "category": "Technical"}
 ]
