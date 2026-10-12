@@ -5,14 +5,16 @@ import useTrackInfo from './hooks/trackInfo';
 import useTopArtists from './hooks/useTopArtists';
 import useUserInfo from './hooks/useUserInfo';
 import useTopSong from './hooks/useTopSong';
+import useIsDesktop from './hooks/useIsDesktop';
 
 export default function Main(){
 
+    const isDesktop = useIsDesktop();
     const lastTrack = useLastTrack("cwxesx");
-    const playCount = useTrackInfo(lastTrack);
-    const topArtists = useTopArtists("cwxesx");
-    const userInfo = useUserInfo("cwxesx");
-    const topSong = useTopSong("cwxesx");
+    const playCount = useTrackInfo(lastTrack, isDesktop);
+    const topArtists = useTopArtists(isDesktop);
+    const userInfo = useUserInfo(isDesktop);
+    const topSong = useTopSong(isDesktop);
     const [certs, setCerts] = useState([]);
     const [submenu, setSubmenu] = useState(false);
     const wrapperRef = useRef(null);
@@ -80,7 +82,7 @@ export default function Main(){
                 <div className={styles.musicBlock}>
                     <div className={styles.musicAndArtist}>
                         {/* ARTIST CARD */}
-                        <div className={styles.artistCards}>
+                        {isDesktop && <div className={styles.artistCards}>
                             <b className={styles.artistsText}>Top Artists</b>
                             <div className={styles.flex}>
                                 <a href={topArtists && topArtists[0].link} target='_blank' className={styles.hiddenLink}><img loading='lazy' className={styles.mostArtist} src={(topArtists && topArtists[0].image) || "FUByEvil.jpg"} alt="" /></a>
@@ -92,7 +94,7 @@ export default function Main(){
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>}
                         {/* MUSIC PLAYER */}
                         <div className={styles.musicPlayer}>
                             <img
@@ -121,18 +123,17 @@ export default function Main(){
                                 <a href={lastTrack && `https://last.fm/music/${lastTrack.artist}`} className={styles.hiddenLink} target='_blank'><b className={styles.artistName}>{lastTrack && lastTrack.artist}</b></a>
                                 </div>
                             </div>
-
-                            <div className={styles.seperatorLine} />
+                            {isDesktop && <><div className={styles.seperatorLine} />
 
                             <div className={styles.totalPlays}>
                                 <b className={styles.total}>Total</b>
                                 <b className={styles.playCount}>{playCount || "-"}</b>
                                 <b className={styles.plays}>Plays</b>
-                            </div>
+                            </div></>}
                         </div>
                     </div>
                     {/* Here starts AI code */}
-                <div className={styles.statsContainer}>
+                {isDesktop && <div className={styles.statsContainer}>
                 {/* Background SVG defining the 180° rotated L-shape with continuous outer border */}
                 <svg
                     className={styles.shapeBg}
@@ -181,14 +182,14 @@ export default function Main(){
                     <span className={styles.unit}>Artists</span>
                     </div>
                 </div>
-                </div>
+                </div>}
 
             {/* Here ends AI code */}
-                <div className={styles.mostPlayedTrack}>
+                {isDesktop && <div className={styles.mostPlayedTrack}>
                     <b className={styles.topTrack}>Top Track</b>
                     <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><img className={styles.topImage} src={(topSong && topSong.image) || "image.png"} loading='lazy' alt="" /></a>
                     <a href={topSong && topSong.url} className={styles.hiddenLink} target='_blank'><b className={styles.topSong}>{(topSong && topSong.name) || "Loading..."}</b></a>
-                </div>
+                </div>}
             </div>
 
             {/* Cetificates */}

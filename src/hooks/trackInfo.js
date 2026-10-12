@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import useIsDesktop from "./useIsDesktop";
 
-export default function useTrackInfo(track){
+export default function useTrackInfo(track, isDesktop){
 
     const [playCount, setPlayCount] = useState(null);
     const api_key = import.meta.env.VITE_LASTFM_API_KEY;
     useEffect(() => {
-        if (!track) return;
+        if (!track || !isDesktop) return;
         async function fetcher(){
             try {
                 const url = `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${api_key}&artist=${track.artist}&track=${track.name}&format=json&user=cwxesx`;

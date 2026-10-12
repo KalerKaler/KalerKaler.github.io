@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 
-export default function useTopArtists(username){
+export default function useTopArtists(isDesktop){
     const apiKey = import.meta.env.VITE_LASTFM_API_KEY;
     const limit = 4;
+    const username = 'cwxesx';
     const lastfmUrl = `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${apiKey}&format=json&limit=${limit}&period=overall`;
     const [topartists, setTopArtists] = useState(null);
 
     useEffect(() => {
         async function artists(){
+            if (!isDesktop) return;
             try{
                 const response = await fetch(lastfmUrl);
                 const data = await response.json();
