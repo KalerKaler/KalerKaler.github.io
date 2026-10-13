@@ -110,11 +110,7 @@ export default function Main(){
                                 </b>
 
                                 <a href={lastTrack && lastTrack.url} className={styles.hiddenLink} target="_blank"><b className={styles.songName}>
-                                {(lastTrack &&
-                                    (lastTrack.name.length > 18
-                                    ? lastTrack.name.substring(0, 17) + "..."
-                                    : lastTrack.name)) ||
-                                    "Loading.."}
+                                {(lastTrack && lastTrack.name) || "Loading.."}
                                 </b></a>
 
                                 <div className={styles.byRow}>
