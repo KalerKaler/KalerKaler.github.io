@@ -6,9 +6,7 @@ import useTopArtists from './hooks/useTopArtists';
 import useUserInfo from './hooks/useUserInfo';
 import useTopSong from './hooks/useTopSong';
 import useIsDesktop from './hooks/useIsDesktop';
-import ParticleImage from './Components/ParticleImage'
-import hero from '/my pfp.png'
-import GithubContributions from './Components/GithubStats';
+import Personal from './Components/PersonalSection';
 import AboutSection from './Components/AboutSection';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -91,7 +89,7 @@ export default function Main(){
                 <AboutSection/>
             </SwiperSlide>
             <SwiperSlide style={{overflowY: 'auto', paddingTop: '10vh'}}>
-                        <div className={styles.musicPlayer}>
+                        {/* <div className={styles.musicPlayer}>
                             <img
                                 className={styles.albumArt}
                                 style={lastTrack && lastTrack.isNowPlaying ? {} : { animationPlayState: "paused" }}
@@ -121,8 +119,9 @@ export default function Main(){
                                 <b className={styles.playCount}>{playCount || "-"}</b>
                                 <b className={styles.plays}>Plays</b>
                             </div></>}
-                            </div>
-            <img src="bannerDark.jpg" style={{width: "100vw", position: 'absolute', bottom: '10vh'}}/>
+                            </div> */}
+                            <Personal/>
+            {/* <img src="bannerDark.jpg" style={{width: "100vw", position: 'absolute', bottom: '10vh'}}/> */}
             </SwiperSlide>
         </Swiper>
         </>
