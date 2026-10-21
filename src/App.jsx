@@ -114,6 +114,13 @@ export default function Main(){
                                 <a href={lastTrack && `https://last.fm/music/${lastTrack.artist}`} className={styles.hiddenLink} target='_blank'><b className={styles.artistName}>{lastTrack && lastTrack.artist}</b></a>
                                 </div>
                             </div>
+                            {isDesktop && <><div className={styles.seperatorLine} />
+
+                            <div className={styles.totalPlays}>
+                                <b className={styles.total}>Total</b>
+                                <b className={styles.playCount}>{playCount || "-"}</b>
+                                <b className={styles.plays}>Plays</b>
+                            </div></>}
                             </div>
             <img src="bannerDark.jpg" style={{width: "100vw", position: 'absolute', bottom: '10vh'}}/>
             </SwiperSlide>

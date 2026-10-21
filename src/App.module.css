@@ -148,9 +148,9 @@
   box-sizing: border-box;
   /* width: 124%; */
   padding: clamp(1rem, 2vw, 1.5rem);
-  margin-right: 0;
+  /* margin-right: 0; */
   position: relative;
-  width: 95vw;
+  width: 95dvw;
   /* margin-top: 2vh; */
 }
 
@@ -587,13 +587,13 @@
 
 @media (min-aspect-ratio: 16/9){
   .statsContainer{display: block;}
-  .musicPlayer{margin-right: -7vw;}
+  /* .musicPlayer{margin-right: -7vw;} */
   .musicBlock{flex-direction: row;}
   .subHeading{top: 58%;font-size: 1.6rem;}
   /* .snapContainer { scroll-snap-type: y mandatory; } */
   .artistCards {display: flex;}
   .mostPlayedTrack {display: flex;}
-  .musicPlayer {width: auto;}
+  /* .musicPlayer {width: auto;} */
   .certImage {height: 65%;}
   .certLabels {flex-direction: row;}
   .certHeading{ font-size: inherit; }
