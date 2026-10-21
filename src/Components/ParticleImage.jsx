@@ -112,81 +112,113 @@ export default function ParticleImage({ src, className, gap }) {
     const imageSize = 400;
 
     useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        canvas.width = imageSize;
-        canvas.height = imageSize;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    canvas.width = imageSize;
+    canvas.height = imageSize;
 
-        const imageData = ctx.createImageData(canvas.width, canvas.height);
-        const mouse = { x: undefined, y: undefined, radius: 40 };
+    const imageData = ctx.createImageData(canvas.width, canvas.height);
+    const mouse = { x: undefined, y: undefined, radius: 40 };
 
-        let effect = null;
-        let frameId = 0;
-        let started = false;
-        let cancelled = false;
+    let effect = null;
+    let frameId = 0;
+    let started = false;
+    let cancelled = false;
 
-        // Convert client coords to canvas coords, so the position stays
-        // correct even if CSS scales or offsets the canvas.
-        const handleMouseMove = (e) => {
-            const rect = canvas.getBoundingClientRect();
-            mouse.x = (e.clientX - rect.left) * (canvas.width / rect.width);
-            mouse.y = (e.clientY - rect.top) * (canvas.height / rect.height);
-        };
+    // Works for mouse, touch, and pen. Coordinates are converted to canvas
+    // space so they stay correct when CSS scales the canvas.
+    const updatePointer = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = (e.clientX - rect.left) * (canvas.width / rect.width);
+        mouse.y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    };
 
-        // Clear the position when the cursor leaves, so particles
-        // stop reacting to a stale point.
-        const handleMouseLeave = () => {
+    const onPointerDown = (e) => {
+        // Keep receiving moves even if the finger slides off the canvas
+        canvas.setPointerCapture(e.pointerId);
+        updatePointer(e);
+    };
+
+    const onPointerMove = (e) => {
+        // Mouse hover should react, and touch should react only while pressed
+        if (e.pointerType === "mouse" || e.buttons > 0) updatePointer(e);
+    };
+
+    // Touch has no hover, so clear the point when the finger lifts.
+    // Mouse keeps its last position until it leaves the canvas.
+    const clearPointer = (e) => {
+        if (e.pointerType !== "mouse") {
             mouse.x = undefined;
             mouse.y = undefined;
-        };
+        }
+    };
 
-        const animate = () => {
-            effect.update();
-            effect.render(ctx, imageData);
+    const onPointerLeave = () => {
+        mouse.x = undefined;
+        mouse.y = undefined;
+    };
+
+    const animate = () => {
+        effect.update();
+        effect.render(ctx, imageData);
+        frameId = requestAnimationFrame(animate);
+    };
+
+    const start = () => {
+        if (started) return;
+        started = true;
+        observer.disconnect();
+
+        const image = new Image();
+        image.onload = () => {
+            if (cancelled) return;
+            effect = new Effect({
+                width: canvas.width,
+                height: canvas.height,
+                image,
+                mouse,
+                drawWidth: 400,
+                drawHeight: 400,
+                gap,
+            });
+            effect.init();
+
+            canvas.addEventListener("pointerdown", onPointerDown);
+            canvas.addEventListener("pointermove", onPointerMove);
+            canvas.addEventListener("pointerup", clearPointer);
+            canvas.addEventListener("pointercancel", clearPointer);
+            canvas.addEventListener("pointerleave", onPointerLeave);
+
             frameId = requestAnimationFrame(animate);
         };
+        image.src = src;
+    };
 
-        const start = () => {
-            if (started) return;
-            started = true;
-            observer.disconnect();
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) start();
+        },
+        { threshold: 0.2 }
+    );
+    observer.observe(canvas);
 
-            const image = new Image();
-            image.onload = () => {
-                if (cancelled) return;
-                effect = new Effect({
-                    width: canvas.width,
-                    height: canvas.height,
-                    image,
-                    mouse,
-                    drawWidth: 400,
-                    drawHeight: 400,
-                    gap: gap,
-                });
-                effect.init();
-                canvas.addEventListener("mousemove", handleMouseMove, { passive: true });
-                canvas.addEventListener("mouseleave", handleMouseLeave);
-                frameId = requestAnimationFrame(animate);
-            };
-            image.src = src;
-        };
+    return () => {
+        cancelled = true;
+        observer.disconnect();
+        cancelAnimationFrame(frameId);
+        canvas.removeEventListener("pointerdown", onPointerDown);
+        canvas.removeEventListener("pointermove", onPointerMove);
+        canvas.removeEventListener("pointerup", clearPointer);
+        canvas.removeEventListener("pointercancel", clearPointer);
+        canvas.removeEventListener("pointerleave", onPointerLeave);
+    };
+}, [src, gap]);
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) start();
-            },
-            { threshold: 0.2 }
-        );
-        observer.observe(canvas);
-
-        return () => {
-            cancelled = true;
-            observer.disconnect();
-            cancelAnimationFrame(frameId);
-            canvas.removeEventListener("mousemove", handleMouseMove);
-            canvas.removeEventListener("mouseleave", handleMouseLeave);
-        };
-    }, [src]);
-
-    return <canvas ref={canvasRef} className={className}/>;
+return (
+    <canvas
+        ref={canvasRef}
+        className={`${className ?? ""} swiper-no-swiping`}
+        style={{ touchAction: "none" }}
+    />
+);
 }

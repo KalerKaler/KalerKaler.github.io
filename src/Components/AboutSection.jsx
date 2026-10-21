@@ -39,7 +39,7 @@ export default function AboutSection() {
             <div className={styles.grid}>
                 {/* Profile card */}
                 <div className={styles.profile}>
-                    <div className={styles.photoWrap}>
+                    <div className={`${styles.photoWrap} swiper-no-swiping`}>
                         <ParticleImage src={hero} gap={5} className={styles.photo} />
                     </div>
 

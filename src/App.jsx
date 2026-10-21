@@ -81,7 +81,7 @@ export default function Main(){
                 </div>
             </nav>
 
-        <Swiper direction='vertical' mousewheel nested modules={[Mousewheel]} style={{height: '100dvh', width: '100dvw'}}>
+        <Swiper noSwiping noSwipingClass='swiper-no-swiping' direction='vertical' mousewheel nested modules={[Mousewheel]} style={{height: '100dvh', width: '100dvw'}}>
             <SwiperSlide style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <h2 className={`${styles.name} ${styles.frontText}`}>Rajveer Singh Kaler</h2>
                 <p className={`${styles.subHeading} ${styles.frontText}`}>Tinkerer • Programmer • Neuro-Sama devotee</p>
