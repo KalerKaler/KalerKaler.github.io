@@ -1,55 +1,92 @@
 import styles from './App.module.css';
 import { useState, useEffect, useRef } from 'react';
-import { useLastTrack } from './hooks/lastTrack';
-import useTrackInfo from './hooks/trackInfo';
-import useTopArtists from './hooks/useTopArtists';
-import useUserInfo from './hooks/useUserInfo';
-import useTopSong from './hooks/useTopSong';
 import useIsDesktop from './hooks/useIsDesktop';
 import Personal from './Components/PersonalSection';
 import AboutSection from './Components/AboutSection';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Mousewheel } from 'swiper/modules';
 
 export default function Main(){
 
     const isDesktop = useIsDesktop();
-    const lastTrack = useLastTrack("cwxesx");
-    const playCount = useTrackInfo(lastTrack, isDesktop);
-    const topArtists = useTopArtists(isDesktop);
-    const userInfo = useUserInfo(isDesktop);
-    const topSong = useTopSong(isDesktop);
-    const [certs, setCerts] = useState([]);
-    const [submenu, setSubmenu] = useState(false);
-    const wrapperRef = useRef(null);
-    const [certCat, setCertCat] = useState("ALL");
-    const certCategories = ["ALL", ...new Set(certs.map(cert => cert.category))];
-
     
-    const handleSelect = (category) => {
-        setCertCat(category);
-        setSubmenu(false);
+    const [swiper, setSwiper] = useState(null);
+    const wrapRef = useRef(null);
+    const lockRef = useRef(false);
+    const touchStart = useRef({ y: 0, atTop: true, atBottom: true });
+
+    // The scroll container of the currently visible slide
+    const getScroller = () =>
+        swiper?.slides[swiper.activeIndex]?.querySelector('[data-scroller]');
+
+    // Change slides, with a short lock so one trackpad flick doesn't skip two
+    const go = (dir) => {
+        if (!swiper || lockRef.current) return;
+        lockRef.current = true;
+        if (dir > 0) swiper.slideNext();
+        else swiper.slidePrev();
+        setTimeout(() => { lockRef.current = false; }, 700);
     };
 
+    // Wheel: scroll the content if it can move, otherwise change slides
     useEffect(() => {
-        if (!submenu) return;
-        const onClick = (e) => {
-            if (!wrapperRef.current?.contains(e.target)) setSubmenu(false);
+        const el = wrapRef.current;
+        if (!el || !swiper) return;
+
+        const onWheel = (e) => {
+            const down = e.deltaY > 0;
+
+            // At the first or last slide, let the page behave normally
+            if (down && swiper.isEnd) return;
+            if (!down && swiper.isBeginning) return;
+
+            const s = getScroller();
+            const canScroll = s && (down
+                ? s.scrollTop + s.clientHeight < s.scrollHeight - 1
+                : s.scrollTop > 0);
+
+            if (canScroll) return; // the content scrolls natively
+
+            e.preventDefault();
+            go(down ? 1 : -1);
         };
-        const onKey = (e) => e.key === "Escape" && setSubmenu(false);
-        document.addEventListener("mousedown", onClick);
-        document.addEventListener("keydown", onKey);
+
+        el.addEventListener('wheel', onWheel, { passive: false });
+        return () => el.removeEventListener('wheel', onWheel);
+    }, [swiper]);
+
+        // Touch: record the edge state at the start of the gesture, then
+        // switch slides on release only if the gesture started at that edge
+    useEffect(() => {
+        const el = wrapRef.current;
+        if (!el || !swiper) return;
+
+        const onStart = (e) => {
+            const s = getScroller();
+            touchStart.current = {
+                y: e.touches[0].clientY,
+                atTop: !s || s.scrollTop <= 0,
+                atBottom: !s || s.scrollTop + s.clientHeight >= s.scrollHeight - 1,
+            };
+        };
+
+        const onEnd = (e) => {
+            const dy = touchStart.current.y - e.changedTouches[0].clientY;
+            const { atTop, atBottom } = touchStart.current;
+
+            if (dy > 50 && atBottom) go(1);
+            else if (dy < -50 && atTop) go(-1);
+        };
+
+        el.addEventListener('touchstart', onStart, { passive: true });
+        el.addEventListener('touchend', onEnd, { passive: true });
         return () => {
-            document.removeEventListener("mousedown", onClick);
-            document.removeEventListener("keydown", onKey);
+            el.removeEventListener('touchstart', onStart);
+            el.removeEventListener('touchend', onEnd);
         };
-    }, [submenu]);
+    }, [swiper]);
     
-        useEffect(() => {
-            fetch('/imageLabelling.json').then(r => r.json()).then(setCerts);
-        }, [])
     
     return(
         <>
@@ -78,52 +115,26 @@ export default function Main(){
                     </svg></a>
                 </div>
             </nav>
-
-        <Swiper noSwiping noSwipingClass='swiper-no-swiping' direction='vertical' mousewheel nested modules={[Mousewheel]} style={{height: '100dvh', width: '100dvw'}}>
+        <div ref={wrapRef}>
+        <Swiper noSwiping allowTouchMove={false} noSwipingClass='swiper-no-swiping' direction='vertical' onSwiper={setSwiper} speed={600} style={{height: '100dvh', width: '100dvw'}}>
             <SwiperSlide style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <h2 className={`${styles.name} ${styles.frontText}`}>Rajveer Singh Kaler</h2>
                 <p className={`${styles.subHeading} ${styles.frontText}`}>Tinkerer • Programmer • Neuro-Sama devotee</p>
                 <img className={styles.beegNuro} src='beegNuro.png'/>
             </SwiperSlide>
             <SwiperSlide>
-                <AboutSection/>
+                <div className={styles.scroller} data-scroller>
+                    <AboutSection/>
+                </div>
             </SwiperSlide>
             <SwiperSlide style={{overflowY: 'auto', paddingTop: '10vh'}}>
-                        {/* <div className={styles.musicPlayer}>
-                            <img
-                                className={styles.albumArt}
-                                style={lastTrack && lastTrack.isNowPlaying ? {} : { animationPlayState: "paused" }}
-                                src={lastTrack && lastTrack.albumArt}
-                                alt=""
-                            />
-
-                            <div className={styles.trackInfo}>
-                                <b className={styles.playingStatus}>
-                                {lastTrack && lastTrack.isNowPlaying ? "NOW PLAYING" : "LAST PLAYED"}
-                                </b>
-
-                                <a href={lastTrack && lastTrack.url} className={styles.hiddenLink} target="_blank"><b className={styles.songName}>
-                                {(lastTrack && lastTrack.name) || "Loading.."}
-                                </b></a>
-
-                                <div className={styles.byRow}>
-                                <img className={styles.cutenurosing} src="cuteNuroSing.gif" alt="" />
-                                <b className={styles.by}>by</b>
-                                <a href={lastTrack && `https://last.fm/music/${lastTrack.artist}`} className={styles.hiddenLink} target='_blank'><b className={styles.artistName}>{lastTrack && lastTrack.artist}</b></a>
-                                </div>
-                            </div>
-                            {isDesktop && <><div className={styles.seperatorLine} />
-
-                            <div className={styles.totalPlays}>
-                                <b className={styles.total}>Total</b>
-                                <b className={styles.playCount}>{playCount || "-"}</b>
-                                <b className={styles.plays}>Plays</b>
-                            </div></>}
-                            </div> */}
-                            <Personal/>
-            {/* <img src="bannerDark.jpg" style={{width: "100vw", position: 'absolute', bottom: '10vh'}}/> */}
+                <div className={styles.scroller} data-scroller>
+                    <Personal/>
+                    <img src="bannerDark.jpg" style={{width: "100vw",}}/>
+                </div>
             </SwiperSlide>
         </Swiper>
+        </div>
         </>
     )
 }
