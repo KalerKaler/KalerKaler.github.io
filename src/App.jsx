@@ -127,7 +127,7 @@ export default function Main(){
                     <AboutSection/>
                 </div>
             </SwiperSlide>
-            <SwiperSlide style={{overflowY: 'auto', paddingTop: '10vh'}}>
+            <SwiperSlide>
                 <div className={styles.scroller} data-scroller>
                     <Personal/>
                     <img src="bannerDark.jpg" style={{width: "100vw",}}/>

@@ -4,9 +4,9 @@
 
     width: 100%;
     max-width: 96vw;
-    margin: -1rem auto;
+    margin: 0 auto;
     padding: clamp(12px, 1.5vw, 24px);
-    padding-top: 0;
+    padding-top: 6vh;
     box-sizing: border-box;
     color: #b5d0ea;
     font-family: Inter, system-ui, sans-serif;

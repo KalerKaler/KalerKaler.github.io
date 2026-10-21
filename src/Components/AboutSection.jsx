@@ -33,7 +33,7 @@ export default function AboutSection() {
     const year = new Date().getFullYear();
 
     return (
-        <section className={styles.about} style={{paddingTop: '5vh', maxHeight: '10dvh'}}>
+        <section className={styles.about} style={{paddingTop: '5vh'}}>
             <h1 className={styles.title}>About my Professional Life</h1>
 
             <div className={styles.grid}>

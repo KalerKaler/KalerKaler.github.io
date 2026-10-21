@@ -47,7 +47,6 @@ export default function GithubContributions({ username = "kalerkaler", onTotal }
       }).then(json => {
         setData(json);
         if (onTotal && json.total) onTotal(json.total);
-        console.log(json.total);
       })
       .catch((err) => {
         if (err.name !== "AbortError") setError(err.message);
