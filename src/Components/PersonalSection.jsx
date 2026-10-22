@@ -84,7 +84,7 @@ export default function Personal() {
                             </a>
 
                             <div className={styles.byRow}>
-                                <img className={styles.gif} src="/interests/cute-nuro-sing.gif" alt="" />
+                                <img className={styles.gif} src="/cuteNuroSing.gif" alt="" />
                                 <b className={styles.by}>by</b>
                                 <a
                                     href={lastTrack && `https://last.fm/music/${lastTrack.artist}`}
