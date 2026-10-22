@@ -5,6 +5,7 @@ import styles from './About.module.css';
 import mainStyles from "../App.module.css"
 import { useState } from 'react';
 import lazySizes from 'lazysizes';
+import useLastUpdate from '../hooks/useLastUpdate';
 
 
 const traits = [
@@ -14,6 +15,8 @@ const traits = [
     'Always ready for more',
     'Creative Programmer',
 ];
+
+const date = new Date();
 
 const skills = [
     { src: '/java.png', alt: 'Java' },
@@ -26,9 +29,9 @@ const skills = [
     { src: '/Hyprland.png', alt: 'Hyprland' },
 ];
 
-const LAST_UPDATED = '20-10-2026';
-
 export default function AboutSection() {
+
+    const repoDate = useLastUpdate("kalerkaler", "kalerkaler.github.io");
 
     const [yearTotal, setYearTotal] = useState(null);
     const year = new Date().getFullYear();
@@ -116,7 +119,7 @@ export default function AboutSection() {
 
                 <div className={styles.updated}>
                     <b className={styles.updatedLabel}>Last Updated</b>
-                    <b className={styles.updatedDate}>{LAST_UPDATED}</b>
+                        <b className={styles.updatedDate}>{repoDate ? repoDate.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, "-"): `${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`}</b>
                 </div>
             </div>
         </section>

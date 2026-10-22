@@ -106,17 +106,25 @@ export default function Personal() {
                     </div>
 
                     <div className={`${styles.card} ${styles.reading}`}>
-                        <h2 className={styles.heading}>Currently Reading</h2>
+                        <h2 className={styles.heading} style={{padding: 0}}>Reading</h2>
 
-                        <div className={styles.readingImages}>
-                            <img className={`${styles.readingIllustration} lazyload`} src="/booksSection/nuroRead.png" alt="" />
+                        <div className={`${styles.readingImages}`} style={{margin: 0}}>
+                            {/* <img className={`${styles.readingIllustration} lazyload`} src="/booksSection/nuroRead.png" alt="" /> */}
+                            <div className={styles.readingText} style={{margin: 0}}>
+                            <h2 className={styles.heading}>Now</h2>
                             <img className={`${styles.readingCover} lazyload`} src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
+                                {/* <b className={styles.bookTitle}>Steve Jobs</b> */}
+                            </div>
+
+                            <div className={styles.coverDivider}/>
+
+                            <div className={styles.readingText}>
+                        <h2 className={styles.heading}>Next</h2>
+                        <img className={`${styles.readingCover} lazyload`} src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
+                                {/* <b className={styles.bookTitle}>Same dream</b> */}
+                            </div>
                         </div>
 
-                        <div className={styles.readingText}>
-                            <b className={styles.bookTitle}>Steve Jobs</b>
-                            <b className={styles.bookAuthor}>Walter Isaacson</b>
-                        </div>
                     </div>
                 </div>
 
@@ -126,7 +134,7 @@ export default function Personal() {
                         <h2 className={styles.heading}>Top Track</h2>
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={`${styles.topArt} ${mainStyles.hiddenLink}`}>
-                            <img src={topSong?.image || 'image.png'} alt="" loading="lazy" />
+                            <img src={topSong?.image || 'image.png'} alt="" className='lazyload' />
                         </a>
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={mainStyles.hiddenLink}>
@@ -139,7 +147,7 @@ export default function Personal() {
 
                         <div className={styles.bookGrid}>
                             {favoriteBooks.map((book) => (
-                                <img key={book.title} src={book.cover} alt={`${book.title} by ${book.author}`} />
+                                <img key={book.title} src={book.cover} className={`lazyload ${styles.bookGridImg}`} alt={`${book.title} by ${book.author}`} />
                             ))}
                         </div>
                     </div>
