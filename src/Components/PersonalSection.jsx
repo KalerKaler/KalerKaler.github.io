@@ -6,6 +6,7 @@ import useTopArtists from '../hooks/useTopArtists';
 import useUserInfo from '../hooks/useUserInfo';
 import useTopSong from '../hooks/useTopSong';
 import mainStyles from '../App.module.css';
+import lazySizes from 'lazysizes';
 
 // Replace these with your own book covers and files in /public
 const favoriteBooks = [
@@ -36,15 +37,15 @@ export default function Personal() {
                         <h2 className={styles.heading}>Top Artists</h2>
 
                         <a href={artist(0)?.link} className={`${mainStyles.hiddenLink} ${styles.artistMain}`} target="_blank" rel="noreferrer">
-                            <img src={artistImg(0)} alt="" loading="lazy" />
+                            <img src={artistImg(0)} alt="" className="lazyload"/>
                         </a>
 
                         <div className={styles.artistRow}>
-                            <a href={artist(1)?.link} target="_blank" rel="noreferrer">
-                                <img src={artistImg(1)} alt="" className={mainStyles.hiddenLink} loading="lazy" />
+                            <a href={artist(1)?.link} className={mainStyles.hiddenLink} target="_blank" rel="noreferrer">
+                                <img src={artistImg(1)} alt="" className="lazyload"/>
                             </a>
                             <a href={artist(2)?.link} target="_blank" className={mainStyles.hiddenLink} rel="noreferrer">
-                                <img src={artistImg(2)} alt="" loading="lazy" />
+                                <img src={artistImg(2)} alt="" className="lazyload"/>
                             </a>
                         </div>
                     </div>
@@ -108,8 +109,8 @@ export default function Personal() {
                         <h2 className={styles.heading}>Currently Reading</h2>
 
                         <div className={styles.readingImages}>
-                            <img className={styles.readingIllustration} src="/booksSection/nuroRead.png" alt="" />
-                            <img className={styles.readingCover} src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
+                            <img className={`${styles.readingIllustration} lazyload`} src="/booksSection/nuroRead.png" alt="" />
+                            <img className={`${styles.readingCover} lazyload`} src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
                         </div>
 
                         <div className={styles.readingText}>

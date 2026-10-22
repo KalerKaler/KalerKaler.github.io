@@ -4,6 +4,7 @@ import hero from '/my pfp.png';
 import styles from './About.module.css';
 import mainStyles from "../App.module.css"
 import { useState } from 'react';
+import lazySizes from 'lazysizes';
 
 
 const traits = [
@@ -84,7 +85,7 @@ export default function AboutSection() {
                 {/* Skills */}
                 <div className={styles.skills}>
                     {skills.map(skill => (
-                        <img key={skill.alt} src={skill.src} alt={skill.alt} className={styles.skillIcon} />
+                        <img key={skill.alt} src={skill.src} alt={skill.alt} className={`${styles.skillIcon} lazyload`} />
                     ))}
                 </div>
             </div>
