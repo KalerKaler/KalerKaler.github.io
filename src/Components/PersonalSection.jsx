@@ -70,8 +70,9 @@ export default function Personal() {
                     <div className={`${styles.card} ${styles.nowPlaying}`}>
                         <img
                             className={`${styles.albumRound} lazyload`}
-                            data-src={lastTrack?.albumArt}
+                            src={lastTrack?.albumArt}
                             alt=""
+                            loading='lazy'
                             style={lastTrack?.isNowPlaying ? undefined : { animationPlayState: 'paused' }}
                         />
 
