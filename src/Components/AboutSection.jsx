@@ -88,7 +88,7 @@ export default function AboutSection() {
                 {/* Skills */}
                 <div className={styles.skills}>
                     {skills.map(skill => (
-                        <img key={skill.alt} src={skill.src} alt={skill.alt} className={`${styles.skillIcon} lazyload`} />
+                        <img key={skill.alt} data-src={skill.src} alt={skill.alt} className={`${styles.skillIcon} lazyload`} />
                     ))}
                 </div>
             </div>

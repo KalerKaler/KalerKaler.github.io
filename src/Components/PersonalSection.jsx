@@ -37,15 +37,15 @@ export default function Personal() {
                         <h2 className={styles.heading}>Top Artists</h2>
 
                         <a href={artist(0)?.link} className={`${mainStyles.hiddenLink} ${styles.artistMain}`} target="_blank" rel="noreferrer">
-                            <img src={artistImg(0)} alt="" className="lazyload"/>
+                            <img data-src={artistImg(0)} alt="" className="lazyload"/>
                         </a>
 
                         <div className={styles.artistRow}>
                             <a href={artist(1)?.link} className={mainStyles.hiddenLink} target="_blank" rel="noreferrer">
-                                <img src={artistImg(1)} alt="" className="lazyload"/>
+                                <img data-src={artistImg(1)} alt="" className="lazyload"/>
                             </a>
                             <a href={artist(2)?.link} target="_blank" className={mainStyles.hiddenLink} rel="noreferrer">
-                                <img src={artistImg(2)} alt="" className="lazyload"/>
+                                <img data-src={artistImg(2)} alt="" className="lazyload"/>
                             </a>
                         </div>
                     </div>
@@ -69,8 +69,8 @@ export default function Personal() {
                 <div className={styles.column}>
                     <div className={`${styles.card} ${styles.nowPlaying}`}>
                         <img
-                            className={styles.albumRound}
-                            src={lastTrack?.albumArt}
+                            className={`${styles.albumRound} lazyload`}
+                            data-src={lastTrack?.albumArt}
                             alt=""
                             style={lastTrack?.isNowPlaying ? undefined : { animationPlayState: 'paused' }}
                         />
@@ -85,7 +85,7 @@ export default function Personal() {
                             </a>
 
                             <div className={styles.byRow}>
-                                <img className={styles.gif} src="/cuteNuroSing.gif" alt="" />
+                                <img className={styles.gif} data-src="/cuteNuroSing.gif" alt="" />
                                 <b className={styles.by}>by</b>
                                 <a
                                     href={lastTrack && `https://last.fm/music/${lastTrack.artist}`}
@@ -109,10 +109,10 @@ export default function Personal() {
                         <h2 className={styles.heading} style={{padding: 0}}>Reading</h2>
 
                         <div className={`${styles.readingImages}`} style={{margin: 0}}>
-                            {/* <img className={`${styles.readingIllustration} lazyload`} src="/booksSection/nuroRead.png" alt="" /> */}
+                            {/* <img className={`${styles.readingIllustration} lazyload`} data-src="/booksSection/nuroRead.png" alt="" /> */}
                             <div className={styles.readingText} style={{margin: 0}}>
                             <h2 className={styles.heading}>Now</h2>
-                            <img className={`${styles.readingCover} lazyload`} src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
+                            <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
                                 {/* <b className={styles.bookTitle}>Steve Jobs</b> */}
                             </div>
 
@@ -120,7 +120,7 @@ export default function Personal() {
 
                             <div className={styles.readingText}>
                         <h2 className={styles.heading}>Next</h2>
-                        <img className={`${styles.readingCover} lazyload`} src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
+                        <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
                                 {/* <b className={styles.bookTitle}>Same dream</b> */}
                             </div>
                         </div>
@@ -134,7 +134,7 @@ export default function Personal() {
                         <h2 className={styles.heading}>Top Track</h2>
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={`${styles.topArt} ${mainStyles.hiddenLink}`}>
-                            <img src={topSong?.image || 'image.png'} alt="" className='lazyload' />
+                            <img data-src={topSong?.image || 'image.png'} alt="" className='lazyload' />
                         </a>
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={mainStyles.hiddenLink}>
@@ -147,7 +147,7 @@ export default function Personal() {
 
                         <div className={styles.bookGrid}>
                             {favoriteBooks.map((book) => (
-                                <img key={book.title} src={book.cover} className={`lazyload ${styles.bookGridImg}`} alt={`${book.title} by ${book.author}`} />
+                                <img key={book.title} data-src={book.cover} className={`lazyload ${styles.bookGridImg}`} alt={`${book.title} by ${book.author}`} />
                             ))}
                         </div>
                     </div>

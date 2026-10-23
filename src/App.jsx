@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import useIsDesktop from './hooks/useIsDesktop';
 import Personal from './Components/PersonalSection';
 import AboutSection from './Components/AboutSection';
+import lazySizes from 'lazysizes';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -120,7 +121,7 @@ export default function Main(){
             <SwiperSlide style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <h2 className={`${styles.name} ${styles.frontText}`}>Rajveer Singh Kaler</h2>
                 <p className={`${styles.subHeading} ${styles.frontText}`}>Tinkerer • Programmer • Neuro-Sama devotee</p>
-                <img className={styles.beegNuro} src='beegNuro.png'/>
+                <img className={`${styles.beegNuro} lazyload`} data-src='beegNuro.png'/>
             </SwiperSlide>
             <SwiperSlide>
                 <div className={styles.scroller} data-scroller>
@@ -130,7 +131,7 @@ export default function Main(){
             <SwiperSlide>
                 <div className={styles.scroller} data-scroller>
                     <Personal/>
-                    <img src="bannerDark.jpg" style={{width: "100vw",}}/>
+                    <img data-src="bannerDark.jpg" className='lazyload' style={{width: "100vw",}}/>
                 </div>
             </SwiperSlide>
         </Swiper>
