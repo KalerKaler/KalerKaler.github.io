@@ -1,5 +1,4 @@
 import styles from './Personal.module.css';
-import useIsDesktop from '../hooks/useIsDesktop';
 import { useLastTrack } from '../hooks/lastTrack';
 import useTrackInfo from '../hooks/trackInfo';
 import useTopArtists from '../hooks/useTopArtists';
@@ -17,12 +16,11 @@ const favoriteBooks = [
 const FALLBACK_ARTIST = 'FUByEvil.jpg';
 
 export default function Personal() {
-    const isDesktop = useIsDesktop();
     const lastTrack = useLastTrack('cwxesx');
-    const playCount = useTrackInfo(lastTrack, isDesktop);
-    const topArtists = useTopArtists(isDesktop);
-    const userInfo = useUserInfo(isDesktop);
-    const topSong = useTopSong(isDesktop);
+    const playCount = useTrackInfo(lastTrack, true);
+    const topArtists = useTopArtists(true);
+    const userInfo = useUserInfo(true);
+    const topSong = useTopSong(true);
 
     const artist = (i) => topArtists?.[i];
     const artistImg = (i) => artist(i)?.image || FALLBACK_ARTIST;
