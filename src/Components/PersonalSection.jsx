@@ -6,8 +6,8 @@ import useUserInfo from '../hooks/useUserInfo';
 import useTopSong from '../hooks/useTopSong';
 import mainStyles from '../App.module.css';
 import lazySizes from 'lazysizes';
+import useIsDesktop from '../hooks/useIsDesktop';
 
-// Replace these with your own book covers and files in /public
 const favoriteBooks = [
     { title: 'Think & Grow Rich', author: 'Napoleon Hill', cover: '/booksSection/thinkRich.png' },
     { title: 'The Ground Breaker', author: 'Kanwal Rekhi', cover: '/booksSection/groudBreaker.png' },
@@ -21,6 +21,7 @@ export default function Personal() {
     const topArtists = useTopArtists(true);
     const userInfo = useUserInfo(true);
     const topSong = useTopSong(true);
+    const isDesktop = useIsDesktop();
 
     const artist = (i) => topArtists?.[i];
     const artistImg = (i) => artist(i)?.image || FALLBACK_ARTIST;
@@ -48,7 +49,7 @@ export default function Personal() {
                         </div>
                     </div>
 
-                    <div className={`${styles.card} ${styles.stats}`}>
+                    {isDesktop && <div className={`${styles.card} ${styles.stats}`}>
                         <h2 className={styles.heading}>Listening Stats</h2>
 
                         <div className={styles.statRow}>
@@ -60,7 +61,7 @@ export default function Personal() {
                             <span className={styles.statValue}>{userInfo?.trackCount ?? '--'}</span>
                             <span className={styles.statUnit}>songs</span>
                         </div>
-                    </div>
+                    </div>}
                 </div>
 
                 {/* Middle column: now playing + currently reading */}
@@ -97,22 +98,20 @@ export default function Personal() {
                             </div>
                         </div>
 
-                        <div className={styles.plays}>
+                        {isDesktop && <div className={styles.plays}>
                             <b className={styles.playsLabel}>Total</b>
                             <b className={styles.playCount}>{playCount || '-'}</b>
                             <b className={styles.playsLabel}>Plays</b>
-                        </div>
+                        </div>}
                     </div>
 
                     <div className={`${styles.card} ${styles.reading}`}>
                         <h2 className={styles.heading} style={{padding: 0}}>Reading</h2>
 
-                        <div className={`${styles.readingImages}`} style={{margin: 0}}>
-                            {/* <img className={`${styles.readingIllustration} lazyload`} data-src="/booksSection/nuroRead.png" alt="" /> */}
+                        <div className={`${styles.readingImages}`} style={{margin: 0}}>=
                             <div className={styles.readingText} style={{margin: 0}}>
                             <h2 className={styles.heading}>Now</h2>
                             <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
-                                {/* <b className={styles.bookTitle}>Steve Jobs</b> */}
                             </div>
 
                             <div className={styles.coverDivider}/>
@@ -120,7 +119,6 @@ export default function Personal() {
                             <div className={styles.readingText}>
                         <h2 className={styles.heading}>Next</h2>
                         <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
-                                {/* <b className={styles.bookTitle}>Same dream</b> */}
                             </div>
                         </div>
 
