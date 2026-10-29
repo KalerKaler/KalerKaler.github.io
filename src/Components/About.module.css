@@ -230,6 +230,11 @@
     color: #b5d0ea;
 }
 
+.greyed{
+    color: rgba(31, 31, 52, 0.48);
+    opacity: 0.5;
+}
+
 @media (max-width: 900px) {
     .grid {
         grid-template-columns: 1fr;
@@ -272,7 +277,4 @@
     .about{
         padding-top: 0;
     }
-    /* .bottomRow{
-        visibility: hidden;
-    } */
 }

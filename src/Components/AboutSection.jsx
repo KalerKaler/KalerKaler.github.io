@@ -96,7 +96,7 @@ export default function AboutSection() {
             {/* Bottom row */}
             <div className={styles.bottomRow}>
                 <div className={styles.joined}>
-                    <div className={styles.half}>
+                    <div className={`${styles.half} ${styles.greyed}`} title='Coming soon'>
                         <svg className={styles.bottomIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M20 14h-5v-1h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h4v1H4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2M5 11V4h14v7zm-1 9v-4h16v4z" className="b"></path>
                             <path fill="currentColor" d="M6 17h8v2H6zm11 0a1 1 0 1 0 0 2a1 1 0 1 0 0-2" className="b"></path>
@@ -104,7 +104,7 @@ export default function AboutSection() {
                         <b className={styles.bottomLabel}>My Current Rig</b>
                     </div>
 
-                    <div className={styles.half}>
+                    <div className={`${styles.half} ${styles.greyed}`} title='Coming soon'>
                         <svg className={styles.bottomIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
                             <path fill="currentColor" d="M32 6H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h15l.57-.7l.93-1.14l-.09-.16H4V8h28v8.56a8.4 8.4 0 0 1 2 1.81V8a2 2 0 0 0-2-2" className="clr-i-outline clr-i-outline-path-1"></path>
                             <path fill="currentColor" d="M7 12h17v1.6H7z" className="clr-i-outline clr-i-outline-path-2"></path>
@@ -119,7 +119,7 @@ export default function AboutSection() {
 
                 <div className={styles.updated}>
                     <b className={styles.updatedLabel}>Last Updated</b>
-                        <b className={styles.updatedDate}>{repoDate ? repoDate.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, "-"): `${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`}</b>
+                        <b className={styles.updatedDate}>{repoDate ? repoDate.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, "-"): "- - -"}</b>
                 </div>
             </div>
         </section>
