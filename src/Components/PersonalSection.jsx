@@ -108,7 +108,7 @@ export default function Personal() {
                     <div className={`${styles.card} ${styles.reading}`}>
                         <h2 className={styles.heading} style={{padding: 0}}>Reading</h2>
 
-                        <div className={`${styles.readingImages}`} style={{margin: 0}}>=
+                        <div className={`${styles.readingImages}`} style={{margin: 0}}>
                             <div className={styles.readingText} style={{margin: 0}}>
                             <h2 className={styles.heading}>Now</h2>
                             <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
@@ -117,8 +117,8 @@ export default function Personal() {
                             <div className={styles.coverDivider}/>
 
                             <div className={styles.readingText}>
-                        <h2 className={styles.heading}>Next</h2>
-                        <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
+                                <h2 className={styles.heading}>Next</h2>
+                                <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
                             </div>
                         </div>
 

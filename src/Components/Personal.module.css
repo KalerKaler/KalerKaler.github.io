@@ -220,12 +220,6 @@
     margin-top: clamp(8px, 1vw, 16px);
 }
 
-.readingIllustration {
-    width: clamp(120px, 24vw, 340px);
-    height: auto;
-    object-fit: contain;
-}
-
 .readingCover {
     width: clamp(120px, 22vw, 320px);
     height: 37vh;
@@ -356,5 +350,13 @@
     }
     .topSongName{
         font-size: 1.2rem;
+    }
+    .readingText{
+        margin: 0;
+        padding: 0;
+        max-height: 40vh;
+    }
+    .readingCover{
+        height: 25vh;
     }
 }
