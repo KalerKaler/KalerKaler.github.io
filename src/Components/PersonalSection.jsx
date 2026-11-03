@@ -13,15 +13,15 @@ const favoriteBooks = [
     { title: 'The Ground Breaker', author: 'Kanwal Rekhi', cover: '/booksSection/groudBreaker.png' },
 ];
 
-const FALLBACK_ARTIST = 'FUByEvil.jpg';
+const FALLBACK_ARTIST = 'fallbackArtist.jpg';
 
 export default function Personal() {
+    const isDesktop = useIsDesktop();
     const lastTrack = useLastTrack('cwxesx');
     const playCount = useTrackInfo(lastTrack, true);
     const topArtists = useTopArtists(true);
-    const userInfo = useUserInfo(true);
+    const userInfo = useUserInfo(isDesktop);
     const topSong = useTopSong(true);
-    const isDesktop = useIsDesktop();
 
     const artist = (i) => topArtists?.[i];
     const artistImg = (i) => artist(i)?.image || FALLBACK_ARTIST;
@@ -40,8 +40,8 @@ export default function Personal() {
                         </a>
 
                         <div className={styles.artistRow}>
-                            <a href={artist(1)?.link} className={mainStyles.hiddenLink} target="_blank" rel="noreferrer">
-                                <img data-src={artistImg(1)} alt="" className="lazyload"/>
+                            <a href={artist?.link} className={mainStyles.hiddenLink} target="_blank" rel="noreferrer">
+                                <img data-src={artist[1]?.image || FALLBACK_ARTIST} alt="" className="lazyload"/>
                             </a>
                             <a href={artist(2)?.link} target="_blank" className={mainStyles.hiddenLink} rel="noreferrer">
                                 <img data-src={artistImg(2)} alt="" className="lazyload"/>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useTopArtists(isDesktop){
+export default function useTopArtists(){
     const apiKey = import.meta.env.VITE_LASTFM_API_KEY;
     const limit = 4;
     const username = 'cwxesx';
@@ -9,7 +9,6 @@ export default function useTopArtists(isDesktop){
 
     useEffect(() => {
         async function artists(){
-            if (!isDesktop) return;
             try{
                 const response = await fetch(lastfmUrl);
                 const data = await response.json();

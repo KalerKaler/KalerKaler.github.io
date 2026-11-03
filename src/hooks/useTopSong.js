@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useTopSong(isDesktop){
+export default function useTopSong(){
     const api_key = import.meta.env.VITE_LASTFM_API_KEY;
     const username = 'cwxesx';
     const api = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${api_key}&format=json&period=overall&limit=1`
@@ -9,7 +9,6 @@ export default function useTopSong(isDesktop){
 
     useEffect(() => {
         async function getTopTrack(){
-            if (!isDesktop) return;
             try{
                 const res = await fetch(api);
                 const dat = await res.json();
