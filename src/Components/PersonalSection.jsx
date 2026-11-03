@@ -36,15 +36,15 @@ export default function Personal() {
                         <h2 className={styles.heading}>Top Artists</h2>
 
                         <a href={artist(0)?.link} className={`${mainStyles.hiddenLink} ${styles.artistMain}`} target="_blank" rel="noreferrer">
-                            <img data-src={artistImg(0)} alt="" className="lazyload"/>
+                            <img src={artistImg(0)} alt="" loading='lazy'/>
                         </a>
 
                         <div className={styles.artistRow}>
                             <a href={artist?.link} className={mainStyles.hiddenLink} target="_blank" rel="noreferrer">
-                                <img data-src={artistImg(1)} alt="" className="lazyload"/>
+                                <img src={artistImg(1)} alt="" loading='lazy'/>
                             </a>
                             <a href={artist(2)?.link} target="_blank" className={mainStyles.hiddenLink} rel="noreferrer">
-                                <img data-src={artistImg(2)} alt="" className="lazyload"/>
+                                <img src={artistImg(2)} alt="" loading='lazy'/>
                             </a>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export default function Personal() {
                 <div className={styles.column}>
                     <div className={`${styles.card} ${styles.nowPlaying}`}>
                         <img
-                            className={`${styles.albumRound} lazyload`}
+                            className={styles.albumRound}
                             src={lastTrack?.albumArt}
                             alt=""
                             loading='lazy'
@@ -85,7 +85,7 @@ export default function Personal() {
                             </a>
 
                             <div className={styles.byRow}>
-                                <img className={styles.gif} data-src="/cuteNuroSing.gif" alt="" />
+                                <img className={`${styles.gif} lazyload`} data-src="/cuteNuroSing.gif" alt="" />
                                 <b className={styles.by}>by</b>
                                 <a
                                     href={lastTrack && `https://last.fm/music/${lastTrack.artist}`}
@@ -131,7 +131,7 @@ export default function Personal() {
                         <h2 className={styles.heading}>Top Track</h2>
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={`${styles.topArt} ${mainStyles.hiddenLink}`}>
-                            <img data-src={topSong?.image || 'image.png'} alt="" className='lazyload' />
+                            <img src={topSong?.image || 'image.png'} alt="" loading='lazy' />
                         </a>
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={mainStyles.hiddenLink}>
