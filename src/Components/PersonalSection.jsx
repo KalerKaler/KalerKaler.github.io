@@ -9,7 +9,7 @@ import lazySizes from 'lazysizes';
 import useIsDesktop from '../hooks/useIsDesktop';
 
 const favoriteBooks = [
-    { title: 'Think & Grow Rich', author: 'Napoleon Hill', cover: '/booksSection/thinkRich.png' },
+    { title: 'Steve Jobs', author: 'Walter Isaacson', cover: '/booksSection/steveJobs.png' },
     { title: 'The Ground Breaker', author: 'Kanwal Rekhi', cover: '/booksSection/groudBreaker.png' },
 ];
 
@@ -111,14 +111,14 @@ export default function Personal() {
                         <div className={`${styles.readingImages}`} style={{margin: 0}}>
                             <div className={styles.readingText} style={{margin: 0}}>
                             <h2 className={styles.readingSub}>Now</h2>
-                            <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
+                            <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="I had the same dream again book cover" />
                             </div>
 
                             <div className={styles.coverDivider}/>
 
                             <div className={styles.readingText}>
                                 <h2 className={styles.readingSub}>Next</h2>
-                                <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
+                                <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/GvGl.jpg" alt="Good Vibes Good Life book cover" />
                             </div>
                         </div>
 
@@ -132,10 +132,6 @@ export default function Personal() {
 
                         <a href={topSong?.url} target="_blank" rel="noreferrer" className={`${styles.topArt} ${mainStyles.hiddenLink}`}>
                             <img src={topSong?.image || 'image.png'} alt="" loading='lazy' />
-                        </a>
-
-                        <a href={topSong?.url} target="_blank" rel="noreferrer" className={mainStyles.hiddenLink}>
-                            <b className={styles.topSongName}>{topSong?.name || 'Loading...'}</b>
                         </a>
                     </div>
 

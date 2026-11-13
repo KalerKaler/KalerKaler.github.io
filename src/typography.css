@@ -1,0 +1,397 @@
+/* Typography System - Consistent font sizing and styling across the project */
+
+/* Font imports - Using Google Fonts for display and body fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ========== Font Families ========== */
+  /* Display font for headings - distinctive, characterful */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Body font for UI text - highly readable, neutral */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Mono font for code/technical text */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+  /* ========== Type Scale (Major Third ~1.25) ========== */
+  /* Base: 1rem = 16px */
+  --text-xs: clamp(0.65rem, 0.6rem + 0.25vw, 0.75rem);    /* ~10-12px */
+  --text-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);   /* ~12-14px */
+  --text-base: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);   /* ~14-16px */
+  --text-lg: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);       /* ~16-18px */
+  --text-xl: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);    /* ~18-20px */
+  --text-2xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);    /* ~20-24px */
+  --text-3xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);      /* ~24-30px */
+  --text-4xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);  /* ~30-40px */
+  --text-5xl: clamp(2.25rem, 1.8rem + 2.25vw, 3rem);      /* ~36-48px */
+  --text-6xl: clamp(3rem, 2.25rem + 3.75vw, 4rem);        /* ~48-64px */
+  --text-7xl: clamp(3.75rem, 2.8rem + 4.75vw, 5rem);      /* ~60-80px */
+  --text-8xl: clamp(4.5rem, 3.3rem + 6vw, 6rem);          /* ~72-96px */
+
+  /* ========== Semantic Font Sizes ========== */
+  /* Headings - using display font */
+  --heading-1: var(--text-7xl);   /* Page titles, hero text */
+  --heading-2: var(--text-5xl);   /* Section titles */
+  --heading-3: var(--text-3xl);   /* Card titles, subsection */
+  --heading-4: var(--text-2xl);   /* Small section headers */
+  --heading-5: var(--text-xl);    /* Minor headers */
+  --heading-6: var(--text-base);  /* Tiny headers */
+
+  /* Subheadings / Labels - using display font but lighter */
+  --subheading-1: var(--text-2xl);  /* Prominent subheadings */
+  --subheading-2: var(--text-xl);   /* Card subtitles */
+  --subheading-3: var(--text-lg);   /* Section labels */
+  --subheading-4: var(--text-base); /* Small labels */
+  --subheading-5: var(--text-sm);   /* Tiny labels */
+
+  /* Body text - using body font */
+  --body-lg: var(--text-lg);      /* Lead paragraphs, important body */
+  --body-base: var(--text-base);  /* Default body text */
+  --body-sm: var(--text-sm);      /* Secondary body text */
+  --body-xs: var(--text-xs);      /* Captions, metadata */
+
+  /* Special sizes */
+  --stat-large: var(--text-6xl);   /* Large statistics numbers */
+  --stat-medium: var(--text-4xl);  /* Medium statistics */
+  --stat-small: var(--text-2xl);   /* Small statistics */
+  --stat-label: var(--text-sm);    /* Stat labels */
+
+  /* ========== Font Weights ========== */
+  --weight-thin: 100;
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+
+  /* Semantic weights */
+  --weight-heading: var(--weight-bold);      /* Default heading weight */
+  --weight-heading-heavy: var(--weight-black);  /* Emphasis headings */
+  --weight-subheading: var(--weight-semibold);  /* Subheadings */
+  --weight-body: var(--weight-normal);       /* Body text */
+  --weight-body-medium: var(--weight-medium);   /* Emphasized body */
+  --weight-body-bold: var(--weight-semibold);   /* Strong body */
+
+  /* ========== Line Heights ========== */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Semantic line heights */
+  --leading-heading: var(--leading-tight);    /* Headings need tight leading */
+  --leading-subheading: var(--leading-snug);  /* Subheadings */
+  --leading-body: var(--leading-relaxed);     /* Body text */
+  --leading-body-tight: var(--leading-normal); /* Compact body */
+
+  /* ========== Letter Spacing ========== */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* Semantic tracking */
+  --tracking-heading: var(--tracking-tight);    /* Headings slightly tighter */
+  --tracking-subheading: var(--tracking-normal);
+  --tracking-body: var(--tracking-normal);
+  --tracking-caption: var(--tracking-wide);     /* Small caps / labels */
+  --tracking-mono: var(--tracking-normal);
+
+  /* ========== Color Variables (from index.css) ========== */
+  --text-primary: #E9AEF5;    /* Pinkish for primary headings */
+  --text-secondary: #A8D0E6;  /* Lighter cold blue for body text */
+  --text-muted: #7A9BB8;      /* Muted cold for less important text */
+  --border-color: #3C3C3C;    /* Separator/divider color */
+
+  /* ========== Spacing Scale (consistent spacing system) ========== */
+  /* Base spacing unit: 12px = 0.75rem */
+  --space-xs: clamp(4px, 0.5vw, 8px);      /* 4-8px */
+  --space-sm: clamp(8px, 1vw, 14px);       /* 8-14px */
+  --space-md: clamp(12px, 1.5vw, 24px);    /* 12-24px */
+  --space-lg: clamp(16px, 2vw, 32px);      /* 16-32px */
+  --space-xl: clamp(24px, 3vw, 48px);      /* 24-48px */
+  --space-2xl: clamp(32px, 4vw, 64px);     /* 32-64px */
+
+  /* Semantic spacing */
+  --card-padding: var(--space-md);          /* Card internal padding */
+  --container-padding: var(--space-md);     /* Main container padding */
+  --section-gap: var(--space-md);           /* Gap between sections/cards */
+  --element-gap: var(--space-sm);           /* Gap between elements */
+  --inline-gap: var(--space-xs);            /* Gap between inline elements */
+  --heading-margin-bottom: var(--space-sm); /* Margin below headings */
+  --text-margin-bottom: var(--space-xs);    /* Margin below text */
+  --icon-gap: clamp(10px, 0.6vw, 50px);     /* Icon box gap */
+  --border-width: 1px;                      /* Standard border width */
+  --divider-width: 2px;                     /* Divider width */
+  --border-radius-sm: clamp(8px, 1vw, 16px);  /* Small border radius */
+  --border-radius-md: clamp(14px, 1.4vw, 24px); /* Medium border radius */
+}
+
+/* ========== Utility Classes ========== */
+
+/* Font Families */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Heading Classes - Use display font */
+.h1, .heading-1 {
+  font-family: var(--font-display);
+  font-size: var(--heading-1);
+  font-weight: var(--weight-heading-heavy);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.h2, .heading-2 {
+  font-family: var(--font-display);
+  font-size: var(--heading-2);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.h3, .heading-3 {
+  font-family: var(--font-display);
+  font-size: var(--heading-3);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.h4, .heading-4 {
+  font-family: var(--font-display);
+  font-size: var(--heading-4);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.h5, .heading-5 {
+  font-family: var(--font-display);
+  font-size: var(--heading-5);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.h6, .heading-6 {
+  font-family: var(--font-display);
+  font-size: var(--heading-6);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Subheading Classes - Use display font but lighter */
+.subheading-1 {
+  font-family: var(--font-display);
+  font-size: var(--subheading-1);
+  font-weight: var(--weight-subheading);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-subheading);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.subheading-2 {
+  font-family: var(--font-display);
+  font-size: var(--subheading-2);
+  font-weight: var(--weight-subheading);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-subheading);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.subheading-3 {
+  font-family: var(--font-display);
+  font-size: var(--subheading-3);
+  font-weight: var(--weight-subheading);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-subheading);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.subheading-4 {
+  font-family: var(--font-display);
+  font-size: var(--subheading-4);
+  font-weight: var(--weight-subheading);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-subheading);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.subheading-5 {
+  font-family: var(--font-display);
+  font-size: var(--subheading-5);
+  font-weight: var(--weight-subheading);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-caption);
+  color: var(--text-muted);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Body Text Classes - Use body font */
+.body-lg {
+  font-family: var(--font-body);
+  font-size: var(--body-lg);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--text-secondary);
+}
+
+.body-base {
+  font-family: var(--font-body);
+  font-size: var(--body-base);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--text-secondary);
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: var(--body-sm);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--text-muted);
+}
+
+.body-xs {
+  font-family: var(--font-body);
+  font-size: var(--body-xs);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body-tight);
+  letter-spacing: var(--tracking-body);
+  color: var(--text-muted);
+}
+
+/* Emphasis variants */
+.body-bold {
+  font-weight: var(--weight-body-bold);
+  color: var(--text-secondary);
+}
+
+.body-medium {
+  font-weight: var(--weight-body-medium);
+  color: var(--text-secondary);
+}
+
+/* Stat Classes - For large numbers */
+.stat-large {
+  font-family: var(--font-display);
+  font-size: var(--stat-large);
+  font-weight: var(--weight-heading-heavy);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-secondary);
+}
+
+.stat-medium {
+  font-family: var(--font-display);
+  font-size: var(--stat-medium);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-secondary);
+}
+
+.stat-small {
+  font-family: var(--font-display);
+  font-size: var(--stat-small);
+  font-weight: var(--weight-heading);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-secondary);
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: var(--stat-label);
+  font-weight: var(--weight-subheading);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-caption);
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Caption / Metadata */
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--body-xs);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+}
+
+/* Code / Technical */
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--body-sm);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-mono);
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.125em 0.375em;
+  border-radius: 4px;
+}
+
+/* ========== Responsive Adjustments ========== */
+@media (max-width: 1000px) {
+  :root {
+    /* Slightly smaller headings on tablet */
+    --heading-1: var(--text-6xl);
+    --heading-2: var(--text-4xl);
+    --heading-3: var(--text-2xl);
+    --stat-large: var(--text-5xl);
+    --stat-medium: var(--text-3xl);
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    /* Even smaller on mobile */
+    --heading-1: var(--text-5xl);
+    --heading-2: var(--text-3xl);
+    --heading-3: var(--text-xl);
+    --subheading-1: var(--text-xl);
+    --subheading-2: var(--text-lg);
+    --stat-large: var(--text-4xl);
+    --stat-medium: var(--text-2xl);
+    --stat-small: var(--text-lg);
+  }
+}
+
+/* ========== Print Styles ========== */
+@media print {
+  :root {
+    --text-primary: #000;
+    --text-secondary: #333;
+    --text-muted: #666;
+  }
+}

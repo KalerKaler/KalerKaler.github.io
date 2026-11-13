@@ -1,3 +1,5 @@
+/* App.module.css - Uses typography system from typography.css */
+
 .navBar{
   width: 100vw;
   height: 4.8vh;
@@ -14,22 +16,22 @@
 .kalerkaler {
     margin: 0;
   	position: relative;
-  	font-size: clamp(2rem, 3vw, 3rem);
+  	font-size: clamp(1.5rem, 3.8vh, 3rem);
   	display: inline-block;
-  	font-family: Inter;
+  	font-family: var(--font-display);
+  	font-weight: var(--weight-heading-heavy);
   	color: var(--text-primary);
   	text-align: left;
   	text-shadow: 2px 0 0 #000000, 0 2px 0 #000000, -2px 0 0 #000000, 0 -2px 0 #000000;
-    /* position: absolute;
-    top: -2.5rem;
-    left: 0.8rem; */
+    letter-spacing: var(--tracking-heading);
+    line-height: 4.8vh;
+    height: 4.8vh;
 }
 
 .beegNuro{
   width: auto;
   height: 95vh;
   position: absolute;
-  /* left: 0; */
   bottom: 0;
   z-index: -1;
   animation: moveUp 4s ease-in-out;
@@ -52,16 +54,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -80%);
-  font-size: clamp(5rem, 40vw, 6rem);
-  font-size: 6rem;
-  font-family: Inter;
+  font-size: var(--text-8xl);
+  font-family: var(--font-display);
+  font-weight: var(--weight-heading-heavy);
   color: var(--text-primary);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
 }
 
 .subHeading{
   color: var(--text-secondary);
   top: 65%;
-  font-size: 1.1rem;
+  font-size: var(--subheading-1);
+  font-family: var(--font-display);
+  font-weight: var(--weight-subheading);
+  letter-spacing: var(--tracking-subheading);
+  line-height: var(--leading-subheading);
 }
 
 .iconBox {
@@ -101,25 +109,22 @@
     overflow-y: auto;
     overscroll-behavior: contain; /* stops scroll from chaining to the page */
     -webkit-overflow-scrolling: touch;
-}
+  }
 
 .fuq{
-  /* position: absolute;
-  left: 0; */
-  /* background: #b4c0fa; */
   margin: 2rem;
   align-self: flex-start;
 }
 
 @media (min-aspect-ratio: 16/9){
   .statsContainer{display: block;}
-  /* .musicPlayer{margin-right: -7vw;} */
   .musicBlock{flex-direction: row;}
-  .subHeading{top: 58%;font-size: 1.6rem;}
-  /* .snapContainer { scroll-snap-type: y mandatory; } */
+  .subHeading{
+    top: 58%;
+    font-size: var(--subheading-1);
+  }
   .artistCards {display: flex;}
   .mostPlayedTrack {display: flex;}
-  /* .musicPlayer {width: auto;} */
   .certImage {height: 65%;}
   .certLabels {flex-direction: row;}
   .certHeading{ font-size: inherit; }

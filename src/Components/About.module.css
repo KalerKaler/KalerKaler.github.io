@@ -1,15 +1,17 @@
+/* About.module.css - Uses typography system from typography.css */
+
 .about {
     --card-bg: rgba(34, 34, 36, 0.48);
-    --card-border: 1px solid var(--border-color);
+    --card-border: var(--border-width) solid var(--border-color);
     --photo: clamp(200px, 22vw, 320px);
 
     width: 100%;
     max-width: 96vw;
     margin: 0 auto;
-    padding: clamp(12px, 1.5vw, 24px);
+    padding: var(--container-padding);
     box-sizing: border-box;
     color: var(--text-secondary);
-    font-family: Inter, system-ui, sans-serif;
+    font-family: var(--font-body);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +22,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
     grid-template-rows: auto 1fr;
-    gap: clamp(12px, 1.5vw, 24px);
+    gap: var(--section-gap);
     grid-template-areas:
         "profile github"
         "profile skills";
@@ -34,13 +36,13 @@
 .lc {
     background: var(--card-bg);
     border: var(--card-border);
-    border-radius: clamp(14px, 1.4vw, 24px);
+    border-radius: var(--border-radius-md);
 }
 
 .profile {
     grid-area: profile;
     position: relative;
-    padding: 0 clamp(12px, 1.5vw, 24px) clamp(20px, 2.5vw, 36px);
+    padding: 0 var(--container-padding) var(--space-xl);
     margin-top: calc(var(--photo) * 0.31);
     display: flex;
     flex-direction: column;
@@ -56,7 +58,7 @@
     height: var(--photo);
     border-radius: 50%;
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: var(--border-width) solid var(--border-color);
 }
 
 .photo {
@@ -81,23 +83,25 @@
 
 .traits {
     list-style: none;
-    margin: clamp(16px, 2vw, 28px) 0 0;
+    margin: var(--space-lg) 0 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: clamp(12px, 1.6vw, 22px);
+    gap: var(--element-gap);
     text-align: center;
-    font-size: clamp(1rem, 1.6vw, 1.4rem);
-    font-weight: 700;
+    font-size: var(--text-xl);
+    font-weight: var(--weight-body-medium);
     color: var(--text-secondary);
+    font-family: var(--font-body);
+    line-height: var(--leading-body);
 }
 
 .github {
     grid-area: github;
     background: var(--card-bg);
     border: var(--card-border);
-    border-radius: clamp(14px, 1.4vw, 24px);
-    padding: clamp(8px, 1vw, 14px);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-sm);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -108,7 +112,7 @@
 .githubBody {
     display: flex;
     align-items: stretch;
-    gap: clamp(12px, 1.5vw, 24px);
+    gap: var(--section-gap);
     width: 100%;
 }
 
@@ -119,7 +123,7 @@
 }
 
 .divider {
-    width: 2px;
+    width: var(--divider-width);
     background: var(--border-color);
     border-radius: 2px;
     flex-shrink: 0;
@@ -131,21 +135,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 clamp(8px, 1vw, 16px);
+    padding: 0 var(--space-sm);
     text-align: center;
 }
 
 .bigNumber {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 800;
-    line-height: 1;
+    font-size: var(--stat-large);
+    font-weight: var(--weight-heading-heavy);
+    line-height: var(--leading-none);
     color: var(--text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
 }
 
 .subtext {
-    margin-top: 8px;
-    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    margin-top: var(--inline-gap);
+    font-size: var(--body-sm);
     color: var(--text-secondary);
+    font-family: var(--font-body);
+    line-height: var(--leading-normal);
 }
 
 .skills {
@@ -154,8 +162,8 @@
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     justify-items: center;
-    gap: clamp(16px, 2.5vw, 36px) clamp(12px, 1.5vw, 24px);
-    padding: clamp(20px, 3vw, 40px) clamp(16px, 2.5vw, 36px);
+    gap: var(--space-lg) var(--section-gap);
+    padding: var(--space-xl) var(--space-lg);
 }
 
 .skillIcon {
@@ -168,8 +176,8 @@
 .bottomRow {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    gap: clamp(12px, 1.5vw, 24px);
-    margin-top: clamp(12px, 1.5vw, 24px);
+    gap: var(--section-gap);
+    margin-top: var(--section-gap);
 }
 
 .joined {
@@ -183,13 +191,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(6px, 0.8vw, 12px);
-    padding: clamp(12px, 1.6vw, 24px);
+    gap: var(--space-xs);
+    padding: var(--space-md);
     min-width: 0;
 }
 
 .half:first-child {
-    border-right: 2px solid var(--border-color);
+    border-right: var(--divider-width) solid var(--border-color);
 }
 
 .updated {
@@ -197,8 +205,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(6px, 0.8vw, 12px);
-    padding: clamp(12px, 1.6vw, 24px);
+    gap: var(--space-xs);
+    padding: var(--space-md);
     min-height: clamp(130px, 14vw, 200px);
 }
 
@@ -209,22 +217,31 @@
 }
 
 .bottomLabel {
-    font-size: clamp(1.1rem, 2.6vw, 2.5rem);
-    font-weight: 800;
+    font-size: var(--heading-4);
+    font-weight: var(--weight-heading);
     color: var(--text-secondary);
     text-align: center;
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--leading-heading);
 }
 
 .updatedLabel {
-    font-size: clamp(1.1rem, 2.6vw, 2.5rem);
-    font-weight: 800;
+    font-size: var(--heading-4);
+    font-weight: var(--weight-heading);
     color: var(--text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--leading-heading);
 }
 
 .updatedDate {
-    font-size: clamp(1.6rem, 4vw, 3.6rem);
-    font-weight: 800;
+    font-size: var(--stat-medium);
+    font-weight: var(--weight-heading);
     color: var(--text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
 }
 
 .greyed{
@@ -256,7 +273,7 @@
 
 @media (max-width: 480px) {
     .joined .half {
-        padding: 12px 8px;
+        padding: var(--space-sm) var(--space-xs);
     }
     .github{
         width: 85vw;

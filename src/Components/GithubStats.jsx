@@ -61,11 +61,11 @@ export default function GithubContributions({ username = "kalerkaler", onTotal }
   );
 
   if (error) {
-    return <p style={{ color: "#6B7280", fontSize: 13 }}>{error}</p>;
+    return <p className="caption">{error}</p>;
   }
 
   if (!data) {
-    return <p style={{ color: "#6B7280", fontSize: 13 }}>Loading…</p>;
+    return <p className="caption">Loading…</p>;
   }
 
   return (
@@ -112,11 +112,9 @@ export default function GithubContributions({ username = "kalerkaler", onTotal }
             alignItems: "center",
             gap: 4,
             marginTop: 8,
-            fontSize: 12,
-            color: "#6B7280",
           }}
         >
-        <span style={{ marginRight: 4 }}>Less</span>
+        <span className="caption" style={{ marginRight: 4 }}>Less</span>
         {LEVELS.map((color, i) => (
           <span
             key={i}
@@ -129,7 +127,7 @@ export default function GithubContributions({ username = "kalerkaler", onTotal }
             }}
           />
         ))}
-        <span style={{ marginLeft: 4 }}>More</span>
+        <span className="caption" style={{ marginLeft: 4 }}>More</span>
       </div>
     </div>
   );

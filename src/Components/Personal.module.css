@@ -1,37 +1,39 @@
+/* Personal.module.css - Uses typography system from typography.css */
+
 .interests {
     --card-bg: rgba(34, 34, 36, 0.48);
-    --card-border: 1px solid var(--border-color);
+    --card-border: var(--border-width) solid var(--border-color);
 
     width: 100%;
     max-width: 96vw;
     margin: 0 auto;
-    padding: clamp(12px, 1.5vw, 24px);
+    padding: var(--container-padding);
     padding-top: 6vh;
     box-sizing: border-box;
     color: var(--text-secondary);
-    font-family: Inter, system-ui, sans-serif;
+    font-family: var(--font-body);
     min-width: 0;
 }
 /* Three columns with roughly the mockup's proportions */
 .layout {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.9fr) minmax(0, 1fr);
-    gap: clamp(12px, 1.5vw, 24px);
+    gap: var(--section-gap);
     align-items: stretch;
 }
 
 .column {
     display: flex;
     flex-direction: column;
-    gap: clamp(12px, 1.5vw, 24px);
+    gap: var(--section-gap);
     min-width: 0;
 }
 
 .card {
     background: var(--card-bg);
     border: var(--card-border);
-    border-radius: clamp(14px, 1.4vw, 24px);
-    padding: clamp(12px, 1.5vw, 24px);
+    border-radius: var(--border-radius-md);
+    padding: var(--card-padding);
     box-sizing: border-box;
     min-width: 0;
     display: flex;
@@ -40,12 +42,14 @@
 }
 
 .heading {
-    margin: 0 0 clamp(8px, 1vw, 16px);
-    font-size: clamp(1.1rem, 3vw, 4rem);
-    font-weight: 900;
-    color: var(--text-primary);
+    margin: 0 0 var(--heading-margin-bottom);
+    font-size: var(--heading-2);
+    font-weight: var(--weight-heading);
+    color: var(--text-secondary);
     text-align: center;
-    line-height: 1.1;
+    line-height: var(--leading-heading);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
 }
 
 /* Top artists */
@@ -59,7 +63,7 @@
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: clamp(10px, 1vw, 16px);
+    border-radius: var(--border-radius-sm);
 }
 
 .artistMain {
@@ -69,9 +73,9 @@
 .artistRow {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(8px, 1vw, 14px);
+    gap: var(--element-gap);
     width: 100%;
-    margin-top: clamp(8px, 1vw, 14px);
+    margin-top: var(--element-gap);
 }
 
 /* Listening stats */
@@ -83,8 +87,7 @@
 }
 
 .stats .heading {
-    padding-top: clamp(12px, 1.5vw, 24px);
-    font-size: clamp(2rem, 6vw, 3.3rem);
+    padding-top: var(--section-gap);
 }
 
 .statRow {
@@ -92,33 +95,37 @@
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 6px;
-    padding: clamp(6px, 1vw, 14px) 0;
-    border-top: 1px solid var(--border-color);
+    gap: var(--inline-gap);
+    padding: var(--element-gap) 0;
+    border-top: var(--border-width) solid var(--border-color);
 }
 
 .statRow:first-of-type {
-    border-top: 1px solid var(--border-color);
+    border-top: var(--border-width) solid var(--border-color);
 }
 
 .statValue {
-    font-size: clamp(1.4rem, 3vw, 5rem);
-    font-weight: 800;
-    line-height: 1;
+    font-size: var(--stat-large);
+    font-weight: var(--weight-heading-heavy);
+    line-height: var(--leading-none);
     color: var(--text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
 }
 
 .statUnit {
-    font-size: clamp(1.2rem, 2.8vw, 2.6rem);
-    font-weight: 800;
+    font-size: var(--stat-small);
+    font-weight: var(--weight-heading);
     color: var(--text-muted);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
 }
 
 /* Now playing */
 .nowPlaying {
     flex-direction: row;
     align-items: center;
-    gap: clamp(12px, 1.5vw, 24px);
+    gap: var(--section-gap);
     flex: 0 0 auto;
 }
 
@@ -140,27 +147,32 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--inline-gap);
 }
 
 .nowLabel {
-    font-size: clamp(0.65rem, 0.9vw, 0.9rem);
+    font-size: var(--subheading-5);
     color: var(--text-muted);
-    font-weight: 700;
+    font-weight: var(--weight-subheading);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-caption);
+    text-transform: uppercase;
 }
 
 .trackName {
-    font-size: clamp(1.1rem, 2.8vw, 3rem);
-    font-weight: 800;
+    font-size: var(--heading-2);
+    font-weight: var(--weight-heading);
     color: var(--text-secondary);
     overflow-wrap: anywhere;
-    line-height: 1.1;
+    line-height: var(--leading-heading);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
 }
 
 .byRow {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--element-gap);
     flex-wrap: wrap;
 }
 
@@ -170,13 +182,16 @@
 }
 
 .by {
-    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    font-size: var(--body-sm);
     color: var(--text-muted);
+    font-family: var(--font-body);
 }
 
 .artistName {
-    font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+    font-size: var(--body-lg);
     color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-weight: var(--weight-body-medium);
 }
 
 .plays {
@@ -184,21 +199,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: clamp(12px, 1.5vw, 24px);
-    border-left: 1px solid var(--border-color);
+    padding-left: var(--section-gap);
+    border-left: var(--border-width) solid var(--border-color);
 }
 
 .playsLabel {
-    font-size: clamp(0.9rem, 1.6vw, 1.6rem);
-    font-weight: 800;
+    font-size: var(--subheading-4);
+    font-weight: var(--weight-subheading);
     color: var(--text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-subheading);
 }
 
 .playCount {
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 800;
-    line-height: 1;
+    font-size: var(--stat-large);
+    font-weight: var(--weight-heading-heavy);
+    line-height: var(--leading-none);
     color: var(--text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
 }
 
 /* Currently reading */
@@ -216,17 +235,19 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: clamp(12px, 2vw, 32px);
-    margin-top: clamp(8px, 1vw, 16px);
+    gap: var(--space-lg);
+    margin-top: var(--element-gap);
 }
 
 .readingSub{
-    color: var(--text-secondary);
-    margin: 0 0 clamp(8px, 1vw, 16px);
-    font-size: clamp(1.1rem, 3vw, 4rem);
-    font-weight: 900;
+    color: var(--text-muted);
+    margin: 0 0 var(--heading-margin-bottom);
+    font-size: var(--heading-3);
+    font-weight: var(--weight-heading);
     text-align: center;
-    line-height: 1.1;
+    line-height: var(--leading-heading);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
 }
 
 .readingCover {
@@ -237,7 +258,7 @@
 
 .readingText {
     margin-top: auto;
-    padding-top: clamp(12px, 2vw, 32px);
+    padding-top: var(--space-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,18 +266,21 @@
 }
 
 .bookTitle {
-    font-size: clamp(1.4rem, 2.5vw, 4rem);
-    font-weight: 800;
+    font-size: var(--heading-4);
+    font-weight: var(--weight-heading);
     color: var(--text-secondary);
-    line-height: 1.1;
-    margin: 1rem;
+    line-height: var(--leading-heading);
+    margin: var(--space-md);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
 }
 
 .bookAuthor {
-    font-size: clamp(1.2rem, 3.2vw, 3.2rem);
-    font-weight: 800;
+    font-size: var(--body-lg);
+    font-weight: var(--weight-body-medium);
     color: var(--text-secondary);
-    line-height: 1.1;
+    line-height: var(--leading-body);
+    font-family: var(--font-body);
 }
 
 /* Top track */
@@ -268,19 +292,22 @@
 .topArt img {
     display: block;
     width: 20vw;
-    margin: 2rem;
+    margin: var(--space-xl);
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: clamp(12px, 1.4vw, 24px);
+    border-radius: var(--border-radius-md);
     background: var(--border-color);
 }
 
 .topSongName {
-    margin-top: clamp(8px, 1vw, 14px);
-    font-size: clamp(1rem, 2vw, 2rem);
-    font-weight: 800;
+    margin-top: var(--element-gap);
+    font-size: var(--heading-4);
+    font-weight: var(--weight-heading);
     color: var(--text-secondary);
     text-align: center;
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--leading-heading);
 }
 
 /* Favorite books */
@@ -292,7 +319,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(8px, 1vw, 16px);
+    gap: var(--element-gap);
     align-items: end;
 }
 
@@ -304,7 +331,7 @@
 }
 
 .coverDivider {
-    width: 2px;
+    width: var(--divider-width);
     align-self: stretch;
     background: var(--border-color);
     border-radius: 2px;
@@ -346,8 +373,8 @@
 
     .plays {
         border-left: none;
-        border-top: 1px solid var(--border-color);
-        padding: 12px 0 0;
+        border-top: var(--border-width) solid var(--border-color);
+        padding: var(--element-gap) 0 0;
         width: 100%;
     }
     .topArt img{
@@ -355,10 +382,10 @@
         margin: 1.5vh;
     }
     .heading{
-        font-size: 2rem;
+        font-size: var(--heading-3);
     }
     .topSongName{
-        font-size: 1.2rem;
+        font-size: var(--heading-5);
     }
     .readingText{
         margin: 0;
