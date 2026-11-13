@@ -10,13 +10,15 @@
   position: fixed;
   z-index: 5;
   display: flex;
+  align-items: center;
   transition: all 0.5s ease;
 }
 
 .kalerkaler {
     margin: 0;
+    padding-left: var(--space-sm);
   	position: relative;
-  	font-size: clamp(1.5rem, 3.8vh, 3rem);
+  	font-size: clamp(2.7rem, 4.8vh, 4.2rem);
   	display: inline-block;
   	font-family: var(--font-display);
   	font-weight: var(--weight-heading-heavy);
@@ -81,6 +83,7 @@
 }
 
 .icon {
+  padding-top: var(--space-xs);
   fill: var(--svg-color--b5d0ea, #b5d0ea);
   fill-rule: evenodd;
   width: clamp(2rem, 3.5vw, 2.5rem);
