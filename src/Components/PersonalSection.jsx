@@ -54,7 +54,7 @@ export default function Personal() {
 
                         <div className={styles.statRow}>
                             <span className={styles.statValue}>{userInfo?.playTime ?? '--'}</span>
-                            <span className={styles.statUnit}>h</span>
+                            <span className={styles.statUnit}>hours</span>
                         </div>
 
                         <div className={styles.statRow}>
@@ -110,14 +110,14 @@ export default function Personal() {
 
                         <div className={`${styles.readingImages}`} style={{margin: 0}}>
                             <div className={styles.readingText} style={{margin: 0}}>
-                            <h2 className={styles.heading}>Now</h2>
+                            <h2 className={styles.readingSub}>Now</h2>
                             <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/steveJobs.png" alt="Steve Jobs book cover" />
                             </div>
 
                             <div className={styles.coverDivider}/>
 
                             <div className={styles.readingText}>
-                                <h2 className={styles.heading}>Next</h2>
+                                <h2 className={styles.readingSub}>Next</h2>
                                 <img className={`${styles.readingCover} lazyload`} data-src="/booksSection/hadTheSameDream.jpg" alt="Mata onaji yume o mita cover" />
                             </div>
                         </div>

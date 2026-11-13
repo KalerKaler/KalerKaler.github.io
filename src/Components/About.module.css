@@ -1,23 +1,19 @@
 .about {
     --card-bg: rgba(34, 34, 36, 0.48);
-    --card-border: 1px solid #6B3265;
+    --card-border: 1px solid var(--border-color);
     --photo: clamp(200px, 22vw, 320px);
-    
+
     width: 100%;
     max-width: 96vw;
     margin: 0 auto;
     padding: clamp(12px, 1.5vw, 24px);
     box-sizing: border-box;
-    color: #b5d0ea;
+    color: var(--text-secondary);
     font-family: Inter, system-ui, sans-serif;
-}
-
-.title {
-    text-align: center;
-    color: #e8b4f8;
-    font-size: clamp(2rem, 4.5vw, 4rem);
-    font-weight: 800;
-    margin: 0 0 clamp(16px, 2vw, 28px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
 }
 
 .grid {
@@ -60,14 +56,14 @@
     height: var(--photo);
     border-radius: 50%;
     overflow: hidden;
-    border: 1px solid #6b8fc4;
+    border: 1px solid var(--border-color);
 }
 
 .photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background: #2c2829;
+    background: var(--border-color);
 }
 
 .contactRow {
@@ -80,7 +76,7 @@
 .contactIcon {
     width: clamp(32px, 3vw, 48px);
     height: clamp(32px, 3vw, 48px);
-    color: #b5d0ea;
+    color: var(--text-secondary);
 }
 
 .traits {
@@ -93,6 +89,7 @@
     text-align: center;
     font-size: clamp(1rem, 1.6vw, 1.4rem);
     font-weight: 700;
+    color: var(--text-secondary);
 }
 
 .github {
@@ -123,7 +120,7 @@
 
 .divider {
     width: 2px;
-    background: #fff;
+    background: var(--border-color);
     border-radius: 2px;
     flex-shrink: 0;
 }
@@ -142,13 +139,13 @@
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
     line-height: 1;
-    color: #b5d0ea;
+    color: var(--text-secondary);
 }
 
 .subtext {
     margin-top: 8px;
     font-size: clamp(0.8rem, 1.1vw, 1rem);
-    color: #b5d0ea;
+    color: var(--text-secondary);
 }
 
 .skills {
@@ -192,7 +189,7 @@
 }
 
 .half:first-child {
-    border-right: 2px solid #fff;
+    border-right: 2px solid var(--border-color);
 }
 
 .updated {
@@ -208,30 +205,30 @@
 .bottomIcon {
     width: clamp(44px, 5vw, 80px);
     height: clamp(44px, 5vw, 80px);
-    color: #b5d0ea;
+    color: var(--text-secondary);
 }
 
 .bottomLabel {
     font-size: clamp(1.1rem, 2.6vw, 2.5rem);
     font-weight: 800;
-    color: #80DDD2;
+    color: var(--text-secondary);
     text-align: center;
 }
 
 .updatedLabel {
     font-size: clamp(1.1rem, 2.6vw, 2.5rem);
     font-weight: 800;
-    color: #a9cbe0;
+    color: var(--text-secondary);
 }
 
 .updatedDate {
     font-size: clamp(1.6rem, 4vw, 3.6rem);
     font-weight: 800;
-    color: #b5d0ea;
+    color: var(--text-secondary);
 }
 
 .greyed{
-    color: rgba(31, 31, 52, 0.48);
+    color: var(--text-muted);
     opacity: 0.5;
 }
 

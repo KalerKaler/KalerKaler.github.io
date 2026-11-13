@@ -1,6 +1,6 @@
 .interests {
     --card-bg: rgba(34, 34, 36, 0.48);
-    --card-border: 1px solid #6B3265;
+    --card-border: 1px solid var(--border-color);
 
     width: 100%;
     max-width: 96vw;
@@ -8,7 +8,7 @@
     padding: clamp(12px, 1.5vw, 24px);
     padding-top: 6vh;
     box-sizing: border-box;
-    color: #b5d0ea;
+    color: var(--text-secondary);
     font-family: Inter, system-ui, sans-serif;
     min-width: 0;
 }
@@ -43,7 +43,7 @@
     margin: 0 0 clamp(8px, 1vw, 16px);
     font-size: clamp(1.1rem, 3vw, 4rem);
     font-weight: 900;
-    color: #b5d0ea;
+    color: var(--text-primary);
     text-align: center;
     line-height: 1.1;
 }
@@ -84,7 +84,7 @@
 
 .stats .heading {
     padding-top: clamp(12px, 1.5vw, 24px);
-        font-size: clamp(2rem, 6vw, 3.3rem);
+    font-size: clamp(2rem, 6vw, 3.3rem);
 }
 
 .statRow {
@@ -94,24 +94,24 @@
     justify-content: center;
     gap: 6px;
     padding: clamp(6px, 1vw, 14px) 0;
-    border-top: 1px solid #fff;
+    border-top: 1px solid var(--border-color);
 }
 
 .statRow:first-of-type {
-    border-top: 1px solid #fff;
+    border-top: 1px solid var(--border-color);
 }
 
 .statValue {
     font-size: clamp(1.4rem, 3vw, 5rem);
     font-weight: 800;
     line-height: 1;
-    color: #80DDD2;
+    color: var(--text-secondary);
 }
 
 .statUnit {
     font-size: clamp(1.2rem, 2.8vw, 2.6rem);
     font-weight: 800;
-    color: #B6D2E8;
+    color: var(--text-muted);
 }
 
 /* Now playing */
@@ -145,14 +145,14 @@
 
 .nowLabel {
     font-size: clamp(0.65rem, 0.9vw, 0.9rem);
-    color: #8a8a94;
+    color: var(--text-muted);
     font-weight: 700;
 }
 
 .trackName {
     font-size: clamp(1.1rem, 2.8vw, 3rem);
     font-weight: 800;
-    color: #80DDD2;
+    color: var(--text-secondary);
     overflow-wrap: anywhere;
     line-height: 1.1;
 }
@@ -171,12 +171,12 @@
 
 .by {
     font-size: clamp(0.8rem, 1.1vw, 1rem);
-    color: #8a8a94;
+    color: var(--text-muted);
 }
 
 .artistName {
     font-size: clamp(0.9rem, 1.4vw, 1.3rem);
-    color: #c9a8f0;
+    color: var(--text-secondary);
 }
 
 .plays {
@@ -185,20 +185,20 @@
     flex-direction: column;
     align-items: center;
     padding-left: clamp(12px, 1.5vw, 24px);
-    border-left: 1px solid #fff;
+    border-left: 1px solid var(--border-color);
 }
 
 .playsLabel {
     font-size: clamp(0.9rem, 1.6vw, 1.6rem);
     font-weight: 800;
-    color: #b5d0ea;
+    color: var(--text-secondary);
 }
 
 .playCount {
     font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 800;
     line-height: 1;
-    color: #a9cbe0;
+    color: var(--text-secondary);
 }
 
 /* Currently reading */
@@ -220,6 +220,15 @@
     margin-top: clamp(8px, 1vw, 16px);
 }
 
+.readingSub{
+    color: var(--text-secondary);
+    margin: 0 0 clamp(8px, 1vw, 16px);
+    font-size: clamp(1.1rem, 3vw, 4rem);
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.1;
+}
+
 .readingCover {
     width: clamp(120px, 22vw, 320px);
     height: 37vh;
@@ -238,7 +247,7 @@
 .bookTitle {
     font-size: clamp(1.4rem, 2.5vw, 4rem);
     font-weight: 800;
-    color: #80DDD2;
+    color: var(--text-secondary);
     line-height: 1.1;
     margin: 1rem;
 }
@@ -246,7 +255,7 @@
 .bookAuthor {
     font-size: clamp(1.2rem, 3.2vw, 3.2rem);
     font-weight: 800;
-    color: #80DDD2;
+    color: var(--text-secondary);
     line-height: 1.1;
 }
 
@@ -263,14 +272,14 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: clamp(12px, 1.4vw, 24px);
-    background: #e6fbff;
+    background: var(--border-color);
 }
 
 .topSongName {
     margin-top: clamp(8px, 1vw, 14px);
     font-size: clamp(1rem, 2vw, 2rem);
     font-weight: 800;
-    color: #80DDD2;
+    color: var(--text-secondary);
     text-align: center;
 }
 
@@ -297,7 +306,7 @@
 .coverDivider {
     width: 2px;
     align-self: stretch;
-    background: #fff;
+    background: var(--border-color);
     border-radius: 2px;
     flex-shrink: 0;
     display: inline-block;
@@ -337,7 +346,7 @@
 
     .plays {
         border-left: none;
-        border-top: 1px solid #fff;
+        border-top: 1px solid var(--border-color);
         padding: 12px 0 0;
         width: 100%;
     }

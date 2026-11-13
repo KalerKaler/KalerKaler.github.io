@@ -38,7 +38,6 @@ export default function AboutSection() {
 
     return (
         <section className={styles.about} style={{paddingTop: '5vh'}}>
-            <h1 className={styles.title}>About my Professional Life</h1>
 
             <div className={styles.grid}>
                 {/* Profile card */}
@@ -98,10 +97,10 @@ export default function AboutSection() {
                 <div className={styles.joined}>
                     <div className={`${styles.half} ${styles.greyed}`} title='Coming soon'>
                         <svg className={styles.bottomIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M20 14h-5v-1h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h4v1H4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2M5 11V4h14v7zm-1 9v-4h16v4z" className="b"></path>
-                            <path fill="currentColor" d="M6 17h8v2H6zm11 0a1 1 0 1 0 0 2a1 1 0 1 0 0-2" className="b"></path>
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill='currentColor' d="M9.71 16.29L5.41 12l4.3-4.29l-1.42-1.42L2.59 12l5.7 5.71zm6 1.42l5.7-5.71l-5.7-5.71l-1.42 1.42l4.3 4.29l-4.3 4.29z" />
                         </svg>
-                        <b className={styles.bottomLabel}>My Current Rig</b>
+                        <b className={styles.bottomLabel}>My Projects</b>
                     </div>
 
                     <div className={`${styles.half} ${styles.greyed}`} title='Coming soon'>

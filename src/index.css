@@ -1,7 +1,16 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); */
 
+:root {
+  /* Text colors - two colors only */
+  --text-primary: #E9AEF5;    /* pinkish for headings */
+  --text-secondary: #A8D0E6;  /* lighter cold blue for body text */
+  --text-muted: #7A9BB8;      /* muted cold for less important text */
+  --border-color: #3C3C3C;    /* separator/divider color */
+}
+
 body{
   background: #322A27;
+  color: var(--text-secondary);
   font-family: Inter, 'calibri';
   max-width: 100vw;
   overflow: hidden;
