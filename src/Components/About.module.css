@@ -89,7 +89,7 @@
     flex-direction: column;
     gap: var(--element-gap);
     text-align: center;
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: var(--weight-body-medium);
     color: var(--text-secondary);
     font-family: var(--font-body);
@@ -217,7 +217,7 @@
 }
 
 .bottomLabel {
-    font-size: var(--heading-4);
+    font-size: var(--heading-3);
     font-weight: var(--weight-heading);
     color: var(--text-secondary);
     text-align: center;
@@ -227,7 +227,7 @@
 }
 
 .updatedLabel {
-    font-size: var(--heading-4);
+    font-size: var(--heading-3);
     font-weight: var(--weight-heading);
     color: var(--text-secondary);
     font-family: var(--font-display);
