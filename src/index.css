@@ -1,17 +1,20 @@
 /* Import typography system first */
 @import './typography.css';
 
+/* Accent colors for interactive elements */
+:root {
+  --accent: #8ab4ff;
+  --accent2: #c792ea;
+}
+
 /* Global styles */
 body{
   background: #322A27;
   color: var(--text-secondary);
   font-family: var(--font-body);
   max-width: 100vw;
-  overflow: hidden;
-  overflow-y: hidden;
   height: 100dvh;
   margin: 0;
-  position: fixed;
   font-size: var(--body-base);
   line-height: var(--leading-body);
 }

@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function Main(){
-    
+
     const [swiper, setSwiper] = useState(null);
     const wrapRef = useRef(null);
     const lockRef = useRef(false);
@@ -122,7 +122,7 @@ export default function Main(){
             </SwiperSlide>
             <SwiperSlide>
                 <div className={styles.scroller} data-scroller>
-                    <AboutSection/>
+                    <AboutSection />
                 </div>
             </SwiperSlide>
             <SwiperSlide>
