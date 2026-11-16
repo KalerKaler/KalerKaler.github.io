@@ -35,8 +35,8 @@ export default function Projects({ isOpen, onClose }) {
 
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
+      // if (e.key === "ArrowLeft") prev();
+      // if (e.key === "ArrowRight") next();
     };
 
     document.addEventListener("keydown", onKey);
@@ -53,8 +53,9 @@ export default function Projects({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-  return isOpen ? (
-    <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
+  return (
+    <>
+    <div className={`${styles.overlay} ${isOpen ? styles.open : ''}`} onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className={styles.modal} role="dialog" aria-modal="true" aria-label="Projects">
         
 
@@ -114,5 +115,6 @@ export default function Projects({ isOpen, onClose }) {
         </div>
       </div>
     </div>
-  ) : null;
+    </>
+  )
 }

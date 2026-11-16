@@ -6,7 +6,6 @@ import mainStyles from "../App.module.css"
 import { useState } from 'react';
 import lazySizes from 'lazysizes';
 import useLastUpdate from '../hooks/useLastUpdate';
-import Projects from './Projects';
 
 
 const traits = [
@@ -30,13 +29,12 @@ const skills = [
     { src: '/Hyprland.png', alt: 'Hyprland' },
 ];
 
-export default function AboutSection() {
+export default function AboutSection({ onOpenProjects }) {
 
     const repoDate = useLastUpdate("kalerkaler", "kalerkaler.github.io");
 
     const [yearTotal, setYearTotal] = useState(null);
     const year = new Date().getFullYear();
-    const [projectsOpen, setProjectsOpen] = useState(false);
 
     return (
         <>
@@ -98,7 +96,7 @@ export default function AboutSection() {
             {/* Bottom row */}
             <div className={styles.bottomRow}>
                 <div className={styles.joined}>
-                    <div className={`${styles.half} ${mainStyles.hiddenLink}`} onClick={() => setProjectsOpen(true)} style={{ cursor: 'pointer' }}>
+                    <div className={`${styles.half} ${mainStyles.hiddenLink}`} onClick={onOpenProjects} style={{ cursor: 'pointer' }}>
                         <svg className={styles.bottomIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M0 0h24v24H0z" fill="none" />
                             <path fill='currentColor' d="M9.71 16.29L5.41 12l4.3-4.29l-1.42-1.42L2.59 12l5.7 5.71zm6 1.42l5.7-5.71l-5.7-5.71l-1.42 1.42l4.3 4.29l-4.3 4.29z" />
@@ -125,7 +123,6 @@ export default function AboutSection() {
                 </div>
             </div>
         </section>
-        {projectsOpen && <Projects isOpen={projectsOpen} onClose={() => setProjectsOpen(false)} />}
     </>
     );
 }

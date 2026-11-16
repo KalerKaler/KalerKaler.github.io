@@ -21,7 +21,6 @@ export default function useTopArtists(){
                 })));
 
                 setTopArtists(artists);
-                console.log(topartists);
             }catch (error) {
                 console.error(error);
             }

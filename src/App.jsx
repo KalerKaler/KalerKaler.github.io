@@ -2,6 +2,7 @@ import styles from './App.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Personal from './Components/PersonalSection';
 import AboutSection from './Components/AboutSection';
+import Projects from './Components/Projects';
 import lazySizes from 'lazysizes';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,6 +14,7 @@ export default function Main(){
     const wrapRef = useRef(null);
     const lockRef = useRef(false);
     const touchStart = useRef({ y: 0, atTop: true, atBottom: true });
+    const [projectsOpen, setProjectsOpen] = useState(false);
 
     // The scroll container of the currently visible slide
     const getScroller = () =>
@@ -33,6 +35,9 @@ export default function Main(){
         if (!el || !swiper) return;
 
         const onWheel = (e) => {
+            // Disable slide navigation while modal is open
+            if (projectsOpen) return;
+
             const down = e.deltaY > 0;
 
             // At the first or last slide, let the page behave normally
@@ -52,7 +57,7 @@ export default function Main(){
 
         el.addEventListener('wheel', onWheel, { passive: false });
         return () => el.removeEventListener('wheel', onWheel);
-    }, [swiper]);
+    }, [swiper, projectsOpen]);
 
         // Touch: record the edge state at the start of the gesture, then
         // switch slides on release only if the gesture started at that edge
@@ -61,6 +66,9 @@ export default function Main(){
         if (!el || !swiper) return;
 
         const onStart = (e) => {
+            // Disable slide navigation while modal is open
+            if (projectsOpen) return;
+
             const s = getScroller();
             touchStart.current = {
                 y: e.touches[0].clientY,
@@ -70,6 +78,9 @@ export default function Main(){
         };
 
         const onEnd = (e) => {
+            // Disable slide navigation while modal is open
+            if (projectsOpen) return;
+
             const dy = touchStart.current.y - e.changedTouches[0].clientY;
             const { atTop, atBottom } = touchStart.current;
 
@@ -83,7 +94,7 @@ export default function Main(){
             el.removeEventListener('touchstart', onStart);
             el.removeEventListener('touchend', onEnd);
         };
-    }, [swiper]);
+    }, [swiper, projectsOpen]);
     
     
     return(
@@ -122,7 +133,7 @@ export default function Main(){
             </SwiperSlide>
             <SwiperSlide>
                 <div className={styles.scroller} data-scroller>
-                    <AboutSection />
+                    <AboutSection onOpenProjects={() => setProjectsOpen(true)} />
                 </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -132,6 +143,7 @@ export default function Main(){
                 </div>
             </SwiperSlide>
         </Swiper>
+        <Projects isOpen={projectsOpen} onClose={() => setProjectsOpen(false)} />
         </div>
         </>
     )
