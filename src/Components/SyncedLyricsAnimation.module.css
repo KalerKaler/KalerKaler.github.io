@@ -1,0 +1,76 @@
+/* SyncedLyricsAnimation - Inline syllable-level karaoke animation */
+
+.container {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  max-width: 100%;
+  overflow: hidden;
+  /* Allow inline display alongside title/description */
+  display: inline-block;
+  max-width: 580px; /* Match .sub max-width */
+}
+
+.lineText {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0;
+  line-height: var(--leading-body);
+  font-size: var(--body-base);
+  color: var(--text-secondary);
+}
+
+.syllable {
+  display: inline-block;
+  transition: all 0.15s ease;
+  white-space: pre;
+}
+
+/* Current syllable - highlighted and scaled */
+.current {
+  color: var(--accent);
+  font-weight: var(--weight-bold);
+  transform: scale(1.05);
+  text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
+}
+
+/* Past syllables - dimmed but visible */
+.past {
+  color: var(--text-secondary);
+  opacity: 0.6;
+  font-weight: var(--weight-normal);
+}
+
+/* Future syllables - very dim */
+.future {
+  color: var(--text-muted);
+  opacity: 0.3;
+  font-weight: var(--weight-light);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .lineText {
+    font-size: var(--body-sm);
+  }
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .current {
+    animation: none;
+    transform: scale(1.05);
+  }
+
+  .syllable {
+    transition: none;
+  }
+}

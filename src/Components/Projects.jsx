@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Projects.module.css";
+import SyncedLyricsAnimation from "./SyncedLyricsAnimation";
 
 const projects = [
   {
@@ -79,6 +80,7 @@ export default function Projects({ isOpen, onClose }) {
             <div className={styles.eyebrow}>{project.eyebrow}</div>
             <h2>{project.title}</h2>
             <p className={styles.sub}>{project.sub}</p>
+            {project.id === "synced-lyrics" && <SyncedLyricsAnimation isOpen={isOpen} />}
             {/* <div className={styles.badges}>
               {project.badges.map((b) => (
                 <span key={b} className={styles.badge}>
