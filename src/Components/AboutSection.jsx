@@ -113,7 +113,7 @@ export default function AboutSection({ onOpenProjects }) {
                             <path fill="currentColor" d="M27.46 17.23a6.36 6.36 0 0 0-4.4 11l-1.94 2.37l.9 3.61l3.66-4.46a6.26 6.26 0 0 0 3.55 0l3.66 4.46l.9-3.61l-1.94-2.37a6.36 6.36 0 0 0-4.4-11Zm0 10.68a4.31 4.31 0 1 1 4.37-4.31a4.35 4.35 0 0 1-4.37 4.31" className="clr-i-outline clr-i-outline-path-5"></path>
                             <path fill="none" d="M0 0h36v36H0z"></path>
                         </svg>
-                        <b className={styles.bottomLabel}>My Certificates</b>
+                        <b className={styles.bottomLabel}>(Under Construction)</b>
                     </div>
                 </div>
 
